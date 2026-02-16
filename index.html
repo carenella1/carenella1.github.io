@@ -9,13 +9,20 @@
   <link rel="canonical" href="https://carenella1.github.io/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Chase Arenella — Professional Hub" />
   <meta property="og:description" content="Leadership, work experience, projects, gaming, articles, media, and creative gallery — by Chase Arenella." />
   <meta property="og:url" content="https://carenella1.github.io/" />
   <meta property="og:image" content="https://carenella1.github.io/assets/images/chase-arenella-gaming-portrait-07.jpg" />
 
-  <!-- Entity Authority: Person + Website + WebPage -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chase Arenella — Professional Hub" />
+  <meta name="twitter:description" content="Leadership, work, projects, gaming analysis, articles, media, and creative galleries — Chase Arenella." />
+  <meta name="twitter:image" content="https://carenella1.github.io/assets/images/chase-arenella-gaming-portrait-07.jpg" />
+
+  <!-- Entity Authority: Person + Website + WebPage + SearchAction -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -39,6 +46,7 @@
           "Software Delivery",
           "Digital Media Production",
           "AI Productivity",
+          "Systems Thinking",
           "Gaming Strategy",
           "Leadership"
         ],
@@ -53,7 +61,12 @@
         "url":"https://carenella1.github.io/",
         "name":"Chase Arenella — Professional Hub",
         "publisher":{"@id":"https://carenella1.github.io/#chase-arenella"},
-        "inLanguage":"en-US"
+        "inLanguage":"en-US",
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://carenella1.github.io/search?q={search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
       },
       {
         "@type":"WebPage",
@@ -96,9 +109,7 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
     h1 { margin-top: 8px; }
     footer { margin-top: 34px; padding-top: 14px; border-top: 1px solid #e2e2e2; color: #444; font-size: 0.95em; }
-    @media (max-width: 820px) {
-      .hero { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -130,12 +141,6 @@
         It includes work experience, leadership philosophy, project systems, gaming analysis,
         and a media/creative gallery.
       </p>
-
-      <p>
-        For a full background overview and core focus areas, visit
-        <a href="/about.html">About Chase Arenella</a>.
-      </p>
-
       <p>
         Start here:
         <a href="/work.html">Work</a> •
@@ -162,7 +167,6 @@
         Chase Arenella — leadership, technology, and gaming identity portrait.
       </p>
 
-      <!-- Optional second hero image: change the filename to one you have -->
       <img src="assets/images/chase-arenella-gaming-portrait-02.jpg"
            alt="Chase Arenella professional portrait supporting project management and leadership identity" />
       <p class="muted" style="margin:10px 0 0;">
@@ -217,15 +221,6 @@
     <strong>Chase Arenella</strong> — Professional Hub •
     <a href="/sitemap.xml">Sitemap</a>
   </footer>
-
-  <!-- GLOBAL ENTITY AUTHORITY LINK -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"WebPage",
- "about":{"@id":"https://carenella1.github.io/#chase-arenella"}
-}
-</script>
 
 </body>
 </html>

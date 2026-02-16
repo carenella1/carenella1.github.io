@@ -1,24 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core -->
+  <url>
+    <loc>https://carenella1.github.io/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-  <url><loc>https://carenella1.github.io/</loc></url>
-  <url><loc>https://carenella1.github.io/about.html</loc></url>
-  <url><loc>https://carenella1.github.io/work.html</loc></url>
-  <url><loc>https://carenella1.github.io/projects.html</loc></url>
-  <url><loc>https://carenella1.github.io/leadership.html</loc></url>
-  <url><loc>https://carenella1.github.io/gaming.html</loc></url>
-  <url><loc>https://carenella1.github.io/contact.html</loc></url>
+  <url>
+    <loc>https://carenella1.github.io/about.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-  <url><loc>https://carenella1.github.io/articles.html</loc></url>
-  <url><loc>https://carenella1.github.io/media.html</loc></url>
-  <url><loc>https://carenella1.github.io/creative.html</loc></url>
+  <url>
+    <loc>https://carenella1.github.io/work.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-  <url><loc>https://carenella1.github.io/articles/01-who-is-chase-arenella.html</loc></url>
-  <url><loc>https://carenella1.github.io/articles/02-nba-leadership.html</loc></url>
-  <url><loc>https://carenella1.github.io/articles/03-gaming-focus.html</loc></url>
-  <url><loc>https://carenella1.github.io/articles/04-esports-leadership.html</loc></url>
-  <url><loc>https://carenella1.github.io/articles/05-gaming-leadership-skills.html</loc></url>
+  <url>
+    <loc>https://carenella1.github.io/projects.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
-  <url><loc>https://carenella1.github.io/articles/08-ai-augmented-leadership-operating-system.html</loc></url>
+  <url>
+    <loc>https://carenella1.github.io/leadership.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
+  <url>
+    <loc>https://carenella1.github.io/gaming.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Hubs -->
+  <url>
+    <loc>https://carenella1.github.io/articles.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/media.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/creative.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Articles (confirmed from your thread) -->
+  <url>
+    <loc>https://carenella1.github.io/articles/01-who-is-chase-arenella.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/02-nba-leadership.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/03-gaming-focus.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/04-esports-leadership.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/05-gaming-leadership-skills.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/08-ai-augmented-leadership-operating-system.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Add new articles here as you publish:
+  <url>
+    <loc>https://carenella1.github.io/articles/NN-your-slug.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  -->
 </urlset>

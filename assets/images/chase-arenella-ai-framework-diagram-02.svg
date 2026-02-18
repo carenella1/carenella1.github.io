@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#ffffff"/>
+  <text x="80" y="120" font-family="Arial" font-size="44" fill="#111" font-weight="bold">
+    AI-Augmented Leadership — Systems Layer
+  </text>
+  <text x="80" y="170" font-family="Arial" font-size="22" fill="#555">
+    Signal → Interpretation → Decision → Execution → Feedback
+  </text>
+
+  <rect x="80" y="230" width="1040" height="70" fill="#fafafa" stroke="#eee"/>
+  <text x="100" y="275" font-family="Arial" font-size="20" fill="#111">
+    Leaders outperform when feedback loops compress and signal quality increases.
+  </text>
+
+  <text x="80" y="630" font-family="Arial" font-size="16" fill="#777">
+    Chase Arenella — AI-Augmented Leadership Framework
+  </text>
+</svg>

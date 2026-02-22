@@ -1,0 +1,99 @@
+:root{
+  --maxw: 920px;
+  --border: #e2e2e2;
+  --text: #111;
+  --muted: #444;
+  --link: #111;
+  --card: #fafafa;
+}
+
+/* Base */
+html, body { padding: 0; margin: 0; }
+body{
+  font-family: Arial, sans-serif;
+  max-width: var(--maxw);
+  margin: 40px auto;
+  padding: 0 16px;
+  line-height: 1.8;
+  color: var(--text);
+  background: #fff;
+}
+
+/* Common wrappers that exist on some pages */
+header{ padding: 0; margin: 0 0 18px; border: 0; }
+.container{ max-width: var(--maxw); margin: 0 auto; padding: 0; }
+main{ display:block; }
+
+/* Nav */
+nav{
+  margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+nav a{
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--link);
+}
+nav a:hover{ text-decoration: underline; }
+
+/* Typography */
+h1{ line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.2px; }
+h2{ margin-top: 26px; }
+p{ margin: 12px 0; }
+ul{ padding-left: 20px; }
+code{ background: #f4f4f4; padding: 2px 6px; border-radius: 6px; }
+
+/* Images */
+img{
+  max-width: 420px;
+  border-radius: 12px;
+  margin: 16px 0;
+  display: block;
+}
+.hero img,
+.imgcard img{
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Small helpers */
+.caption{ font-style: italic; color: var(--muted); margin-bottom: 20px; }
+.subhead{ color: var(--muted); max-width: 820px; }
+.foot-entity{ color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+/* Cards / grids (used on some pages) */
+.card{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+.k{ font-weight: 700; }
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+@media (max-width: 900px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+/* Footer */
+footer, .footer{
+  margin-top: 34px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95em;
+}
+footer a, .footer a{ color: var(--link); font-weight: 700; text-decoration: none; }
+footer a:hover, .footer a:hover{ text-decoration: underline; }
+
+/* Tables */
+table{ width: 100%; border-collapse: collapse; margin: 14px 0; }
+th, td{ border: 1px solid var(--border); padding: 10px; text-align: left; vertical-align: top; }
+th{ background: var(--card); }

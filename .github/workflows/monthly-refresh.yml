@@ -1,33 +1,90 @@
-name: PBSA Monthly Maintenance
+name: Monthly Maintenance Refresh
 
 on:
   schedule:
-    - cron: "12 17 1 * *"
-  workflow_dispatch: {}
-
-permissions:
-  contents: write
+    - cron: '0 5 1 * *'   # Runs at 05:00 UTC on the 1st of every month
+  workflow_dispatch:
 
 jobs:
-  refresh:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Set Month Variable
+        id: month
+        run: echo "MONTH=$(date +'%Y-%m')" >> $GITHUB_ENV
 
-      - name: Run maintenance script
-        run: node scripts/monthly-refresh.js
-
-      - name: Commit and Push
+      - name: Select Rotating Portrait
+        id: portrait
         run: |
-          git config user.name "pbsa-bot"
-          git config user.email "pbsa-bot@users.noreply.github.com"
-          git add -A
-          git commit -m "Automated monthly maintenance refresh" || exit 0
+          MONTH_NUM=$(date +'%m')
+          INDEX=$((10#$MONTH_NUM % 4))
+
+          if [ $INDEX -eq 0 ]; then
+            IMAGE="chase-arenella-athletic-lifestyle-portrait-01.jpg"
+          elif [ $INDEX -eq 1 ]; then
+            IMAGE="chase-arenella-leadership-executive-01.jpg"
+          elif [ $INDEX -eq 2 ]; then
+            IMAGE="chase-arenella-city-tablet-lifestyle-01.jpg"
+          else
+            IMAGE="chase-arenella-contact-city-portrait-01.jpg"
+          fi
+
+          echo "IMAGE_NAME=$IMAGE" >> $GITHUB_ENV
+
+      - name: Create Monthly Maintenance Page
+        run: |
+          mkdir -p maintenance/${{ env.MONTH }}
+
+          cat <<EOF > maintenance/${{ env.MONTH }}/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+          <meta charset="utf-8"/>
+          <meta name="viewport" content="width=device-width,initial-scale=1"/>
+          <title>Maintenance — ${{ env.MONTH }} | Chase Arenella</title>
+          <meta name="robots" content="index,follow,max-image-preview:large"/>
+          <link rel="canonical" href="https://carenella1.github.io/maintenance/${{ env.MONTH }}/"/>
+          <link rel="stylesheet" href="/assets/site.css"/>
+          </head>
+
+          <body>
+          <div class="container">
+          <h1>Maintenance — ${{ env.MONTH }}</h1>
+
+          <img src="/assets/images/${{ env.IMAGE_NAME }}"
+               alt="Chase Arenella portrait"
+               width="1200"
+               height="800"
+               loading="lazy"/>
+
+          <p>
+          Automated monthly refresh cycle reinforcing entity clarity,
+          internal linking, and structural continuity.
+          </p>
+
+          <p>
+          <a href="/media.html">Media</a> •
+          <a href="/identity.html">Identity</a> •
+          <a href="/leadership.html">AI Leadership</a>
+          </p>
+
+          </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Update Maintenance Archive
+        run: |
+          echo "<li><a href=\"/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>" >> maintenance/index.html
+
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Monthly maintenance refresh: ${{ env.MONTH }}"
           git push

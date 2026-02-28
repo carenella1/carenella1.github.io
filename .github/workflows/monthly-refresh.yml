@@ -2,23 +2,24 @@ name: Monthly Maintenance Refresh
 
 on:
   schedule:
-    - cron: '0 5 1 * *'   # Runs at 05:00 UTC on the 1st of every month
+    - cron: '0 5 1 * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set Month Variable
-        id: month
         run: echo "MONTH=$(date +'%Y-%m')" >> $GITHUB_ENV
 
       - name: Select Rotating Portrait
-        id: portrait
         run: |
           MONTH_NUM=$(date +'%m')
           INDEX=$((10#$MONTH_NUM % 4))
@@ -57,8 +58,6 @@ jobs:
 
           <img src="/assets/images/${{ env.IMAGE_NAME }}"
                alt="Chase Arenella portrait"
-               width="1200"
-               height="800"
                loading="lazy"/>
 
           <p>
@@ -77,14 +76,28 @@ jobs:
           </html>
           EOF
 
+      - name: Ensure Maintenance Index Exists
+        run: |
+          if [ ! -f maintenance/index.html ]; then
+            mkdir -p maintenance
+            echo "<ul>" > maintenance/index.html
+          fi
+
       - name: Update Maintenance Archive
         run: |
-          echo "<li><a href=\"/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>" >> maintenance/index.html
+          if ! grep -q "${{ env.MONTH }}" maintenance/index.html; then
+            echo "<li><a href=\"/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>" >> maintenance/index.html
+          fi
 
-      - name: Commit Changes
+      - name: Commit Changes If Any
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add .
-          git commit -m "Monthly maintenance refresh: ${{ env.MONTH }}"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Monthly maintenance refresh: ${{ env.MONTH }}"
+            git push
+          fi

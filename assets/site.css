@@ -188,3 +188,42 @@ pre{
   color: #888;
   margin-top: 6px;
 }
+
+
+/* ===== Hub compatibility fixes ===== */
+
+img {
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+.hero img {
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+.imgcard img {
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.imgmeta {
+  font-size:13px;
+  color:#888;
+  margin-top:6px;
+}
+
+.gallery img {
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+
+figure img {
+  width:100%;
+  height:auto;
+}

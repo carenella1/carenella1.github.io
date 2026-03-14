@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PBSA Protocol v1.0 | Chase Arenella</title>
+<meta name="description" content="Technical specification for PBSA Protocol v1.0 by Chase Arenella, defining network structure, schema, media layers, authority loops, and automation compatibility."/>
+<link rel="canonical" href="https://carenella1.github.io/pbsa/protocol-v1.html"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="PBSA Protocol v1.0 | Chase Arenella"/>
+<meta property="og:description" content="Technical specification for PBSA Protocol v1.0 by Chase Arenella, defining network structure, schema, media layers, authority loops, and automation compatibility."/>
+<meta property="og:url" content="https://carenella1.github.io/pbsa/protocol-v1.html"/>
+<meta property="og:image" content="https://carenella1.github.io/assets/images/chase-arenella-project-planning-whiteboard-01.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="PBSA Protocol v1.0 | Chase Arenella"/>
+<meta name="twitter:description" content="Technical specification for PBSA Protocol v1.0 by Chase Arenella, defining network structure, schema, media layers, authority loops, and automation compatibility."/>
+<meta name="twitter:image" content="https://carenella1.github.io/assets/images/chase-arenella-project-planning-whiteboard-01.jpg"/>
+<link rel="stylesheet" href="/assets/site.css"/>
+
+<style>
+main.framework-doc{max-width:980px;margin:0 auto;padding:24px 20px 48px;}
+.framework-doc .eyebrow{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-bottom:8px}
+.framework-doc .subhead{font-size:1.08rem;line-height:1.7;margin:14px 0 0}
+.framework-doc .meta{color:#666;font-size:.95rem;margin:12px 0 22px}
+.framework-doc .callout{margin:18px 0;padding:16px 18px;border-left:4px solid #666;background:rgba(127,127,127,.08)}
+.framework-doc .doc-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0 28px}
+.framework-doc .doc-card{padding:16px 18px;border:1px solid rgba(127,127,127,.22);border-radius:12px;background:rgba(127,127,127,.04)}
+.framework-doc .doc-card h2,.framework-doc .doc-card h3{margin-top:0}
+.framework-doc section{margin:34px 0}
+.framework-doc h1{margin-bottom:10px}
+.framework-doc h2{margin-top:0;margin-bottom:12px}
+.framework-doc h3{margin-top:20px;margin-bottom:8px}
+.framework-doc p{line-height:1.78}
+.framework-doc ul{margin:10px 0 14px 24px}
+.framework-doc li{margin:7px 0;line-height:1.65}
+.framework-doc .inline-links a{white-space:nowrap}
+.framework-doc .doc-footer-links{margin-top:30px;padding-top:18px;border-top:1px solid rgba(127,127,127,.18)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://carenella1.github.io/#chase-arenella",
+      "name": "Chase Arenella",
+      "alternateName": "ChaseOfSpadez",
+      "url": "https://carenella1.github.io/",
+      "image": "https://carenella1.github.io/assets/images/chase-arenella-athletic-lifestyle-portrait-01.jpg",
+      "sameAs": [
+        "https://github.com/Carenella1",
+        "https://aiproductivityguide.substack.com/",
+        "https://x.com/ChaseOfSpadez",
+        "https://www.linkedin.com/in/chase-arenella/"
+      ],
+      "jobTitle": "AI-Augmented Leadership Strategist",
+      "description": "Chase Arenella is the creator of PBSA Protocol v1.0 and the PBSA framework for search-driven digital identity infrastructure."
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#techarticle",
+      "headline": "PBSA Protocol v1.0 — Personal Brand Search Architecture™ Technical Specification",
+      "author": {
+        "@id": "https://carenella1.github.io/#chase-arenella"
+      },
+      "publisher": {
+        "@id": "https://carenella1.github.io/#chase-arenella"
+      },
+      "mainEntityOfPage": "https://carenella1.github.io/pbsa/protocol-v1.html",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "PBSA Protocol v1.0"
+        },
+        {
+          "@type": "Thing",
+          "name": "Personal Brand Search Architecture"
+        },
+        {
+          "@type": "Thing",
+          "name": "Entity recognition"
+        },
+        {
+          "@type": "Thing",
+          "name": "Amoeba Architecture"
+        }
+      ],
+      "keywords": [
+        "Chase Arenella",
+        "PBSA Protocol",
+        "Personal Brand Search Architecture",
+        "entity recognition",
+        "digital identity infrastructure",
+        "schema markup",
+        "authority loops",
+        "Amoeba Architecture"
+      ],
+      "datePublished": "2026-03-13",
+      "dateModified": "2026-03-13",
+      "inLanguage": "en-US",
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#creativework",
+      "name": "PBSA Protocol v1.0",
+      "url": "https://carenella1.github.io/pbsa/protocol-v1.html",
+      "author": {
+        "@id": "https://carenella1.github.io/#chase-arenella"
+      },
+      "creator": {
+        "@id": "https://carenella1.github.io/#chase-arenella"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://carenella1.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PBSA",
+          "item": "https://carenella1.github.io/pbsa.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "PBSA Protocol v1.0",
+          "item": "https://carenella1.github.io/pbsa/protocol-v1.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#page",
+      "url": "https://carenella1.github.io/pbsa/protocol-v1.html",
+      "name": "PBSA Protocol v1.0 | Chase Arenella",
+      "description": "Technical specification for PBSA Protocol v1.0, defining node relationships, schema, media layers, and automation compatibility for distributed digital identity infrastructure.",
+      "author": {
+        "@id": "https://carenella1.github.io/#chase-arenella"
+      },
+      "about": [
+        {
+          "@id": "https://carenella1.github.io/#chase-arenella"
+        },
+        {
+          "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#techarticle"
+        }
+      ],
+      "breadcrumb": {
+        "@id": "https://carenella1.github.io/pbsa/protocol-v1.html#breadcrumbs"
+      },
+      "isPartOf": {
+        "@id": "https://carenella1.github.io/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "@id": "https://carenella1.github.io/assets/images/chase-arenella-project-planning-whiteboard-01.jpg#image",
+        "contentUrl": "https://carenella1.github.io/assets/images/chase-arenella-project-planning-whiteboard-01.jpg",
+        "name": "Chase Arenella systems planning image",
+        "creator": {
+          "@id": "https://carenella1.github.io/#chase-arenella"
+        }
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+<nav>
+<a href="/index.html">Home</a>
+<a href="/about.html">About</a>
+<a href="/press.html">Press/Bio</a>
+<a href="/work.html">Work</a>
+<a href="/projects.html">Projects</a>
+<a href="/pbsa.html">PBSA</a>
+<a href="/leadership.html">AI Leadership</a>
+<a href="/gaming.html">Gaming</a>
+<a href="/articles.html">Articles</a>
+<a href="/media.html">Media</a>
+<a href="/creative.html">Creative</a>
+<a href="/maintenance.html">Maintenance</a>
+<a href="/contact.html">Contact</a>
+</nav>
+</header>
+
+<main class="framework-doc">
+<div class="eyebrow">Foundational PBSA Document</div>
+<h1>PBSA Protocol v1.0</h1>
+<p class="subhead">Personal Brand Search Architecture™ Technical Specification</p>
+<p class="meta">Author: <strong>Chase Arenella</strong> • Canonical PBSA framework document • Part of the live Personal Brand Search Architecture network</p>
+
+<div class="doc-nav">
+  <div class="doc-card">
+    <h2>PBSA Foundation Cluster</h2>
+    <p>This page is designed to operate as a durable PBSA authority node, not a standalone blog post.</p>
+    <p class="inline-links"><a href="/pbsa.html">PBSA Overview</a> • <a href="/projects.html">Projects</a> • <a href="/identity.html">Identity Layer</a> • <a href="/media.html">Media Layer</a></p>
+  </div>
+  <div class="doc-card">
+    <h2>Related Foundational Document</h2>
+    <p class="inline-links"><a href="/pbsa/protocol-v1.html">PBSA Protocol v1.0</a> • <a href="/pbsa/whitepaper.html">PBSA Whitepaper</a></p>
+    <p>Each document reinforces the other through shared entity references, schema, and internal linking.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>Entity focus:</strong> Chase Arenella • PBSA / Personal Brand Search Architecture™ • Digital reputation infrastructure • Search entity recognition • Amoeba Architecture™
+</div>
+
+
+<section id="introduction">
+  <h2>Introduction</h2>
+  <p>PBSA Protocol v1.0 defines a standardized framework for constructing and managing distributed digital identity authority across search engines.</p>
+  <p>The protocol specifies a structured architecture for organizing web assets into a coordinated entity network designed to influence search engine entity recognition and digital reputation signals.</p>
+  <p>Modern search engines increasingly interpret identity through entity graphs, which aggregate signals from websites, social platforms, structured data, media assets, and third-party references. These signals collectively determine how a person or organization is recognized, indexed, and ranked within search results.</p>
+  <p>PBSA introduces a repeatable architecture for intentionally structuring these signals.</p>
+  <p>The PBSA Protocol defines:</p>
+  <ul>
+    <li>Structural components required for network construction</li>
+    <li>Relationships between digital nodes</li>
+    <li>Authority reinforcement mechanisms</li>
+    <li>Expansion and scaling models</li>
+    <li>Media and structured data standards</li>
+    <li>Compatibility with automation systems</li>
+  </ul>
+  <p>The protocol does not prescribe specific technologies or platforms. Instead, it defines an architectural model that can be implemented using standard web infrastructure including static websites, publishing platforms, social networks, media repositories, and automated deployment systems.</p>
+  <p>PBSA networks operate by coordinating these distributed assets into a structured system that reinforces a central entity.</p>
+  <p>Within the protocol, the entity may represent an individual, an organization, a product, a public identity, or a digital brand.</p>
+  <p>PBSA implementations function as distributed digital identity infrastructure designed to strengthen entity recognition, authority signals, and search visibility.</p>
+  <p>This document provides the technical specification for implementing PBSA networks under PBSA Protocol v1.0.</p>
+</section>
+
+<section id="terminology">
+  <h2>Terminology</h2>
+
+  <h3>PBSA Network</h3>
+  <p>A PBSA Network is a structured collection of interconnected digital nodes designed to reinforce the authority and recognition of a specific entity across search engines. The network consists of multiple node types including pillar sites, satellite nodes, signal nodes, and media nodes. These nodes collectively generate signals used by search engines to identify and associate content with the entity.</p>
+
+  <h3>Pillar Site</h3>
+  <p>The Pillar Site is the central authority node within a PBSA network. It represents the primary web presence of the entity and serves as the anchor for all network relationships.</p>
+  <p>Responsibilities of the Pillar Site include:</p>
+  <ul>
+    <li>Hosting the canonical entity representation</li>
+    <li>Providing structured data identifying the entity</li>
+    <li>Acting as the primary linking destination for satellite nodes</li>
+    <li>Organizing internal knowledge and media assets related to the entity</li>
+  </ul>
+  <p>A PBSA network typically contains one primary pillar node, although additional pillar nodes may exist in extended architectures.</p>
+
+  <h3>Satellite Node</h3>
+  <p>A Satellite Node is a supporting web asset designed to reinforce the authority of the pillar node. Satellite nodes typically exist as independent websites or content platforms that reference the central entity while providing additional contextual signals.</p>
+  <p>Satellite nodes contribute authority through:</p>
+  <ul>
+    <li>Contextual content related to the entity</li>
+    <li>Backlink relationships</li>
+    <li>Media distribution</li>
+    <li>Structured references to the entity</li>
+  </ul>
+  <p>Satellite nodes operate independently but are logically connected to the PBSA network through defined linking patterns.</p>
+
+  <h3>Signal Layer</h3>
+  <p>The Signal Layer represents the set of external platforms and signals that influence search engine entity recognition.</p>
+  <ul>
+    <li>Social media platforms</li>
+    <li>Publishing platforms</li>
+    <li>Professional profiles</li>
+    <li>External citations</li>
+    <li>Third-party references</li>
+  </ul>
+
+  <h3>Authority Loop</h3>
+  <p>An Authority Loop is a bidirectional linking relationship between nodes that reinforces entity recognition.</p>
+  <p>Authority loops typically occur between pillar nodes and satellite nodes, satellite nodes and external authority platforms, and multiple satellite nodes.</p>
+
+  <h3>Entity Reinforcement</h3>
+  <p>Entity Reinforcement refers to the cumulative process by which multiple digital signals strengthen search engine confidence that content belongs to a specific entity.</p>
+  <ul>
+    <li>Repeated entity references</li>
+    <li>Consistent linking patterns</li>
+    <li>Structured data declarations</li>
+    <li>Media attribution</li>
+    <li>Cross-platform identity verification</li>
+  </ul>
+  <p>The PBSA architecture is designed to maximize entity reinforcement.</p>
+
+  <h3>Amoeba Expansion</h3>
+  <p>Amoeba Expansion is the network growth model used within PBSA. Under this model, new nodes may spawn additional nodes that reference the central entity while maintaining network cohesion. The network expands outward in a distributed pattern while continuing to reinforce the pillar node.</p>
+
+  <h3>Media Layer</h3>
+  <p>The Media Layer refers to images, videos, and visual assets associated with the entity. Media nodes function as independent signals within search engines and may appear within image search, knowledge panels, or rich results. Media assets contribute to entity recognition when properly attributed and distributed.</p>
+
+  <h3>External Authority Signals</h3>
+  <p>External Authority Signals refer to third-party references to the entity that originate outside the PBSA network.</p>
+  <ul>
+    <li>News articles</li>
+    <li>Professional directories</li>
+    <li>Interviews</li>
+    <li>Citations</li>
+    <li>Mentions on independent websites</li>
+  </ul>
+  <p>External authority signals strengthen network credibility and support entity verification.</p>
+</section>
+
+<section id="core-network-structure">
+  <h2>Core Network Structure</h2>
+  <p>PBSA networks consist of multiple node types that operate together to reinforce entity authority. The protocol defines four primary node categories.</p>
+
+  <h3>Primary Pillar Node</h3>
+  <p>The Primary Pillar Node serves as the canonical representation of the entity.</p>
+  <p>The pillar node must provide:</p>
+  <ul>
+    <li>A clear description of the entity</li>
+    <li>Structured data identifying the entity</li>
+    <li>Internal navigation for entity-related content</li>
+    <li>References to satellite nodes and external signals</li>
+  </ul>
+  <p>Typical characteristics of pillar nodes include static websites, personal websites, official brand websites, and central project hubs. The pillar node functions as the central trust anchor of the PBSA network.</p>
+
+  <h3>Satellite Nodes</h3>
+  <p>Satellite nodes are independent web assets designed to support the pillar node.</p>
+  <p>Satellite nodes provide:</p>
+  <ul>
+    <li>Contextual content associated with the entity</li>
+    <li>Inbound linking signals</li>
+    <li>Additional content indexing opportunities</li>
+    <li>Distributed authority reinforcement</li>
+  </ul>
+  <p>Satellite nodes may exist on platforms such as GitHub Pages, personal websites, blogging platforms, and niche content platforms. Satellite nodes should reference the pillar node as the central authority.</p>
+
+  <h3>Signal Nodes</h3>
+  <p>Signal nodes represent external authority platforms where the entity maintains a presence. Examples include professional networks, social media platforms, publishing platforms, and content distribution platforms. Signal nodes typically contain entity identity references, profile metadata, and links to the pillar node.</p>
+
+  <h3>Media Nodes</h3>
+  <p>Media nodes consist of images, videos, and visual assets associated with the entity. Media nodes may be hosted on websites, social platforms, image hosting platforms, or media galleries. Media nodes contribute to search engine entity recognition through metadata, captions, alt text, and contextual placement.</p>
+</section>
+
+<section id="node-relationship-model">
+  <h2>Node Relationship Model</h2>
+  <p>PBSA networks rely on structured relationships between nodes. The protocol defines several required linking patterns.</p>
+
+  <h3>Pillar → Satellite</h3>
+  <p>The pillar node should reference satellite nodes where appropriate. These references may appear as project pages, contributor pages, or content citations. This establishes a direct relationship between the pillar and supporting nodes.</p>
+
+  <h3>Satellite → Pillar</h3>
+  <p>Satellite nodes must reference the pillar node. This link identifies the pillar node as the authoritative source associated with the entity. This relationship is essential for authority consolidation.</p>
+
+  <h3>Satellite ↔ Satellite</h3>
+  <p>Satellite nodes may reference each other. Cross-linking between satellites creates an interconnected network that strengthens entity association across multiple sites.</p>
+
+  <h3>Satellite → Authority Platforms</h3>
+  <p>Satellite nodes may reference external authority platforms where the entity maintains a presence, including professional profiles, publishing platforms, and media channels. These links extend the network into the signal layer.</p>
+
+  <h3>Authority Platforms → Pillar</h3>
+  <p>Where possible, signal nodes should reference the pillar node as the canonical entity source. This creates a feedback loop between the PBSA network and external authority platforms.</p>
+</section>
+
+<section id="schema-and-structured-data-requirements">
+  <h2>Schema and Structured Data Requirements</h2>
+  <p>Structured data plays a critical role in entity recognition. PBSA implementations should include structured data markup where possible.</p>
+  <p>Recommended schema types include:</p>
+  <ul>
+    <li><strong>Person</strong> — Used to identify an individual entity. Properties may include name, url, sameAs references, jobTitle, image, and description.</li>
+    <li><strong>WebSite</strong> — Defines the website representing the entity. Typical properties include name, url, publisher, and potentialAction.</li>
+    <li><strong>WebPage</strong> — Defines individual pages within the network. Properties may include headline, description, author, and datePublished.</li>
+    <li><strong>Article</strong> — Used for content pieces associated with the entity. Properties may include headline, author, publisher, image, and keywords.</li>
+    <li><strong>ImageObject</strong> — Used for media assets associated with the entity. Properties may include contentUrl, creator, caption, and license.</li>
+    <li><strong>BreadcrumbList</strong> — Defines hierarchical navigation structures within pillar sites. Breadcrumb structured data improves search engine understanding of site organization.</li>
+  </ul>
+</section>
+
+<section id="media-signal-layer">
+  <h2>Media Signal Layer</h2>
+  <p>Visual media contributes significantly to entity recognition. PBSA Protocol v1.0 defines recommendations for media asset management.</p>
+
+  <h3>Image Naming Conventions</h3>
+  <p>Images should use descriptive naming conventions that include the entity name.</p>
+  <p><code>entity-name-context-descriptor-number.jpg</code></p>
+  <p>Example: <code>chase-arenella-speaking-conference-01.jpg</code></p>
+
+  <h3>Alt Text Structure</h3>
+  <p>Alt text should include clear references to the entity.</p>
+  <p>Example: <code>Photo of Chase Arenella presenting AI infrastructure concepts</code></p>
+
+  <h3>Metadata</h3>
+  <p>Where possible, media files should include metadata referencing the entity. Relevant fields may include creator, copyright, and description.</p>
+
+  <h3>Distributed Hosting</h3>
+  <p>Media assets may be distributed across multiple platforms to create broader signal coverage, including websites, image hosting platforms, and social media platforms.</p>
+
+  <h3>Entity Tagging</h3>
+  <p>Where supported, media platforms should include tagging mechanisms that reference the entity, including account tags, captions, and description fields.</p>
+</section>
+
+<section id="amoeba-expansion-model">
+  <h2>The Amoeba Expansion Model</h2>
+  <p>PBSA networks grow using a distributed expansion model referred to as Amoeba Architecture™. This model allows the network to expand while maintaining strong entity association.</p>
+
+  <h3>Expansion Rules</h3>
+  <p>New nodes may be created at any time within the network. Each node should maintain at least one reference to the central pillar node.</p>
+
+  <h3>Node Independence</h3>
+  <p>Satellite nodes operate independently from one another. Each node should be capable of existing independently while still referencing the entity.</p>
+
+  <h3>Redundancy</h3>
+  <p>Distributed node creation increases resilience. If one node is removed or becomes inactive, the network continues to function through remaining nodes.</p>
+
+  <h3>Network Resilience</h3>
+  <p>The distributed architecture reduces reliance on any single platform. Authority signals remain active across multiple sources.</p>
+</section>
+
+<section id="automation-compatibility">
+  <h2>Automation Compatibility</h2>
+  <p>PBSA Protocol v1.0 is designed to be compatible with automated systems. Automation may assist in the creation and maintenance of PBSA networks.</p>
+
+  <h3>PBSA Generator Tools</h3>
+  <p>Automated tools may generate pillar sites, satellite nodes, structured data templates, and media libraries. These tools should follow the structural requirements defined in this protocol.</p>
+
+  <h3>AI-Assisted Content Generation</h3>
+  <p>AI systems may assist with content creation across PBSA nodes. Generated content should maintain consistent entity attribution.</p>
+
+  <h3>Automated Node Deployment</h3>
+  <p>Infrastructure tools may automate node deployment across hosting platforms, including static site generators, deployment scripts, and automated hosting workflows.</p>
+
+  <h3>Reputation Monitoring Systems</h3>
+  <p>Monitoring systems may track search visibility, entity mentions, and media indexing. This data may inform network expansion decisions.</p>
+</section>
+
+<section id="security-and-ethical-considerations">
+  <h2>Security and Ethical Considerations</h2>
+  <p>PBSA Protocol v1.0 is intended for responsible use. The framework should be used to build legitimate digital reputation infrastructure.</p>
+  <p>Appropriate uses include representing individuals accurately, organizing legitimate digital presence, and improving discoverability of authentic information.</p>
+  <p>The protocol should not be used for impersonation, identity manipulation, deceptive practices, or misinformation campaigns.</p>
+  <p>Ethical implementations maintain transparency regarding the identity represented within the network.</p>
+</section>
+
+<section id="versioning">
+  <h2>Versioning</h2>
+  <h3>PBSA Protocol v1.0</h3>
+  <p>This version defines the initial structural framework for PBSA networks.</p>
+  <p>The specification introduces:</p>
+  <ul>
+    <li>Core node types</li>
+    <li>Linking structures</li>
+    <li>Structured data recommendations</li>
+    <li>Media signal guidelines</li>
+    <li>Expansion architecture</li>
+  </ul>
+
+  <h3>Future Versions</h3>
+  <p>Future protocol versions may introduce advanced automation layers, reputation monitoring systems, expanded node categories, and standardized deployment tooling.</p>
+  <p>Backward compatibility with the core PBSA architecture should be maintained whenever possible.</p>
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>PBSA Protocol v1.0 defines a standardized architecture for distributed digital identity infrastructure.</p>
+  <p>The protocol establishes a repeatable system for organizing web assets into coordinated networks designed to reinforce entity recognition within search engines.</p>
+  <p>Through structured node relationships, consistent entity signals, media attribution, and distributed expansion, PBSA networks create a cohesive digital identity framework.</p>
+  <p>This specification provides the foundational model for implementing PBSA networks and enables consistent deployment across platforms and technologies.</p>
+  <p>Future developments may extend the protocol through automation, monitoring systems, and additional node types while preserving the core principles defined in PBSA Protocol v1.0.</p>
+</section>
+
+
+<div class="doc-footer-links">
+  <h2>Continue Through the PBSA Network</h2>
+  <p class="inline-links">
+    <a href="/pbsa.html">PBSA Overview</a> •
+    <a href="/projects.html">Projects</a> •
+    <a href="/leadership.html">AI Leadership</a> •
+    <a href="/articles.html">Articles</a> •
+    <a href="/media.html">Media</a> •
+    <a href="/contact.html">Contact</a>
+  </p>
+  <p>These internal links are intentional authority pathways designed to keep PBSA connected to Chase Arenella's broader site architecture, entity identity references, and project-level search infrastructure.</p>
+</div>
+</main>
+
+<footer><p><strong>Chase Arenella</strong> — AI-Augmented Leadership • PBSA • Agile Systems • Digital Reputation Infrastructure</p>
+<p style="margin-top:8px;">
+<a href="/pbsa.html">PBSA Overview</a> •
+<a href="/projects.html">Projects</a> •
+<a href="/identity.html">Identity / Name Variants</a> •
+<a href="/media.html">Media</a> •
+<a href="/articles.html">Articles</a> •
+<a href="/contact.html">Contact</a> •
+<a href="https://aiproductivityguide.substack.com/" rel="noopener">AI Productivity Lab (Substack)</a>
+</p>
+<p style="margin-top:8px;">© 2026 Chase Arenella • <a href="https://carenella1.github.io/">https://carenella1.github.io/</a></p>
+<p style="margin-top:8px;">Entity reference: Chase Arenella (Person) • PBSA / Personal Brand Search Architecture™ • Amoeba Architecture™</p>
+</footer>
+
+</body>
+</html>

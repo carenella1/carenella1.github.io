@@ -47,7 +47,7 @@ jobs:
           <meta charset="utf-8"/>
           <meta name="viewport" content="width=device-width,initial-scale=1"/>
           <title>Maintenance — ${{ env.MONTH }} | Chase Arenella</title>
-          <meta name="robots" content="index,follow,max-image-preview:large"/>
+          <meta name="robots" content="noindex,follow"/>
           <link rel="canonical" href="https://carenella1.github.io/maintenance/${{ env.MONTH }}/"/>
           <link rel="stylesheet" href="/assets/site.css"/>
           </head>
@@ -62,7 +62,9 @@ jobs:
 
           <p>
           Automated monthly refresh cycle reinforcing entity clarity,
-          internal linking, and structural continuity.
+          internal linking, and structural continuity. This page is intentionally
+          excluded from search indexing (noindex) — see
+          <a href="/maintenance.html">Maintenance Mode</a> for why.
           </p>
 
           <p>
@@ -80,13 +82,33 @@ jobs:
         run: |
           if [ ! -f maintenance/index.html ]; then
             mkdir -p maintenance
-            echo "<ul>" > maintenance/index.html
+            cat <<'EOF' > maintenance/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+          <meta charset="utf-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <title>PBSA Maintenance Archive</title>
+          <link rel="canonical" href="https://carenella1.github.io/maintenance/"/>
+          <meta name="robots" content="index,follow"/>
+          <link rel="stylesheet" href="/assets/site.css"/>
+          </head>
+          <body>
+          <div class="container">
+          <h1>PBSA Maintenance Archive</h1>
+          <p class="sub">Log of automated monthly refresh runs. These dated entries are intentionally excluded from search indexing (noindex) — see <a href="/maintenance.html">Maintenance Mode</a> for the full explanation.</p>
+          <ul>
+          </ul>
+          </div>
+          </body>
+          </html>
+          EOF
           fi
 
       - name: Update Maintenance Archive
         run: |
-          if ! grep -q "${{ env.MONTH }}" maintenance/index.html; then
-            echo "<li><a href=\"/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>" >> maintenance/index.html
+          if ! grep -q ">${{ env.MONTH }}<" maintenance/index.html; then
+            sed -i "s#</ul>#<li><a href=\"/maintenance/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>\n</ul>#" maintenance/index.html
           fi
 
       - name: Commit Changes If Any

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Systems Lab | Chase Arenella</title>
+<meta name="description" content="Chase Arenella Systems Lab — engineering notes on the technical architecture behind this site: structured data integrity, automated maintenance, and search discovery pipelines."/>
+<link rel="canonical" href="https://carenella1.github.io/chase-systems-lab/"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Systems Lab | Chase Arenella"/>
+<meta property="og:description" content="Engineering notes on the technical architecture behind carenella1.github.io: structured data, automation, and search discovery."/>
+<meta property="og:url" content="https://carenella1.github.io/chase-systems-lab/"/>
+<meta property="og:image" content="https://carenella1.github.io/assets/images/chase-arenella-project-planning-whiteboard-01.jpg"/>
+
+<link rel="stylesheet" href="/assets/site.css"/>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://carenella1.github.io/#chase-arenella",
+      "name":"Chase Arenella",
+      "alternateName":"ChaseOfSpadez",
+      "url":"https://carenella1.github.io/",
+      "image":"https://carenella1.github.io/assets/images/chase-arenella-athletic-lifestyle-portrait-01.jpg",
+      "sameAs":[
+        "https://github.com/Carenella1",
+        "https://aiproductivityguide.substack.com/",
+        "https://x.com/ChaseAIHub",
+        "https://www.linkedin.com/in/chase-arenella/"
+      ],
+      "jobTitle":"AI-Augmented Leadership Strategist",
+      "description":"Chase Arenella is a systems thinker and AI-augmented leadership strategist focused on search architecture, agile systems design, and AI-integrated productivity."
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://carenella1.github.io/chase-systems-lab/#page",
+      "url":"https://carenella1.github.io/chase-systems-lab/",
+      "name":"Systems Lab | Chase Arenella",
+      "about":{"@id":"https://carenella1.github.io/#chase-arenella"},
+      "isPartOf":{
+        "@type":"WebSite",
+        "@id":"https://carenella1.github.io/#website",
+        "url":"https://carenella1.github.io/",
+        "name":"Chase Arenella — Professional Hub"
+      }
+    },
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://carenella1.github.io/chase-systems-lab/#breadcrumb",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://carenella1.github.io/"},
+        {"@type":"ListItem","position":2,"name":"Systems Lab","item":"https://carenella1.github.io/chase-systems-lab/"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<header>
+<nav>
+<a href="/index.html">Home</a>
+<a href="/about.html">About</a>
+<a href="/press.html">Press/Bio</a>
+<a href="/work.html">Work</a>
+<a href="/projects.html">Projects</a>
+<a href="/pbsa.html">PBSA</a>
+<a href="/leadership.html">AI Leadership</a>
+<a href="/gaming.html">Gaming</a>
+<a href="/articles.html">Articles</a>
+<a href="/media.html">Media</a>
+<a href="/creative.html">Creative</a>
+<a href="/chase-systems-lab/">Systems Lab</a>
+<a href="/maintenance.html">Maintenance</a>
+<a href="/contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+
+<h1>Systems Lab</h1>
+
+<div class="subhead">
+Engineering notes on the technical architecture behind this site — structured data, automated maintenance, and how pages actually get discovered. Written for anyone curious about the mechanics rather than the pitch; see <a href="/pbsa.html">PBSA Overview</a> for the conceptual version.
+</div>
+
+<div class="hero" style="margin-top:18px;">
+<img src="/assets/images/chase-arenella-project-planning-whiteboard-01.jpg" alt="Chase Arenella project planning whiteboard — systems architecture notes" width="1200" height="800" loading="lazy"/>
+</div>
+
+<div class="section">
+<h2>Log</h2>
+
+<div class="card" style="margin-top:16px;">
+<h3>Structured data integrity pass</h3>
+<div class="k">2026-07</div>
+<p>
+Every JSON-LD block on the site was audited for validity. Thirteen pages had malformed <code>@graph</code> entries — mostly a missing closing brace on an <code>ImageObject</code> or <code>Question</code> node before the next sibling started, which silently breaks the entire script tag as far as a JSON parser (and Google's Rich Results parser) is concerned. All blocks now parse cleanly. Lesson: structured data that "looks right" in a code editor can still be invalid JSON — it needs to be parsed, not just eyeballed.
+</p>
+</div>
+
+<div class="card" style="margin-top:16px;">
+<h3>Maintenance automation rework</h3>
+<div class="k">2026-07</div>
+<p>
+The monthly refresh job that generates <a href="/maintenance.html">/maintenance/YYYY-MM/</a> pages was auditing clean but producing two problems: the archive index's list-update step appended new entries after the closing <code>&lt;/html&gt;</code> tag instead of inside the list, and the dated pages themselves were marked indexable despite carrying no unique content beyond a rotating stock image. Fixed the archive template so entries are inserted correctly, and switched the dated pages to <code>noindex,follow</code> — they still pass link equity to the pillar pages they reference, but they no longer compete as near-duplicate thin pages in the index. Automation should reinforce the pages with real content, not multiply pages that don't have any.
+</p>
+</div>
+
+<div class="card" style="margin-top:16px;">
+<h3>Discovery pipeline: IndexNow + sitemap ping</h3>
+<div class="k">2026-07</div>
+<p>
+Added an IndexNow key file and a workflow step that submits changed URLs to the IndexNow API on every deploy, plus a Bing sitemap ping. This gets new and updated pages into Bing/Yandex/Seznam's crawl queues within minutes instead of waiting for a scheduled crawl. Google deprecated its sitemap ping endpoint in 2023 and doesn't participate in IndexNow, so Google discovery still runs through <code>robots.txt</code> → <a href="/sitemap.xml">sitemap.xml</a> → Search Console, same as before.
+</p>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Current architecture, in short</h2>
+<ul>
+<li><strong>Entity layer:</strong> one canonical <code>Person</code> node (<code>#chase-arenella</code>) referenced by <code>@id</code> across every page instead of restated inline, so updates only need to happen in one conceptual place.</li>
+<li><strong>Pillar + hub structure:</strong> a small number of deep pages (Leadership, Gaming, Work, Projects) rather than many shallow ones, cross-linked through <code>BreadcrumbList</code> and internal links.</li>
+<li><strong>Media coverage:</strong> every image under <code>/assets/images/</code> is cataloged with alt text, caption, and <code>ImageObject</code> schema on <a href="/media.html">Media</a> and <a href="/creative.html">Creative</a> — no orphaned images.</li>
+<li><strong>Discovery:</strong> <a href="/sitemap.xml">sitemap.xml</a> + <a href="/image-sitemap.xml">image-sitemap.xml</a>, referenced from <code>robots.txt</code>, plus the IndexNow/Bing ping above.</li>
+</ul>
+</div>
+
+</div>
+
+<footer>
+<p><strong>Chase Arenella</strong> — AI-Augmented Leadership • Agile Systems • Gaming Strategy</p>
+<p style="margin-top:8px;">
+<a href="/press.html">Official Biography</a> •
+<a href="/identity.html">Identity / Name Variants</a> •
+<a href="/leadership.html">AI Leadership</a> •
+<a href="/articles.html">Articles</a> •
+<a href="/media.html">Media</a> •
+<a href="/pbsa.html">PBSA</a> •
+<a href="/contact.html">Contact</a>
+</p>
+<p style="margin-top:8px;">© 2026 Chase Arenella • <a href="https://carenella1.github.io/">https://carenella1.github.io/</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+name: Ping Search Engines
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Ping Bing + submit to IndexNow
+        run: node scripts/ping-search-engines.js

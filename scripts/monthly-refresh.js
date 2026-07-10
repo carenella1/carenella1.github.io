@@ -20,7 +20,7 @@ const pageHTML = `<!DOCTYPE html>
 <title>PBSA Maintenance Refresh — ${slug}</title>
 <meta name="description" content="Automated maintenance refresh for Chase Arenella PBSA."/>
 <link rel="canonical" href="https://carenella1.github.io/maintenance/${slug}/"/>
-<meta name="robots" content="index,follow"/>
+<meta name="robots" content="noindex,follow"/>
 <link rel="stylesheet" href="/assets/site.css"/>
 </head>
 <body>

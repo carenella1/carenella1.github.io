@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>Chase Arenella — AI-Augmented Leadership &amp; Systems Thinking</title>
+<link>https://carenella1.github.io/</link>
+<language>en-us</language>
+<description>Audio companion to the articles at carenella1.github.io — AI-augmented leadership, agile systems thinking, and gaming strategy, read by Chase Arenella.</description>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:image href="https://carenella1.github.io/assets/images/chase-arenella-athletic-lifestyle-portrait-01.jpg"/>
+<itunes:category text="Business"/>
+<itunes:explicit>false</itunes:explicit>
+<item>
+<title>The Feedback Latency Problem: Why Weekly Beats Quarterly</title>
+<link>https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html#podcast</guid>
+<pubDate>Sun, 02 Aug 2026 20:11:13 GMT</pubDate>
+<description><![CDATA[The Feedback Latency Problem: Why Weekly Beats Quarterly]]></description>
+<enclosure url="https://carenella1.github.io/assets/audio/10-the-feedback-latency-problem-why-weekly-beats.mp3" length="3701421" type="audio/mpeg"/>
+<itunes:duration>231</itunes:duration>
+</item>
+</channel>
+</rss>

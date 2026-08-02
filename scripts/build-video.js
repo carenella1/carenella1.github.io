@@ -64,13 +64,21 @@ function pickSlideshowImages(rotation, pillar, count) {
   return picked;
 }
 
+const MAX_ZOOM = 1.12; // subtle drift, not a dramatic push-in
+
 function buildFilterComplex({ imageCount, perImageDuration, fontPath, titleText }) {
   const zoomFrames = Math.max(1, Math.round(perImageDuration * FPS));
+  // Scale the per-frame increment to the image's actual on-screen duration so
+  // the zoom animates smoothly across the FULL segment and lands on MAX_ZOOM
+  // right at the end — not hit a fixed cap early and then sit there for the
+  // rest of a long (~30s) segment, which is what produced the "stuck zoomed
+  // in" look on long per-image durations.
+  const zoomIncrement = (MAX_ZOOM - 1) / zoomFrames;
   const perStream = [];
   for (let i = 0; i < imageCount; i++) {
     perStream.push(
       `[${i}:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,` +
-        `zoompan=z='min(zoom+0.0015,1.4)':d=${zoomFrames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=${FPS},setsar=1[v${i}]`
+        `zoompan=z='min(zoom+${zoomIncrement.toFixed(8)},${MAX_ZOOM})':d=${zoomFrames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=${FPS},setsar=1[v${i}]`
     );
   }
   const concatInputs = Array.from({ length: imageCount }, (_, i) => `[v${i}]`).join("");

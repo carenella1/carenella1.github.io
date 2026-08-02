@@ -276,13 +276,18 @@ function updateItemListSchema(html, { url, title }) {
   throw new Error("Could not find an ItemList node in any ld+json block in articles.html");
 }
 
+// Matches the literal, unescaped "&" actually used in articles.html's real
+// heading markup (confirmed via direct grep) — NOT the HTML-escaped "&amp;"
+// these headings render as. A mismatch here makes the string search silently
+// fail and skip the visible-card insertion (caught when the first
+// ampersand-containing pillar — "creative" — actually got exercised).
 const PILLAR_CARD_HEADINGS = {
   "ai-augmented-leadership": "AI-Augmented Leadership",
-  "systems-thinking": "Systems Thinking &amp; Modern Leadership",
-  "gaming-strategy": "Gaming Strategy &amp; Performance Psychology",
-  "sports-leadership": "Sports Leadership &amp; Decision Models",
-  "identity-brand-foundation": "Identity &amp; Personal Brand Foundation",
-  creative: "Creative &amp; Visual Identity",
+  "systems-thinking": "Systems Thinking & Modern Leadership",
+  "gaming-strategy": "Gaming Strategy & Performance Psychology",
+  "sports-leadership": "Sports Leadership & Decision Models",
+  "identity-brand-foundation": "Identity & Personal Brand Foundation",
+  creative: "Creative & Visual Identity",
 };
 
 function insertIntoPillarCard(html, { url, title, pillar }) {

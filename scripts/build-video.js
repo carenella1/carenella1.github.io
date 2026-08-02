@@ -45,7 +45,12 @@ async function resolveFont() {
 }
 
 function escapeDrawtext(text) {
-  return text.replace(/\\/g, "\\\\\\\\").replace(/:/g, "\\:").replace(/'/g, "\\'");
+  // The text value is wrapped in single quotes (see buildFilterComplex), and
+  // ffmpeg's filter-string quoting protects every special character
+  // (including ':') once inside single quotes — the ONLY thing that needs
+  // handling is a literal single quote itself, via the standard
+  // close-quote / escaped-quote / reopen-quote sequence: '\''
+  return String(text).replace(/'/g, "'\\''");
 }
 
 function pickSlideshowImages(rotation, pillar, count) {

@@ -5,13 +5,20 @@
       "chase-arenella-ai-leadership-hero-07.jpg",
       "chase-arenella-ai-pillar-hero-08.jpg",
       "chase-arenella-sprint-presentation-01.jpg",
-      "chase-arenella-project-planning-whiteboard-01.jpg"
+      "chase-arenella-project-planning-whiteboard-01.jpg",
+      "pbsa-tech-placeholder-01.jpg",
+      "pbsa-tech-placeholder-02.jpg",
+      "pbsa-tech-placeholder-03.jpg"
     ],
     "systems-thinking": [
       "chase-arenella-project-planning-whiteboard-01.jpg",
       "chase-arenella-sprint-presentation-01.jpg",
       "chase-arenella-leadership-executive-01.jpg",
-      "chase-arenella-coffee-work-session-01.jpg"
+      "chase-arenella-coffee-work-session-01.jpg",
+      "chase-arenella-article-06-hero.jpg",
+      "pbsa-tech-placeholder-01.jpg",
+      "pbsa-tech-placeholder-02.jpg",
+      "pbsa-tech-placeholder-03.jpg"
     ],
     "gaming-strategy": [
       "chase-arenella-gaming-portrait-01.jpg",
@@ -37,6 +44,18 @@
       "chase-arenella-city-tablet-lifestyle-01.jpg",
       "chase-arenella-coffee-work-session-01.jpg",
       "chase-arenella-contact-city-portrait-01.jpg"
+    ],
+    "creative": [
+      "creative/chase-arenella-alien-fauna-researcher-05.jpg",
+      "creative/chase-arenella-alien-planet-explorer-07.jpg",
+      "creative/chase-arenella-aquatic-scifi-explorer-03.jpg",
+      "creative/chase-arenella-cosmic-space-explorer-04.jpg",
+      "creative/chase-arenella-creative-post-apocalyptic-survivor-01.jpg",
+      "creative/chase-arenella-creative-scifi-01.jpg",
+      "creative/chase-arenella-dark-fantasy-evil-king-09.jpg",
+      "creative/chase-arenella-futuristic-basketball-athlete-02.jpg",
+      "creative/chase-arenella-interdimensional-portal-08.jpg",
+      "creative/chase-arenella-steampunk-engineer-06.jpg"
     ]
   },
   "heroIndex": {
@@ -44,13 +63,15 @@
     "systems-thinking": 0,
     "gaming-strategy": 0,
     "sports-leadership": 0,
-    "identity-brand-foundation": 0
+    "identity-brand-foundation": 0,
+    "creative": 0
   },
   "slideshowIndex": {
     "ai-augmented-leadership": 0,
     "systems-thinking": 0,
     "gaming-strategy": 0,
     "sports-leadership": 0,
-    "identity-brand-foundation": 0
+    "identity-brand-foundation": 0,
+    "creative": 0
   }
 }

@@ -147,4 +147,11 @@
     <priority>0.85</priority>
     <lastmod>2026-07-10</lastmod>
   </url>
+
+  <url>
+    <loc>https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-02</lastmod>
+  </url>
 </urlset>

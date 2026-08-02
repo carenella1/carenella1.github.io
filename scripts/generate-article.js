@@ -17,7 +17,7 @@ const { renderArticle } = require("./lib/template");
 const DRY_RUN = process.argv.includes("--dry-run");
 const RUNNER_TEMP = process.env.RUNNER_TEMP || require("os").tmpdir();
 
-const WORD_COUNT_FLOOR = 700;
+const WORD_COUNT_FLOOR = 350; // matches the site's actual established article length (54-567 words, avg ~250)
 const SIMILARITY_THRESHOLD = 0.38; // max pairwise 5-shingle Jaccard vs any prior article
 const SHINGLE_SIZE = 5;
 
@@ -139,8 +139,8 @@ ${availableSlugs}
 Also always allowed: ${pillarPage} (the pillar page for this topic)
 
 CONSTRAINTS:
-- Total body word count across all section paragraphs, lists, and callouts: 900-1200 words.
-- Exactly 4-6 sections, each with an <h2>-style heading and 1-3 paragraphs; at most 2 sections may include a bulleted/numbered list; at most 1 section may include an extra mid-article "callout" (a short pull-quote style insight).
+- Total body word count across all section paragraphs, lists, and callouts: 500-750 words (this matches the site's actual established article length — its most recent, richest articles run 330-570 words; do not pad beyond this).
+- 4-6 sections, each with an <h2>-style heading and 1-2 paragraphs; at most 2 sections may include a bulleted/numbered list; at most 1 section may include an extra mid-article "callout" (a short pull-quote style insight).
 - One separate top-level "thesisCallout": a single punchy 1-2 sentence thesis statement.
 - One separate top-level "introParagraph": 1 sentence that references the pillar page ${pillarPage} using an <a href="${pillarPage}">...</a> link.
 - One separate top-level "subhead": a 1-sentence expanded restatement of the thesis.

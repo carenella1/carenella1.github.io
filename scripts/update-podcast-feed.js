@@ -63,7 +63,7 @@ function appendItemToFeed(xml, itemXml) {
   return xml.replace("</channel>", `${itemXml}</channel>`);
 }
 
-function patchArticleSchema(html, { audioUrl, bytes, durationSeconds, videoId, articleUrl, title }) {
+function patchArticleSchema(html, { audioUrl, bytes, durationSeconds, videoId, articleUrl, title, description }) {
   const scriptRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
   let m;
   while ((m = scriptRe.exec(html))) {
@@ -97,7 +97,10 @@ function patchArticleSchema(html, { audioUrl, bytes, durationSeconds, videoId, a
         contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
         embedUrl: `https://www.youtube.com/embed/${videoId}`,
         name: title,
+        description: description || title,
+        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
         uploadDate: new Date().toISOString(),
+        duration: `PT${Math.round(durationSeconds || 0)}S`,
       };
     }
 
@@ -159,6 +162,7 @@ async function main() {
     videoId,
     articleUrl: article.url,
     title: article.title,
+    description: article.metaDescription,
   });
   const mediaHtml = renderMediaSection({ videoId, title: article.title, audioUrl: audio.audioUrl });
   html = injectMediaSection(html, mediaHtml);

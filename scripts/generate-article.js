@@ -425,7 +425,16 @@ async function main() {
   fs.writeFileSync(
     path.join(RUNNER_TEMP, "pipeline-article.json"),
     JSON.stringify(
-      { slug, title: draft.title, url, bodyText: draft.bodyText, heroImage, pillar: topic.pillar, publishedISO },
+      {
+        slug,
+        title: draft.title,
+        url,
+        bodyText: draft.bodyText,
+        metaDescription: draft.metaDescription,
+        heroImage,
+        pillar: topic.pillar,
+        publishedISO,
+      },
       null,
       2
     )

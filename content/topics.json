@@ -1,0 +1,74 @@
+[
+  {
+    "id": "feedback-latency-weekly-vs-quarterly",
+    "pillar": "ai-augmented-leadership",
+    "angle": "The feedback latency problem: why weekly review cycles beat quarterly ones for modern, fast-moving teams",
+    "used": null
+  },
+  {
+    "id": "signal-vs-noise-ai-filtering",
+    "pillar": "ai-augmented-leadership",
+    "angle": "Signal vs. noise: what AI should (and shouldn't) filter for a leader, and where over-filtering backfires",
+    "used": null
+  },
+  {
+    "id": "augmented-not-automated",
+    "pillar": "ai-augmented-leadership",
+    "angle": "Why 'AI-augmented' doesn't mean 'AI-automated' — the specific judgment calls that stay human even in a heavily AI-assisted operating system",
+    "used": null
+  },
+  {
+    "id": "decision-log-simplest-high-leverage-system",
+    "pillar": "ai-augmented-leadership",
+    "angle": "The decision log: the simplest, highest-leverage system most teams skip, and how to actually run one",
+    "used": null
+  },
+  {
+    "id": "constraints-are-strategy",
+    "pillar": "systems-thinking",
+    "angle": "Constraints are strategy: how deliberately narrowing options produces better decisions than open-ended flexibility",
+    "used": null
+  },
+  {
+    "id": "tool-fragmentation-hidden-cost",
+    "pillar": "systems-thinking",
+    "angle": "The hidden cost of tool fragmentation: how scattered context across platforms quietly taxes every decision a distributed team makes",
+    "used": null
+  },
+  {
+    "id": "meta-awareness-strategy-shifts",
+    "pillar": "gaming-strategy",
+    "angle": "Meta awareness: what competitive gamers understand about strategy shifts that most executives miss until it's too late",
+    "used": null
+  },
+  {
+    "id": "tilt-management-for-leaders",
+    "pillar": "gaming-strategy",
+    "angle": "Tilt management: the competitive-gaming concept every high-pressure leader needs and almost nobody names explicitly",
+    "used": null
+  },
+  {
+    "id": "scrims-vs-meetings",
+    "pillar": "gaming-strategy",
+    "angle": "Why scrims (structured practice matches) are a better model for team retrospectives than a standard status meeting",
+    "used": null
+  },
+  {
+    "id": "timeout-culture-basketball",
+    "pillar": "sports-leadership",
+    "angle": "Timeout culture: what basketball coaches understand about interrupting a bad pattern early instead of letting it play out",
+    "used": null
+  },
+  {
+    "id": "bench-depth-as-leadership-metaphor",
+    "pillar": "sports-leadership",
+    "angle": "Bench depth as a leadership metaphor: why building redundancy into a team beats relying on individual heroics",
+    "used": null
+  },
+  {
+    "id": "systems-behind-the-systems",
+    "pillar": "identity-brand-foundation",
+    "angle": "The systems behind the systems: a practical look at how this site's own automation and structure reflect the operating philosophy it writes about",
+    "used": null
+  }
+]

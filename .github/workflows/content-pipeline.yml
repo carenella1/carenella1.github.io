@@ -1,0 +1,98 @@
+name: Monthly Content Pipeline
+
+on:
+  schedule:
+    - cron: '0 6 3 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: content-pipeline
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install ffmpeg and fonts
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate article (hard gate — no continue-on-error)
+        run: node scripts/generate-article.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Generate narration audio
+        id: audio
+        continue-on-error: true
+        run: node scripts/generate-audio.js
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Build slideshow video
+        id: video
+        continue-on-error: true
+        run: node scripts/build-video.js
+
+      - name: Upload to YouTube
+        id: youtube
+        continue-on-error: true
+        run: node scripts/upload-youtube.js
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+
+      - name: Update podcast feed + article media section
+        id: podcast
+        continue-on-error: true
+        run: node scripts/update-podcast-feed.js
+
+      - name: Re-sync entity schema (idempotent safety net)
+        run: node scripts/sync-schema.js
+
+      - name: Ensure the auto-content label exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create auto-content --color BFD4F2 --description "Opened by the monthly content pipeline" || true
+
+      - name: Commit changes and open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="content/$(date +'%Y-%m')-${{ github.run_number }}"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout -b "$BRANCH"
+          git add articles/ articles.html sitemap.xml image-sitemap.xml content/ assets/audio/ podcast.xml
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit — nothing to open a PR for."
+            exit 0
+          fi
+
+          git commit -m "Auto content: $(date +'%Y-%m')"
+          git push -u origin "$BRANCH"
+
+          BODY_FILE="$(mktemp)"
+          node scripts/build-pr-body.js > "$BODY_FILE"
+
+          gh pr create \
+            --title "Auto content: $(date +'%Y-%m')" \
+            --label auto-content \
+            --body-file "$BODY_FILE" \
+            --base main \
+            --head "$BRANCH"

@@ -5,15 +5,7 @@
 // Run: node scripts/sync-schema.js
 const fs = require("fs");
 const path = require("path");
-
-const PERSON_ID = "https://carenella1.github.io/#chase-arenella";
-
-const CANONICAL_SAMEAS = [
-  "https://github.com/Carenella1",
-  "https://aiproductivityguide.substack.com/",
-  "https://x.com/ChaseAIHub",
-  "https://www.linkedin.com/in/chase-arenella/",
-];
+const { PERSON_ID, CANONICAL_SAMEAS } = require("./lib/entity");
 
 function walk(dir, acc) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

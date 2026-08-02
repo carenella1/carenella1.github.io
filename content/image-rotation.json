@@ -1,0 +1,56 @@
+{
+  "pools": {
+    "ai-augmented-leadership": [
+      "chase-arenella-leadership-executive-01.jpg",
+      "chase-arenella-ai-leadership-hero-07.jpg",
+      "chase-arenella-ai-pillar-hero-08.jpg",
+      "chase-arenella-sprint-presentation-01.jpg",
+      "chase-arenella-project-planning-whiteboard-01.jpg"
+    ],
+    "systems-thinking": [
+      "chase-arenella-project-planning-whiteboard-01.jpg",
+      "chase-arenella-sprint-presentation-01.jpg",
+      "chase-arenella-leadership-executive-01.jpg",
+      "chase-arenella-coffee-work-session-01.jpg"
+    ],
+    "gaming-strategy": [
+      "chase-arenella-gaming-portrait-01.jpg",
+      "chase-arenella-gaming-portrait-02.jpg",
+      "chase-arenella-gaming-portrait-03.jpg",
+      "chase-arenella-gaming-portrait-04.jpg",
+      "chase-arenella-gaming-portrait-05.jpg",
+      "chase-arenella-gaming-portrait-06.jpg",
+      "chase-arenella-gaming-portrait-07.jpg",
+      "chase-arenella-gaming-setup-strategy-01.jpg",
+      "chase-arenella-article-04-esports-leadership-hero.jpg",
+      "chase-arenella-article-04-esports-strategy.jpg",
+      "chase-arenella-article-04-hero.jpg"
+    ],
+    "sports-leadership": [
+      "chase-arenella-athletic-lifestyle-portrait-01.jpg",
+      "chase-arenella-leadership-executive-01.jpg",
+      "chase-arenella-gaming-portrait-01.jpg",
+      "chase-arenella-gaming-portrait-04.jpg"
+    ],
+    "identity-brand-foundation": [
+      "chase-arenella-athletic-lifestyle-portrait-01.jpg",
+      "chase-arenella-city-tablet-lifestyle-01.jpg",
+      "chase-arenella-coffee-work-session-01.jpg",
+      "chase-arenella-contact-city-portrait-01.jpg"
+    ]
+  },
+  "heroIndex": {
+    "ai-augmented-leadership": 0,
+    "systems-thinking": 0,
+    "gaming-strategy": 0,
+    "sports-leadership": 0,
+    "identity-brand-foundation": 0
+  },
+  "slideshowIndex": {
+    "ai-augmented-leadership": 0,
+    "systems-thinking": 0,
+    "gaming-strategy": 0,
+    "sports-leadership": 0,
+    "identity-brand-foundation": 0
+  }
+}

@@ -1,0 +1,32 @@
+name: Auto-merge Pending Content
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge auto-content PRs older than 72h with no hold/changes-requested
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr list --label auto-content --state open --json number,createdAt,labels,reviewDecision \
+            --jq '.[] | select(.reviewDecision != "CHANGES_REQUESTED") | select([.labels[].name] | index("hold") | not) | "\(.number) \(.createdAt)"' \
+          | while read -r num created; do
+              CREATED_EPOCH=$(date -d "$created" +%s)
+              NOW_EPOCH=$(date +%s)
+              AGE_HOURS=$(( (NOW_EPOCH - CREATED_EPOCH) / 3600 ))
+              if [ "$AGE_HOURS" -ge 72 ]; then
+                echo "PR #$num is ${AGE_HOURS}h old — merging."
+                gh pr merge "$num" --squash --delete-branch
+              else
+                echo "PR #$num is only ${AGE_HOURS}h old — waiting (needs 72h)."
+              fi
+            done

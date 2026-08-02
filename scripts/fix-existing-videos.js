@@ -1,13 +1,16 @@
 // ONE-TIME utility — not part of the recurring content pipeline. Rebuilds
 // the slideshow video for a hardcoded list of already-published articles
-// (using the corrected zoom math in scripts/lib/video.js), deletes the old
-// YouTube video, uploads the corrected one, and patches the article's HTML
-// (schema + visible Watch link) to point at the new video ID.
+// (using the corrected zoom math in scripts/lib/video.js), uploads the
+// corrected video, and patches the article's HTML (schema + visible Watch
+// link) to point at the new video ID.
 //
-// This does a real delete + new upload — the video gets a NEW YouTube video
-// ID/URL (unlike Studio's manual "Replace video" feature, which keeps the
-// same ID but isn't exposed by the API). Both existing videos here have
-// negligible view counts, so losing the old ID costs nothing in practice.
+// Deleting the old video is best-effort: the granted OAuth scope
+// (youtube.upload) covers uploading but not deleting, so a delete attempt
+// is expected to fail with 403 insufficientPermissions unless the token was
+// reauthorized with the broader `youtube` scope. That failure is caught and
+// logged, not fatal — the corrected video still gets uploaded and the
+// article still gets patched to it either way. Delete the old, now-unlinked
+// videos manually in YouTube Studio afterward if you want them gone.
 //
 // Usage: node scripts/fix-existing-videos.js
 //   (needs ffmpeg/ffprobe on PATH and YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN set)
@@ -59,9 +62,6 @@ async function fixOne({ slug, oldVideoId }, { accessToken, rotation }) {
   });
   console.log(`Rebuilt video: ${outPath} (${durationSeconds.toFixed(1)}s)`);
 
-  console.log(`Deleting old video ${oldVideoId}...`);
-  await deleteVideo(accessToken, oldVideoId);
-
   const articleUrl = `${SITE_URL}/articles/${slug}.html`;
   const metadata = {
     snippet: {
@@ -76,6 +76,16 @@ async function fixOne({ slug, oldVideoId }, { accessToken, rotation }) {
   const result = await uploadVideo({ accessToken, videoPath: outPath, metadata });
   console.log(`New video: https://www.youtube.com/watch?v=${result.id}`);
 
+  let deleted = false;
+  try {
+    console.log(`Attempting to delete old video ${oldVideoId}...`);
+    await deleteVideo(accessToken, oldVideoId);
+    deleted = true;
+    console.log(`Deleted old video ${oldVideoId}.`);
+  } catch (e) {
+    console.warn(`Could not delete old video ${oldVideoId} (${e.message}). Delete it manually in YouTube Studio if you want it gone — the article is still being repointed to the new video regardless.`);
+  }
+
   const articleFile = path.join("articles", `${slug}.html`);
   let html = fs.readFileSync(articleFile, "utf8");
   const occurrences = html.split(oldVideoId).length - 1;
@@ -83,7 +93,7 @@ async function fixOne({ slug, oldVideoId }, { accessToken, rotation }) {
   fs.writeFileSync(articleFile, html);
   console.log(`Patched ${occurrences} occurrence(s) of the old video ID in ${articleFile}`);
 
-  return { slug, oldVideoId, newVideoId: result.id };
+  return { slug, oldVideoId, newVideoId: result.id, oldVideoDeleted: deleted };
 }
 
 async function main() {
@@ -106,7 +116,8 @@ async function main() {
 
   console.log("\n=== Summary ===");
   for (const r of results) {
-    console.log(`${r.slug}: ${r.oldVideoId} -> ${r.newVideoId}`);
+    const deleteNote = r.oldVideoDeleted ? "old video deleted" : "old video NOT deleted — remove it manually if wanted";
+    console.log(`${r.slug}: ${r.oldVideoId} -> ${r.newVideoId} (${deleteNote})`);
   }
 }
 

@@ -174,7 +174,7 @@ async function callAnthropic(prompt) {
     { "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
     {
       model: "claude-sonnet-5",
-      max_tokens: 8192,
+      max_tokens: 16000,
       messages: [{ role: "user", content: prompt }],
     }
   );
@@ -182,8 +182,16 @@ async function callAnthropic(prompt) {
     throw new Error(`Anthropic API returned ${res.status}: ${res.body.slice(0, 500)}`);
   }
   const parsed = JSON.parse(res.body);
-  const text = parsed.content && parsed.content[0] && parsed.content[0].text;
-  if (!text) throw new Error("Anthropic response had no text content");
+  // Don't assume content[0] is text — the model may emit a "thinking" block
+  // before its text block. Scan every block and concatenate the text ones.
+  const textBlocks = (parsed.content || []).filter((b) => b.type === "text").map((b) => b.text);
+  const text = textBlocks.join("\n");
+  if (!text) {
+    const blockTypes = (parsed.content || []).map((b) => b.type).join(", ") || "none";
+    throw new Error(
+      `Anthropic response had no text content. stop_reason=${parsed.stop_reason}, block types=[${blockTypes}]. Raw body (truncated): ${res.body.slice(0, 800)}`
+    );
+  }
   return text;
 }
 

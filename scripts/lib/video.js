@@ -55,8 +55,19 @@ function buildFilterComplex({ imageCount, perImageDuration, fontPath, titleText 
   const zoomIncrement = (MAX_ZOOM - 1) / zoomFrames;
   const perStream = [];
   for (let i = 0; i < imageCount; i++) {
+    // Most source photos aren't 16:9 — many are portrait (e.g. 1024x1536).
+    // A plain "scale+crop to fill" hard-crops those down to a narrow center
+    // slice blown up to fill the frame (the actual cause of the "zoomed into
+    // a tiny detail" look — independent of the zoompan animation below).
+    // Fix: split into a blurred, cropped-to-fill BACKGROUND layer and a
+    // full, uncropped, fit-within-frame FOREGROUND layer, composite them,
+    // then apply the Ken Burns zoom to the composited (already 1920x1080)
+    // result. No part of the original image is ever lost.
     perStream.push(
-      `[${i}:v]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,` +
+      `[${i}:v]split=2[bg${i}][fg${i}];` +
+        `[bg${i}]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,gblur=sigma=20,setsar=1[bgblur${i}];` +
+        `[fg${i}]scale=1920:1080:force_original_aspect_ratio=decrease,setsar=1[fgfit${i}];` +
+        `[bgblur${i}][fgfit${i}]overlay=(W-w)/2:(H-h)/2,` +
         `zoompan=z='min(zoom+${zoomIncrement.toFixed(8)},${MAX_ZOOM})':d=${zoomFrames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=${FPS},setsar=1[v${i}]`
     );
   }

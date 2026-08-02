@@ -1,8 +1,9 @@
 // ONE-TIME utility — not part of the recurring content pipeline. Rebuilds
-// the slideshow video for a hardcoded list of already-published articles
-// (using the corrected zoom math in scripts/lib/video.js), uploads the
+// the slideshow video for a fixed list of already-published articles (using
+// the corrected zoom/crop math in scripts/lib/video.js), uploads the
 // corrected video, and patches the article's HTML (schema + visible Watch
-// link) to point at the new video ID.
+// link) to point at the new video ID. Safely re-runnable: the "old" video ID
+// is read from the article's current content each time, not hardcoded.
 //
 // Deleting the old video is best-effort: the granted OAuth scope
 // (youtube.upload) covers uploading but not deleting, so a delete attempt
@@ -22,11 +23,13 @@ const { getAccessToken, deleteVideo, uploadVideo } = require("./lib/youtube");
 const RUNNER_TEMP = process.env.RUNNER_TEMP || require("os").tmpdir();
 const SITE_URL = "https://carenella1.github.io";
 
-// The specific videos being fixed — found via `grep -o 'watch?v=...'` on
-// each article file before this script existed.
+// The specific articles being fixed. The video ID to replace is looked up
+// dynamically from each article's current file content (see fixOne) rather
+// than hardcoded here — this script is meant to be safely re-runnable, and a
+// hardcoded ID would go stale the moment a previous run already replaced it.
 const FIXES = [
-  { slug: "11-signal-vs-noise-what-ai-should-and-shouldn-t", oldVideoId: "jDbjnR2IPZE" },
-  { slug: "12-why-chaseofspadez-strengthens-the-brand-of-it", oldVideoId: "Cx2Wisai9YE" },
+  { slug: "11-signal-vs-noise-what-ai-should-and-shouldn-t" },
+  { slug: "12-why-chaseofspadez-strengthens-the-brand-of-it" },
 ];
 
 function pickSlideshowImages(rotation, pillar, count) {
@@ -40,8 +43,14 @@ function pickSlideshowImages(rotation, pillar, count) {
   return picked;
 }
 
-async function fixOne({ slug, oldVideoId }, { accessToken, rotation }) {
-  console.log(`\n=== Fixing ${slug} (old video: ${oldVideoId}) ===`);
+async function fixOne({ slug }, { accessToken, rotation }) {
+  const articleFile = path.join("articles", `${slug}.html`);
+  const originalHtml = fs.readFileSync(articleFile, "utf8");
+  const idMatch = originalHtml.match(/watch\?v=([A-Za-z0-9_-]+)/);
+  if (!idMatch) throw new Error(`No YouTube video ID found in ${articleFile} — nothing to fix`);
+  const oldVideoId = idMatch[1];
+
+  console.log(`\n=== Fixing ${slug} (current video: ${oldVideoId}) ===`);
 
   const index = JSON.parse(fs.readFileSync("content/articles-index.json", "utf8"));
   const entry = index.find((a) => a.slug === slug);
@@ -86,10 +95,8 @@ async function fixOne({ slug, oldVideoId }, { accessToken, rotation }) {
     console.warn(`Could not delete old video ${oldVideoId} (${e.message}). Delete it manually in YouTube Studio if you want it gone — the article is still being repointed to the new video regardless.`);
   }
 
-  const articleFile = path.join("articles", `${slug}.html`);
-  let html = fs.readFileSync(articleFile, "utf8");
-  const occurrences = html.split(oldVideoId).length - 1;
-  html = html.split(oldVideoId).join(result.id);
+  const occurrences = originalHtml.split(oldVideoId).length - 1;
+  const html = originalHtml.split(oldVideoId).join(result.id);
   fs.writeFileSync(articleFile, html);
   console.log(`Patched ${occurrences} occurrence(s) of the old video ID in ${articleFile}`);
 

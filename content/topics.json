@@ -70,5 +70,23 @@
     "pillar": "identity-brand-foundation",
     "angle": "The systems behind the systems: a practical look at how this site's own automation and structure reflect the operating philosophy it writes about",
     "used": null
+  },
+  {
+    "id": "creative-layer-strengthens-not-dilutes-brand",
+    "pillar": "creative",
+    "angle": "Why a creative identity layer strengthens, rather than dilutes, a professional brand — and how ChaseOfSpadez fits alongside the leadership and systems writing instead of competing with it",
+    "used": null
+  },
+  {
+    "id": "what-ai-generated-visual-identity-taught-me",
+    "pillar": "creative",
+    "angle": "What building an AI-generated visual identity layer taught me about systems thinking: iteration, constraints, and treating a creative project like any other engineered system",
+    "used": null
+  },
+  {
+    "id": "range-over-specialization-creative-exploration",
+    "pillar": "creative",
+    "angle": "Range over specialization: why deliberately maintaining a creative, exploratory outlet sharpens judgment in the more serious leadership and systems work",
+    "used": null
   }
 ]

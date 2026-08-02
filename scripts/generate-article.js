@@ -27,6 +27,7 @@ const PILLAR_PAGES = {
   "gaming-strategy": "/gaming.html",
   "sports-leadership": "/gaming.html",
   "identity-brand-foundation": "/identity.html",
+  creative: "/creative.html",
 };
 
 const BRAND_BIO = `Chase Arenella is a systems thinker and AI-augmented leadership strategist focused on search architecture, agile systems design, and AI-integrated productivity. His writing blends AI-augmented leadership, agile systems thinking, and strategic cognition drawn from competitive gaming and sports. Voice: direct, structured, practical — short declarative sentences, occasional bolded key terms, no filler, no hype, no em-dash overuse. Every article ends by linking to related pillar pages and sibling articles.`;
@@ -281,6 +282,7 @@ const PILLAR_CARD_HEADINGS = {
   "gaming-strategy": "Gaming Strategy &amp; Performance Psychology",
   "sports-leadership": "Sports Leadership &amp; Decision Models",
   "identity-brand-foundation": "Identity &amp; Personal Brand Foundation",
+  creative: "Creative &amp; Visual Identity",
 };
 
 function insertIntoPillarCard(html, { url, title, pillar }) {

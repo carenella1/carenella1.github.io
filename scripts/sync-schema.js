@@ -5,7 +5,7 @@
 // Run: node scripts/sync-schema.js
 const fs = require("fs");
 const path = require("path");
-const { PERSON_ID, CANONICAL_SAMEAS } = require("./lib/entity");
+const { PERSON_ID, personNode } = require("./lib/entity");
 
 function walk(dir, acc) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -73,13 +73,16 @@ function processFile(file) {
     }
   }
 
-  // Normalize the canonical Person node.
-  const person = primaryGraph.find(isPersonNode);
-  person.sameAs = CANONICAL_SAMEAS.slice();
+  // Normalize the canonical Person node — replace it wholesale with the
+  // shared personNode() rather than patching individual fields, so stale
+  // fields (e.g. a previously-included additionalName/alternateName) are
+  // dropped, not just left stranded when entity.js's shape changes.
+  const personIndex = primaryGraph.findIndex(isPersonNode);
+  primaryGraph[personIndex] = personNode();
 
   const primaryObj = Array.isArray(primary.parsed["@graph"])
     ? { "@context": primary.parsed["@context"] || "https://schema.org", "@graph": primaryGraph }
-    : person;
+    : primaryGraph[0];
 
   const newInner = "\n" + JSON.stringify(primaryObj, null, 2) + "\n";
   const newFull = `<script type="application/ld+json">${newInner}</script>`;

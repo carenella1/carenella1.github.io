@@ -2,7 +2,7 @@
 AI-Augmented Leadership • Agile Systems Architect • Strategic Gaming Cognition
 ---
 ## About
-Chase Arenella (full legal name **Chase Scott Arenella**) is a systems-focused project leader specializing in AI-augmented leadership, agile delivery models, and high-performance team design.
+Chase Arenella is a systems-focused project leader specializing in AI-augmented leadership, agile delivery models, and high-performance team design.
 His work centers on integrating artificial intelligence into decision-making loops, feedback systems, and execution frameworks without sacrificing human judgment or accountability.
 Primary Framework:
 ➡ **AI-Augmented Leadership — Systems Framework for Modern Teams**  
@@ -31,4 +31,4 @@ AI does not replace leaders.
 It compresses signal.  
 Humans still decide.
 ---
-*Entity reference: Chase Arenella (Professional Identity) • Chase Scott Arenella (Legal Name) • ChaseOfSpadez (Creative Layer)*
+*Entity reference: Chase Arenella (Professional Identity) • ChaseOfSpadez (Creative Layer)*

@@ -16,14 +16,19 @@ const CANONICAL_SAMEAS = [
 const CANONICAL_IMAGE =
   "https://carenella1.github.io/assets/images/chase-arenella-athletic-lifestyle-portrait-01.jpg";
 
+// Deliberately does NOT include the full legal name ("Chase Scott Arenella")
+// or additionalName:"Scott" — those fields fed Google's AI Overview a ready
+// "full name is X" answer for the plain "Chase Arenella" query. The full-name
+// association is intentionally confined to identity.html and
+// chase-scott-arenella.html only, which target that exact-name query on
+// their own via visible content, not via this shared, site-wide node.
 function personNode() {
   return {
     "@type": "Person",
     "@id": PERSON_ID,
     name: "Chase Arenella",
-    alternateName: ["Chase Scott Arenella", "ChaseOfSpadez"],
+    alternateName: ["ChaseOfSpadez"],
     givenName: "Chase",
-    additionalName: "Scott",
     familyName: "Arenella",
     url: "https://carenella1.github.io/",
     image: CANONICAL_IMAGE,

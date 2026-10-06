@@ -21,6 +21,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      # Topic bookkeeping (content/topics.json) only reaches main when the
+      # previous PR merges. Generating while one is still open re-picks the
+      # same topic and uploads a duplicate YouTube video.
+      - name: Refuse to run while a previous auto-content PR is open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OPEN=$(gh pr list --label auto-content --state open --json number --jq '[.[].number | "#\(.)"] | join(", ")')
+          if [ -n "$OPEN" ]; then
+            echo "::error::Auto-content PR(s) $OPEN still open. Merge or close them, then re-run this workflow."
+            exit 1
+          fi
+
       - name: Install ffmpeg and fonts
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
 

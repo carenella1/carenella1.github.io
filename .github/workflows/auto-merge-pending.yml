@@ -8,25 +8,40 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
       - name: Merge auto-content PRs older than 72h with no hold/changes-requested
+        # No checkout in this job, so gh needs GH_REPO to know which repo to
+        # act on. shell: bash adds pipefail — without it a failing `gh pr list`
+        # feeds the loop nothing and the step still goes green.
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          gh pr list --label auto-content --state open --json number,createdAt,labels,reviewDecision \
-            --jq '.[] | select(.reviewDecision != "CHANGES_REQUESTED") | select([.labels[].name] | index("hold") | not) | "\(.number) \(.createdAt)"' \
-          | while read -r num created; do
-              CREATED_EPOCH=$(date -d "$created" +%s)
-              NOW_EPOCH=$(date +%s)
-              AGE_HOURS=$(( (NOW_EPOCH - CREATED_EPOCH) / 3600 ))
-              if [ "$AGE_HOURS" -ge 72 ]; then
-                echo "PR #$num is ${AGE_HOURS}h old — merging."
-                gh pr merge "$num" --squash --delete-branch
-              else
-                echo "PR #$num is only ${AGE_HOURS}h old — waiting (needs 72h)."
-              fi
-            done
+          MERGED=0
+          PRS=$(gh pr list --label auto-content --state open --json number,createdAt,labels,reviewDecision \
+            --jq '.[] | select(.reviewDecision != "CHANGES_REQUESTED") | select([.labels[].name] | index("hold") | not) | "\(.number) \(.createdAt)"')
+          while read -r num created; do
+            [ -z "$num" ] && continue
+            CREATED_EPOCH=$(date -d "$created" +%s)
+            NOW_EPOCH=$(date +%s)
+            AGE_HOURS=$(( (NOW_EPOCH - CREATED_EPOCH) / 3600 ))
+            if [ "$AGE_HOURS" -ge 72 ]; then
+              echo "PR #$num is ${AGE_HOURS}h old — merging."
+              gh pr merge "$num" --squash --delete-branch
+              MERGED=1
+            else
+              echo "PR #$num is only ${AGE_HOURS}h old — waiting (needs 72h)."
+            fi
+          done <<< "$PRS"
+
+          # A merge made with github.token doesn't fire other workflows' push
+          # triggers, so kick the search-engine ping explicitly.
+          if [ "$MERGED" -eq 1 ]; then
+            gh workflow run search-ping.yml --ref main
+          fi

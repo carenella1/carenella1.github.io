@@ -11,6 +11,7 @@ const fs = require("fs");
 const path = require("path");
 const { readArticleVideo } = require("./lib/page-schema");
 const { renderWatchPage, renderHub, watchUrl, HUB_URL } = require("./lib/video-pages");
+const { upsertSitemapUrl } = require("./lib/sitemap");
 
 function escapeXml(str) {
   return String(str)
@@ -51,18 +52,16 @@ ${entries.join("\n")}
 `;
 }
 
-// Adds/updates <url> entries for the hub and watch pages in sitemap.xml,
-// leaving every other entry untouched.
+// Adds/updates <url> entries for the hub and watch pages in sitemap.xml.
 function updateMainSitemap(videos) {
   let xml = fs.readFileSync("sitemap.xml", "utf8");
-  const wanted = [
-    { loc: HUB_URL, lastmod: videos.length ? videos[0].uploadDate.slice(0, 10) : null, priority: "0.9" },
-    ...videos.map((v) => ({ loc: watchUrl(v.slug), lastmod: v.uploadDate.slice(0, 10), priority: "0.8" })),
-  ];
-  for (const w of wanted) {
-    const entry = `<url>\n    <loc>${w.loc}</loc>\n${w.lastmod ? `    <lastmod>${w.lastmod}</lastmod>\n` : ""}    <changefreq>monthly</changefreq>\n    <priority>${w.priority}</priority>\n  </url>`;
-    const existing = new RegExp(`<url>\\s*<loc>${w.loc.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}</loc>[\\s\\S]*?</url>`);
-    xml = existing.test(xml) ? xml.replace(existing, () => entry) : xml.replace("</urlset>", `  ${entry}\n</urlset>`);
+  xml = upsertSitemapUrl(xml, {
+    loc: HUB_URL,
+    lastmod: videos.length ? videos[0].uploadDate.slice(0, 10) : null,
+    priority: "0.9",
+  });
+  for (const v of videos) {
+    xml = upsertSitemapUrl(xml, { loc: watchUrl(v.slug), lastmod: v.uploadDate.slice(0, 10) });
   }
   return writeIfChanged("sitemap.xml", xml);
 }

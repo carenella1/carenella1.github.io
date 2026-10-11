@@ -63,13 +63,18 @@ jobs:
       - name: Rebuild watch pages, hub, and video sitemap
         run: node scripts/build-video-pages.js
 
+      # continue-on-error: must never block the commit below (see above).
+      - name: Rebuild the full-name page from current articles and videos
+        continue-on-error: true
+        run: node scripts/build-name-page.js
+
       - name: Commit and push
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add articles/ videos/ videos.html video-sitemap.xml sitemap.xml content/image-rotation.json
+          git add articles/ videos/ videos.html chase-scott-arenella.html video-sitemap.xml sitemap.xml content/image-rotation.json
           if git diff --cached --quiet; then
             echo "Nothing uploaded — nothing to commit."
           else

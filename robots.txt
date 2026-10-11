@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+# Source code and pipeline data, not pages.
+Disallow: /scripts/
+Disallow: /content/
+Disallow: /docs/
 
 Sitemap: https://carenella1.github.io/sitemap.xml
 Sitemap: https://carenella1.github.io/image-sitemap.xml

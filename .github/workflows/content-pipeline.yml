@@ -77,6 +77,10 @@ jobs:
         continue-on-error: true
         run: node scripts/build-video-pages.js
 
+      - name: Rebuild the full-name page from current articles and videos
+        continue-on-error: true
+        run: node scripts/build-name-page.js
+
       - name: Re-sync entity schema (idempotent safety net)
         run: node scripts/sync-schema.js
 
@@ -94,7 +98,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -b "$BRANCH"
-          git add articles/ articles.html sitemap.xml image-sitemap.xml video-sitemap.xml videos/ videos.html content/ assets/audio/ podcast.xml
+          git add articles/ articles.html sitemap.xml image-sitemap.xml video-sitemap.xml videos/ videos.html chase-scott-arenella.html content/ assets/audio/ podcast.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit — nothing to open a PR for."

@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://carenella1.github.io/sitemap.xml
 Sitemap: https://carenella1.github.io/image-sitemap.xml
+Sitemap: https://carenella1.github.io/video-sitemap.xml

@@ -1,20 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>Chase Arenella — AI-Augmented Leadership &amp; Systems Thinking</title>
 <link>https://carenella1.github.io/</link>
+<atom:link href="https://carenella1.github.io/podcast.xml" rel="self" type="application/rss+xml"/>
 <language>en-us</language>
-<description>Audio companion to the articles at carenella1.github.io — AI-augmented leadership, agile systems thinking, and gaming strategy, read by Chase Arenella.</description>
+<copyright>© 2026 Chase Arenella</copyright>
+<lastBuildDate>Tue, 06 Oct 2026 04:24:58 GMT</lastBuildDate>
+<description>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</description>
+<itunes:summary>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</itunes:summary>
 <itunes:author>Chase Arenella</itunes:author>
-<itunes:image href="https://carenella1.github.io/assets/images/chase-arenella-athletic-lifestyle-portrait-01.jpg"/>
-<itunes:category text="Business"/>
+<itunes:owner><itunes:name>Chase Arenella</itunes:name></itunes:owner>
+<itunes:type>episodic</itunes:type>
+<itunes:image href="https://carenella1.github.io/assets/images/chase-arenella-podcast-cover.jpg"/>
+<image>
+<url>https://carenella1.github.io/assets/images/chase-arenella-podcast-cover.jpg</url>
+<title>Chase Arenella — AI-Augmented Leadership &amp; Systems Thinking</title>
+<link>https://carenella1.github.io/</link>
+</image>
+<itunes:category text="Business">
+<itunes:category text="Management"/>
+</itunes:category>
+<itunes:category text="Technology"/>
 <itunes:explicit>false</itunes:explicit>
+<item>
+<title>Meta Awareness: The Strategy Shift Executives See Too Late</title>
+<link>https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html#podcast</guid>
+<pubDate>Tue, 06 Oct 2026 04:24:58 GMT</pubDate>
+<description><![CDATA[Competitive gamers track strategy shifts in real time. Most executives don't. Here's what meta awareness actually requires. Read the full article: https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html]]></description>
+<itunes:summary><![CDATA[Competitive gamers track strategy shifts in real time. Most executives don't. Here's what meta awareness actually requires.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/17-meta-awareness-the-strategy-shift-executives.mp3" length="2211501" type="audio/mpeg"/>
+<itunes:duration>138</itunes:duration>
+</item>
+<item>
+<title>The Hidden Tax of Tool Fragmentation</title>
+<link>https://carenella1.github.io/articles/16-the-hidden-tax-of-tool-fragmentation.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/16-the-hidden-tax-of-tool-fragmentation.html#podcast</guid>
+<pubDate>Thu, 03 Sep 2026 10:57:41 GMT</pubDate>
+<description><![CDATA[Scattered context across platforms quietly taxes every decision a distributed team makes. Here's why fragmentation is a systems problem, not a tooling problem. Read the full article: https://carenella1.github.io/articles/16-the-hidden-tax-of-tool-fragmentation.html]]></description>
+<itunes:summary><![CDATA[Scattered context across platforms quietly taxes every decision a distributed team makes. Here's why fragmentation is a systems problem, not a tooling problem.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/16-the-hidden-tax-of-tool-fragmentation.mp3" length="2436141" type="audio/mpeg"/>
+<itunes:duration>152</itunes:duration>
+</item>
+<item>
+<title>Constraints Are Strategy: Why Fewer Options Beat Total Flexibility</title>
+<link>https://carenella1.github.io/articles/15-constraints-are-strategy-why-fewer-options.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/15-constraints-are-strategy-why-fewer-options.html#podcast</guid>
+<pubDate>Sun, 16 Aug 2026 14:44:23 GMT</pubDate>
+<description><![CDATA[Open-ended flexibility feels safe but produces worse decisions. Here's why deliberately narrowing options is a systems-thinking advantage. Read the full article: https://carenella1.github.io/articles/15-constraints-are-strategy-why-fewer-options.html]]></description>
+<itunes:summary><![CDATA[Open-ended flexibility feels safe but produces worse decisions. Here's why deliberately narrowing options is a systems-thinking advantage.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/15-constraints-are-strategy-why-fewer-options.mp3" length="2282541" type="audio/mpeg"/>
+<itunes:duration>143</itunes:duration>
+</item>
+<item>
+<title>The Decision Log: The Simplest System Most Teams Skip</title>
+<link>https://carenella1.github.io/articles/14-the-decision-log-the-simplest-system-most.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/14-the-decision-log-the-simplest-system-most.html#podcast</guid>
+<pubDate>Sun, 16 Aug 2026 04:31:14 GMT</pubDate>
+<description><![CDATA[Most teams have no record of why past decisions were made. Here's how to build a decision log that actually gets used. Read the full article: https://carenella1.github.io/articles/14-the-decision-log-the-simplest-system-most.html]]></description>
+<itunes:summary><![CDATA[Most teams have no record of why past decisions were made. Here's how to build a decision log that actually gets used.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/14-the-decision-log-the-simplest-system-most.mp3" length="2343981" type="audio/mpeg"/>
+<itunes:duration>146</itunes:duration>
+</item>
+<item>
+<title>AI-Augmented Doesn't Mean AI-Automated</title>
+<link>https://carenella1.github.io/articles/13-ai-augmented-doesn-t-mean-ai-automated.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/13-ai-augmented-doesn-t-mean-ai-automated.html#podcast</guid>
+<pubDate>Mon, 03 Aug 2026 09:56:29 GMT</pubDate>
+<description><![CDATA[Chase Arenella on the judgment calls that stay human in an AI-augmented leadership system, even when automation handles the rest. Read the full article: https://carenella1.github.io/articles/13-ai-augmented-doesn-t-mean-ai-automated.html]]></description>
+<itunes:summary><![CDATA[Chase Arenella on the judgment calls that stay human in an AI-augmented leadership system, even when automation handles the rest.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/13-ai-augmented-doesn-t-mean-ai-automated.mp3" length="2392365" type="audio/mpeg"/>
+<itunes:duration>149</itunes:duration>
+</item>
+<item>
+<title>Why ChaseOfSpadez Strengthens the Brand Instead of Diluting It</title>
+<link>https://carenella1.github.io/articles/12-why-chaseofspadez-strengthens-the-brand-of-it.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/12-why-chaseofspadez-strengthens-the-brand-of-it.html#podcast</guid>
+<pubDate>Sun, 02 Aug 2026 22:08:39 GMT</pubDate>
+<description><![CDATA[Chase Arenella on why a creative identity layer like ChaseOfSpadez reinforces professional credibility rather than competing with it. Read the full article: https://carenella1.github.io/articles/12-why-chaseofspadez-strengthens-the-brand-of-it.html]]></description>
+<itunes:summary><![CDATA[Chase Arenella on why a creative identity layer like ChaseOfSpadez reinforces professional credibility rather than competing with it.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/12-why-chaseofspadez-strengthens-the-brand-of-it.mp3" length="2476461" type="audio/mpeg"/>
+<itunes:duration>155</itunes:duration>
+</item>
+<item>
+<title>Signal vs. Noise: What AI Should (and Shouldn't) Filter for a Leader</title>
+<link>https://carenella1.github.io/articles/11-signal-vs-noise-what-ai-should-and-shouldn-t.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/11-signal-vs-noise-what-ai-should-and-shouldn-t.html#podcast</guid>
+<pubDate>Sun, 02 Aug 2026 20:43:50 GMT</pubDate>
+<description><![CDATA[AI can filter noise for leaders, but over-filtering hides the signals that matter most. Here's where the line sits. Read the full article: https://carenella1.github.io/articles/11-signal-vs-noise-what-ai-should-and-shouldn-t.html]]></description>
+<itunes:summary><![CDATA[AI can filter noise for leaders, but over-filtering hides the signals that matter most. Here's where the line sits.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/11-signal-vs-noise-what-ai-should-and-shouldn-t.mp3" length="2472237" type="audio/mpeg"/>
+<itunes:duration>154</itunes:duration>
+</item>
 <item>
 <title>The Feedback Latency Problem: Why Weekly Beats Quarterly</title>
 <link>https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html</link>
 <guid isPermaLink="false">https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html#podcast</guid>
 <pubDate>Sun, 02 Aug 2026 20:11:13 GMT</pubDate>
-<description><![CDATA[The Feedback Latency Problem: Why Weekly Beats Quarterly]]></description>
+<description><![CDATA[Quarterly reviews are too slow for modern teams. Here's why weekly feedback loops win in fast-moving, AI-augmented organizations. Read the full article: https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html]]></description>
+<itunes:summary><![CDATA[Quarterly reviews are too slow for modern teams. Here's why weekly feedback loops win in fast-moving, AI-augmented organizations.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
 <enclosure url="https://carenella1.github.io/assets/audio/10-the-feedback-latency-problem-why-weekly-beats.mp3" length="3701421" type="audio/mpeg"/>
 <itunes:duration>231</itunes:duration>
 </item>

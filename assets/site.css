@@ -258,3 +258,8 @@ pre{
   h1{font-size:28px}
   .imgcard img,.gallery-grid img{height:auto;aspect-ratio:3/2;object-fit:cover}
 }
+
+/* Embedded YouTube player on article pages (lib/template.js renderMediaSection) */
+.video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.media-callout audio{width:100%}

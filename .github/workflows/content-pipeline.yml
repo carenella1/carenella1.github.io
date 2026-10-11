@@ -73,6 +73,10 @@ jobs:
         continue-on-error: true
         run: node scripts/update-podcast-feed.js
 
+      - name: Rebuild video sitemap
+        continue-on-error: true
+        run: node scripts/build-video-sitemap.js
+
       - name: Re-sync entity schema (idempotent safety net)
         run: node scripts/sync-schema.js
 
@@ -90,7 +94,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -b "$BRANCH"
-          git add articles/ articles.html sitemap.xml image-sitemap.xml content/ assets/audio/ podcast.xml
+          git add articles/ articles.html sitemap.xml image-sitemap.xml video-sitemap.xml content/ assets/audio/ podcast.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit — nothing to open a PR for."

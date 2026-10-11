@@ -436,6 +436,8 @@ async function main() {
         url,
         bodyText: draft.bodyText,
         metaDescription: draft.metaDescription,
+        thesis: draft.thesisCallout,
+        headings: (draft.sections || []).map((sec) => sec.heading),
         heroImage,
         pillar: topic.pillar,
         publishedISO,

@@ -25,6 +25,7 @@ const ARTICLES = [
 const BOILERPLATE_SNIPPETS = [
   "Chase Arenella — AI Productivity & Leadership Systems",
   "Entity reference: Chase Arenella (Person) • ChaseOfSpadez (Creative identity layer)",
+  "Chase Arenella also publishes creative work as ChaseOfSpadez.",
   "This framework reflects the broader work of Chase Arenella in AI-augmented leadership and search architecture, where systems clarity and execution discipline create compounding results.",
 ];
 

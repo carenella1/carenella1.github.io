@@ -15,11 +15,13 @@ const NAV_LINKS = [
   ["/press.html", "Press/Bio"],
   ["/work.html", "Work"],
   ["/projects.html", "Projects"],
+  ["/pbsa.html", "PBSA"],
   ["/leadership.html", "AI Leadership"],
   ["/gaming.html", "Gaming"],
   ["/articles.html", "Articles"],
   ["/media.html", "Media"],
   ["/creative.html", "Creative"],
+  ["/chase-systems-lab/", "Systems Lab"],
   ["/maintenance.html", "Maintenance"],
   ["/contact.html", "Contact"],
 ];
@@ -179,7 +181,7 @@ ${relatedHtml}
 </div>
 <div class="footer">
 <div><strong>Chase Arenella</strong> — AI Productivity &amp; Leadership Systems</div>
-<div class="foot-entity">Entity reference: Chase Arenella (Person) • ChaseOfSpadez (Creative identity layer)</div>
+<div class="foot-entity">Chase Arenella also publishes creative work as ChaseOfSpadez.</div>
 </div>
 
 
@@ -207,19 +209,100 @@ ${relatedHtml}
 // replacing the MEDIA_SECTION_START/END marker pair with this output —
 // same "patch a marker comment" pattern index.html already uses for its
 // PBSA_LAST_UPDATED timestamp block.
+//
+// The video is embedded (not just linked): Google only treats a page as a
+// video page — eligible for video thumbnails/carousels in search — when the
+// player itself is on the page and prominent.
 function renderMediaSection({ videoId, title, audioUrl }) {
   if (!videoId && !audioUrl) return "";
   let html = '<div class="callout media-callout">\n';
   if (videoId) {
-    html += `<p style="margin:0 0 10px 0;"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=${encodeURIComponent(
-      videoId
-    )}" rel="noopener">${escapeHtml(title)} (video)</a></p>\n`;
+    const id = encodeURIComponent(videoId);
+    html += `<p style="margin:0 0 10px 0;"><strong>Watch:</strong></p>\n<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${escapeHtml(
+      title
+    )} — Chase Arenella (video)" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n`;
+    html += `<p style="margin:10px 0;"><a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a></p>\n`;
   }
   if (audioUrl) {
     html += `<p style="margin:0 0 10px 0;"><strong>Listen:</strong></p>\n<audio controls preload="none" src="${audioUrl}">Your browser does not support inline audio. <a href="${audioUrl}">Download the episode</a>.</audio>\n`;
   }
   html += "</div>";
   return html;
+}
+
+// Schema.org nodes for an article's audio + video. The VideoObject is a
+// top-level @graph node (Google's video parser doesn't reliably pick one up
+// nested inside a PodcastEpisode), linked from the episode by @id.
+function buildMediaSchemaNodes({ articleUrl, title, description, audioUrl, durationSeconds, videoId, publishedISO, uploadDate }) {
+  const duration = `PT${Math.round(durationSeconds || 0)}S`;
+  const nodes = [];
+  let videoRef = null;
+  if (videoId) {
+    const videoNode = {
+      "@type": "VideoObject",
+      "@id": `${articleUrl}#video`,
+      name: `${title} — Chase Arenella`,
+      description: description || title,
+      thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+      uploadDate: uploadDate || publishedISO,
+      duration,
+      contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+      embedUrl: `https://www.youtube.com/embed/${videoId}`,
+      author: { "@id": entity.PERSON_ID },
+      mainEntityOfPage: articleUrl,
+    };
+    nodes.push(videoNode);
+    videoRef = { "@id": videoNode["@id"] };
+  }
+  if (audioUrl) {
+    const episodeNode = {
+      "@type": "PodcastEpisode",
+      "@id": `${articleUrl}#podcast`,
+      url: articleUrl,
+      name: title,
+      description: description || title,
+      datePublished: publishedISO,
+      author: { "@id": entity.PERSON_ID },
+      associatedMedia: {
+        "@type": "AudioObject",
+        contentUrl: `${SITE_URL}${audioUrl}`,
+        encodingFormat: "audio/mpeg",
+        duration,
+      },
+      partOfSeries: {
+        "@type": "PodcastSeries",
+        name: "Chase Arenella — AI-Augmented Leadership & Systems Thinking",
+        url: `${SITE_URL}/podcast.xml`,
+      },
+    };
+    if (videoRef) episodeNode.video = videoRef;
+    nodes.push(episodeNode);
+  }
+  return nodes;
+}
+
+// Replaces any existing PodcastEpisode/VideoObject nodes in the page's
+// Article-bearing ld+json block with `mediaNodes`. Idempotent: re-running
+// with the same input yields the same output.
+function replaceMediaSchema(html, mediaNodes) {
+  const scriptRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  let m;
+  while ((m = scriptRe.exec(html))) {
+    let parsed;
+    try {
+      parsed = JSON.parse(m[1]);
+    } catch (e) {
+      continue;
+    }
+    if (!Array.isArray(parsed["@graph"])) continue;
+    if (!parsed["@graph"].some((n) => n["@type"] === "Article")) continue;
+    parsed["@graph"] = parsed["@graph"]
+      .filter((n) => n["@type"] !== "PodcastEpisode" && n["@type"] !== "VideoObject")
+      .concat(mediaNodes);
+    const newInner = "\n" + JSON.stringify(parsed, null, 2) + "\n";
+    return html.replace(m[0], () => `<script type="application/ld+json">${newInner}</script>`);
+  }
+  return null;
 }
 
 function injectMediaSection(html, mediaHtml) {
@@ -233,6 +316,8 @@ module.exports = {
   renderArticle,
   renderMediaSection,
   injectMediaSection,
+  buildMediaSchemaNodes,
+  replaceMediaSchema,
   sanitizeInline,
   escapeHtml,
   NAV_LINKS,

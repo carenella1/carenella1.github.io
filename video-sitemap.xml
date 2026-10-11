@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://carenella1.github.io/videos/14-the-decision-log-the-simplest-system-most.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/sMZYoj3_dVY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — The Decision Log: The Simplest System Most Teams Skip</video:title>
+      <video:description>Most teams have no record of why past decisions were made. Here&apos;s how to build a decision log that actually gets used.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/sMZYoj3_dVY</video:player_loc>
+      <video:duration>146</video:duration>
+      <video:publication_date>2026-10-11T06:14:39.641Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/10-the-feedback-latency-problem-why-weekly-beats.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/i45qUqHX_8Y/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — The Feedback Latency Problem: Why Weekly Beats Quarterly</video:title>
+      <video:description>Quarterly reviews are too slow for modern teams. Here&apos;s why weekly feedback loops win in fast-moving, AI-augmented organizations.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/i45qUqHX_8Y</video:player_loc>
+      <video:duration>231</video:duration>
+      <video:publication_date>2026-10-11T06:13:51.775Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+  </url>
+  <url>
     <loc>https://carenella1.github.io/videos/17-meta-awareness-the-strategy-shift-executives.html</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/QzHSMByI6ok/hqdefault.jpg</video:thumbnail_loc>

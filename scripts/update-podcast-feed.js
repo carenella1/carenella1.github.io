@@ -61,7 +61,12 @@ async function main() {
   const patched = replaceMediaSchema(html, mediaNodes);
   if (patched) html = patched;
   else console.warn("Could not find the Article schema block — media schema patch skipped.");
-  const mediaHtml = renderMediaSection({ videoId, title: article.title, audioUrl: audio.audioUrl });
+  const mediaHtml = renderMediaSection({
+    videoId,
+    title: article.title,
+    audioUrl: audio.audioUrl,
+    watchUrl: videoId ? `/videos/${article.slug}.html` : null,
+  });
   html = injectMediaSection(html, mediaHtml);
   fs.writeFileSync(articleFile, html);
   console.log(`Patched ${articleFile} with podcast/video schema + visible media section.`);

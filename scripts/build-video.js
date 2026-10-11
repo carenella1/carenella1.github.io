@@ -13,22 +13,11 @@
 const fs = require("fs");
 const path = require("path");
 const { recordStatus } = require("./lib/pipeline-status");
-const { renderSlideshow } = require("./lib/video");
+const { renderSlideshow, pickSlideshowImages } = require("./lib/video");
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const RUNNER_TEMP = process.env.RUNNER_TEMP || require("os").tmpdir();
 const IMAGES_PER_VIDEO = 5;
-
-function pickSlideshowImages(rotation, pillar, count) {
-  const pool = rotation.pools[pillar];
-  if (!pool || pool.length === 0) throw new Error(`No image pool for pillar: ${pillar}`);
-  const n = Math.min(count, pool.length);
-  const start = rotation.slideshowIndex[pillar] % pool.length;
-  const picked = [];
-  for (let i = 0; i < n; i++) picked.push(pool[(start + i) % pool.length]);
-  rotation.slideshowIndex[pillar] = (start + n) % pool.length;
-  return picked;
-}
 
 async function main() {
   const articlePath = path.join(RUNNER_TEMP, "pipeline-article.json");

@@ -1,62 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://carenella1.github.io/articles/11-signal-vs-noise-what-ai-should-and-shouldn-t.html</loc>
+    <loc>https://carenella1.github.io/videos/17-meta-awareness-the-strategy-shift-executives.html</loc>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/3L0BfUTIBpQ/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Signal vs. Noise: What AI Should (and Shouldn&apos;t) Filter for a Leader — Chase Arenella</video:title>
-      <video:description>AI can filter noise for leaders, but over-filtering hides the signals that matter most. Here&apos;s where the line sits.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/3L0BfUTIBpQ</video:player_loc>
-      <video:duration>154</video:duration>
-      <video:publication_date>2026-08-02T20:45:11.717Z</video:publication_date>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/QzHSMByI6ok/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Meta Awareness: The Strategy Shift Executives See Too Late</video:title>
+      <video:description>Competitive gamers track strategy shifts in real time. Most executives don&apos;t. Here&apos;s what meta awareness actually requires.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/QzHSMByI6ok</video:player_loc>
+      <video:duration>138</video:duration>
+      <video:publication_date>2026-10-06T04:26:37.183Z</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
     </video:video>
   </url>
   <url>
-    <loc>https://carenella1.github.io/articles/12-why-chaseofspadez-strengthens-the-brand-of-it.html</loc>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/Uu-s3tCxbQQ/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Why ChaseOfSpadez Strengthens the Brand Instead of Diluting It — Chase Arenella</video:title>
-      <video:description>Chase Arenella on why a creative identity layer like ChaseOfSpadez reinforces professional credibility rather than competing with it.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/Uu-s3tCxbQQ</video:player_loc>
-      <video:duration>155</video:duration>
-      <video:publication_date>2026-08-02T22:09:47.999Z</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://carenella1.github.io/articles/13-ai-augmented-doesn-t-mean-ai-automated.html</loc>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/mkd4d25WhKs/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>AI-Augmented Doesn&apos;t Mean AI-Automated — Chase Arenella</video:title>
-      <video:description>Chase Arenella on the judgment calls that stay human in an AI-augmented leadership system, even when automation handles the rest.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/mkd4d25WhKs</video:player_loc>
-      <video:duration>149</video:duration>
-      <video:publication_date>2026-08-03T09:58:03.103Z</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://carenella1.github.io/articles/15-constraints-are-strategy-why-fewer-options.html</loc>
-    <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/jlrNu0EHekg/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Constraints Are Strategy: Why Fewer Options Beat Total Flexibility — Chase Arenella</video:title>
-      <video:description>Open-ended flexibility feels safe but produces worse decisions. Here&apos;s why deliberately narrowing options is a systems-thinking advantage.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/jlrNu0EHekg</video:player_loc>
-      <video:duration>143</video:duration>
-      <video:publication_date>2026-08-16T14:46:02.961Z</video:publication_date>
-      <video:family_friendly>yes</video:family_friendly>
-      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://carenella1.github.io/articles/16-the-hidden-tax-of-tool-fragmentation.html</loc>
+    <loc>https://carenella1.github.io/videos/16-the-hidden-tax-of-tool-fragmentation.html</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/sdzRiWEBFkE/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>The Hidden Tax of Tool Fragmentation — Chase Arenella</video:title>
+      <video:title>Chase Arenella — The Hidden Tax of Tool Fragmentation</video:title>
       <video:description>Scattered context across platforms quietly taxes every decision a distributed team makes. Here&apos;s why fragmentation is a systems problem, not a tooling problem.</video:description>
       <video:player_loc>https://www.youtube.com/embed/sdzRiWEBFkE</video:player_loc>
       <video:duration>152</video:duration>
@@ -66,14 +27,53 @@
     </video:video>
   </url>
   <url>
-    <loc>https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html</loc>
+    <loc>https://carenella1.github.io/videos/15-constraints-are-strategy-why-fewer-options.html</loc>
     <video:video>
-      <video:thumbnail_loc>https://i.ytimg.com/vi/QzHSMByI6ok/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Meta Awareness: The Strategy Shift Executives See Too Late — Chase Arenella</video:title>
-      <video:description>Competitive gamers track strategy shifts in real time. Most executives don&apos;t. Here&apos;s what meta awareness actually requires.</video:description>
-      <video:player_loc>https://www.youtube.com/embed/QzHSMByI6ok</video:player_loc>
-      <video:duration>138</video:duration>
-      <video:publication_date>2026-10-06T04:26:37.183Z</video:publication_date>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/jlrNu0EHekg/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Constraints Are Strategy: Why Fewer Options Beat Total Flexibility</video:title>
+      <video:description>Open-ended flexibility feels safe but produces worse decisions. Here&apos;s why deliberately narrowing options is a systems-thinking advantage.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/jlrNu0EHekg</video:player_loc>
+      <video:duration>143</video:duration>
+      <video:publication_date>2026-08-16T14:46:02.961Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/13-ai-augmented-doesn-t-mean-ai-automated.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/mkd4d25WhKs/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — AI-Augmented Doesn&apos;t Mean AI-Automated</video:title>
+      <video:description>Chase Arenella on the judgment calls that stay human in an AI-augmented leadership system, even when automation handles the rest.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/mkd4d25WhKs</video:player_loc>
+      <video:duration>149</video:duration>
+      <video:publication_date>2026-08-03T09:58:03.103Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/12-why-chaseofspadez-strengthens-the-brand-of-it.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Uu-s3tCxbQQ/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why ChaseOfSpadez Strengthens the Brand Instead of Diluting It</video:title>
+      <video:description>Chase Arenella on why a creative identity layer like ChaseOfSpadez reinforces professional credibility rather than competing with it.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Uu-s3tCxbQQ</video:player_loc>
+      <video:duration>155</video:duration>
+      <video:publication_date>2026-08-02T22:09:47.999Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/11-signal-vs-noise-what-ai-should-and-shouldn-t.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/3L0BfUTIBpQ/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Signal vs. Noise: What AI Should (and Shouldn&apos;t) Filter for a Leader</video:title>
+      <video:description>AI can filter noise for leaders, but over-filtering hides the signals that matter most. Here&apos;s where the line sits.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/3L0BfUTIBpQ</video:player_loc>
+      <video:duration>154</video:duration>
+      <video:publication_date>2026-08-02T20:45:11.717Z</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
     </video:video>

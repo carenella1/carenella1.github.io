@@ -15,25 +15,10 @@ const {
   replaceMediaSchema,
 } = require("./lib/template");
 const { collectEpisodes, buildFeed } = require("./lib/podcast-feed");
+const { readGraph, durationSeconds: parseDuration, videoIdFromEmbedUrl } = require("./lib/page-schema");
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const SITE_URL = "https://carenella1.github.io";
-
-function readGraph(html) {
-  const m = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
-  if (!m) return [];
-  try {
-    const parsed = JSON.parse(m[1]);
-    return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-function videoIdFrom(node) {
-  const m = node && /\/embed\/([A-Za-z0-9_-]{11})/.exec(node.embedUrl || "");
-  return m ? m[1] : null;
-}
 
 let changed = 0;
 for (const file of fs.readdirSync("articles").sort()) {
@@ -47,9 +32,9 @@ for (const file of fs.readdirSync("articles").sort()) {
 
   const topLevelVideo = graph.find((n) => n["@type"] === "VideoObject");
   const video = topLevelVideo || (episode.video && episode.video.embedUrl ? episode.video : null);
-  const videoId = videoIdFrom(video);
+  const videoId = video ? videoIdFromEmbedUrl(video.embedUrl) : null;
   const audioUrl = episode.associatedMedia.contentUrl.replace(SITE_URL, "");
-  const durationSeconds = Number((/^PT(\d+)S$/.exec(episode.associatedMedia.duration || "") || [])[1] || 0);
+  const durationSeconds = parseDuration(episode.associatedMedia.duration);
 
   const mediaNodes = buildMediaSchemaNodes({
     articleUrl: article.mainEntityOfPage,
@@ -67,7 +52,12 @@ for (const file of fs.readdirSync("articles").sort()) {
     console.warn(`SKIP ${file}: no Article schema block`);
     continue;
   }
-  out = injectMediaSection(out, renderMediaSection({ videoId, title: article.headline, audioUrl }));
+  out = injectMediaSection(out, renderMediaSection({
+      videoId,
+      title: article.headline,
+      audioUrl,
+      watchUrl: videoId ? `/videos/${file}` : null,
+    }));
 
   if (out !== html) {
     changed++;

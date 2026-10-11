@@ -125,4 +125,18 @@ async function renderSlideshow({ images, audioPath, outPath, titleText }) {
   return { outPath, durationSeconds: duration };
 }
 
-module.exports = { FPS, MAX_ZOOM, getAudioDuration, resolveFont, escapeDrawtext, buildFilterComplex, renderSlideshow };
+// Picks `count` images from the pillar's pool in content/image-rotation.json,
+// advancing that pillar's slideshow cursor (mutates `rotation`; the caller
+// persists it only after a successful build).
+function pickSlideshowImages(rotation, pillar, count) {
+  const pool = rotation.pools[pillar];
+  if (!pool || pool.length === 0) throw new Error(`No image pool for pillar: ${pillar}`);
+  const n = Math.min(count, pool.length);
+  const start = rotation.slideshowIndex[pillar] % pool.length;
+  const picked = [];
+  for (let i = 0; i < n; i++) picked.push(pool[(start + i) % pool.length]);
+  rotation.slideshowIndex[pillar] = (start + n) % pool.length;
+  return picked;
+}
+
+module.exports = { pickSlideshowImages, FPS, MAX_ZOOM, getAudioDuration, resolveFont, escapeDrawtext, buildFilterComplex, renderSlideshow };

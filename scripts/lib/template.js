@@ -20,6 +20,7 @@ const NAV_LINKS = [
   ["/gaming.html", "Gaming"],
   ["/articles.html", "Articles"],
   ["/media.html", "Media"],
+  ["/videos.html", "Videos"],
   ["/creative.html", "Creative"],
   ["/chase-systems-lab/", "Systems Lab"],
   ["/maintenance.html", "Maintenance"],
@@ -64,6 +65,22 @@ function sanitizeInline(html) {
 function renderNav() {
   const links = NAV_LINKS.map(([href, label]) => `<a href="${href}">${label}</a>`).join("\n");
   return `<header>\n<nav>\n${links}\n</nav>\n</header>`;
+}
+
+function renderFooter(year) {
+  return `<footer><p><strong>Chase Arenella</strong> — AI-Augmented Leadership • Agile Systems • Gaming Strategy</p>
+<p style="margin-top:8px;">
+<a href="/press.html">Official Biography of Chase Arenella</a> •
+<a href="/identity.html">Identity / Name Variants</a> •
+  <a href="/leadership.html">AI-Augmented Leadership</a> •
+  <a href="/articles.html">Articles</a> •
+  <a href="/media.html">Media</a> •
+  <a href="/videos.html">Videos</a> •
+  <a href="/contact.html">Contact</a> •
+  <a href="https://aiproductivityguide.substack.com/" rel="noopener">AI Productivity Lab (Substack)</a>
+</p>
+<p style="margin-top:8px;">© ${year} Chase Arenella • <a href="https://carenella1.github.io/">https://carenella1.github.io/</a></p>
+</footer>`;
 }
 
 function renderSection(section) {
@@ -185,18 +202,7 @@ ${relatedHtml}
 </div>
 
 
-<footer><p><strong>Chase Arenella</strong> — AI-Augmented Leadership • Agile Systems • Gaming Strategy</p>
-<p style="margin-top:8px;">
-<a href="/press.html">Official Biography of Chase Arenella</a> •
-<a href="/identity.html">Identity / Name Variants</a> •
-  <a href="/leadership.html">AI-Augmented Leadership</a> •
-  <a href="/articles.html">Articles</a> •
-  <a href="/media.html">Media</a> •
-  <a href="/contact.html">Contact</a> •
-  <a href="https://aiproductivityguide.substack.com/" rel="noopener">AI Productivity Lab (Substack)</a>
-</p>
-<p style="margin-top:8px;">© ${now.getFullYear()} Chase Arenella • <a href="https://carenella1.github.io/">https://carenella1.github.io/</a></p>
-</footer>
+${renderFooter(now.getFullYear())}
 </body>
 </html>
 `;
@@ -210,10 +216,10 @@ ${relatedHtml}
 // same "patch a marker comment" pattern index.html already uses for its
 // PBSA_LAST_UPDATED timestamp block.
 //
-// The video is embedded (not just linked): Google only treats a page as a
-// video page — eligible for video thumbnails/carousels in search — when the
-// player itself is on the page and prominent.
-function renderMediaSection({ videoId, title, audioUrl }) {
+// The video is embedded here for readers, but Google only indexes a video
+// on a page where it is the main content — that's the dedicated watch page
+// (lib/video-pages.js), which `watchUrl` links to.
+function renderMediaSection({ videoId, title, audioUrl, watchUrl }) {
   if (!videoId && !audioUrl) return "";
   let html = '<div class="callout media-callout">\n';
   if (videoId) {
@@ -221,7 +227,8 @@ function renderMediaSection({ videoId, title, audioUrl }) {
     html += `<p style="margin:0 0 10px 0;"><strong>Watch:</strong></p>\n<div class="video-embed"><iframe src="https://www.youtube.com/embed/${id}" title="${escapeHtml(
       title
     )} — Chase Arenella (video)" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\n`;
-    html += `<p style="margin:10px 0;"><a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a></p>\n`;
+    const watchLink = watchUrl ? `<a href="${watchUrl}">Video page</a> • ` : "";
+    html += `<p style="margin:10px 0;">${watchLink}<a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a></p>\n`;
   }
   if (audioUrl) {
     html += `<p style="margin:0 0 10px 0;"><strong>Listen:</strong></p>\n<audio controls preload="none" src="${audioUrl}">Your browser does not support inline audio. <a href="${audioUrl}">Download the episode</a>.</audio>\n`;
@@ -321,4 +328,6 @@ module.exports = {
   sanitizeInline,
   escapeHtml,
   NAV_LINKS,
+  renderNav,
+  renderFooter,
 };

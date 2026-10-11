@@ -1,0 +1,87 @@
+name: Backfill Videos
+
+# Manual only. Builds + uploads YouTube videos for articles that have
+# narration audio but no video (scripts/backfill-videos.js), then rebuilds the
+# watch pages and commits straight to main. YouTube's API quota allows about
+# 6 uploads a day, so keep `limit` at 5 or below and re-run on later days.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max videos to upload this run (quota allows ~6/day)"
+        default: "5"
+        required: true
+
+# Shares the content pipeline's group so the two never edit the site at once.
+concurrency:
+  group: content-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # An open auto-content PR edits the same sitemap/article files; landing
+      # this on main first would leave that PR unable to merge.
+      - name: Refuse to run while an auto-content PR is open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OPEN=$(gh pr list --label auto-content --state open --json number --jq '[.[].number | "#\(.)"] | join(", ")')
+          if [ -n "$OPEN" ]; then
+            echo "::error::Auto-content PR(s) $OPEN still open. Merge or close them, then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Install ffmpeg and fonts
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build and upload missing videos
+        id: backfill
+        continue-on-error: true
+        run: node scripts/backfill-videos.js --limit "${{ inputs.limit }}"
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+
+      # Runs even if some uploads failed: any article that did upload has
+      # already been patched, and must be committed so a re-run doesn't
+      # upload it a second time.
+      - name: Rebuild watch pages, hub, and video sitemap
+        run: node scripts/build-video-pages.js
+
+      - name: Commit and push
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add articles/ videos/ videos.html video-sitemap.xml sitemap.xml content/image-rotation.json
+          if git diff --cached --quiet; then
+            echo "Nothing uploaded — nothing to commit."
+          else
+            git commit -m "Backfill videos: $(date +'%Y-%m-%d')"
+            git push
+            # Pushes made with github.token don't fire other workflows'
+            # push triggers, so kick the search-engine ping explicitly.
+            gh workflow run search-ping.yml --ref main
+          fi
+
+      - name: Fail the run if any upload failed
+        if: steps.backfill.outcome == 'failure'
+        run: |
+          echo "::error::One or more backfill uploads failed — see the 'Build and upload missing videos' step."
+          exit 1

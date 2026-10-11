@@ -4,6 +4,7 @@
 // feed can't drift out of sync with the site, and re-running is a no-op.
 const fs = require("fs");
 const path = require("path");
+const { readGraph, durationSeconds } = require("./page-schema");
 
 const SITE_URL = "https://carenella1.github.io";
 const FEED_URL = `${SITE_URL}/podcast.xml`;
@@ -18,25 +19,6 @@ function escapeXml(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
-}
-
-function readGraph(html) {
-  const scriptRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
-  let m;
-  while ((m = scriptRe.exec(html))) {
-    try {
-      const parsed = JSON.parse(m[1]);
-      if (Array.isArray(parsed["@graph"])) return parsed["@graph"];
-    } catch (e) {
-      // not this block
-    }
-  }
-  return [];
-}
-
-function parseDurationSeconds(iso) {
-  const m = /^PT(\d+)S$/.exec(iso || "");
-  return m ? Number(m[1]) : 0;
 }
 
 // Returns one episode per article page with audio, newest first.
@@ -62,7 +44,7 @@ function collectEpisodes(articlesDir = "articles") {
       publishedISO: article.datePublished || episode.datePublished,
       audioUrl,
       bytes: fs.statSync(localAudio).size,
-      durationSeconds: parseDurationSeconds(episode.associatedMedia.duration),
+      durationSeconds: durationSeconds(episode.associatedMedia.duration),
     });
   }
   episodes.sort((a, b) => new Date(b.publishedISO) - new Date(a.publishedISO));

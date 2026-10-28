@@ -72,12 +72,6 @@
     "used": null
   },
   {
-    "id": "systems-behind-the-systems",
-    "pillar": "identity-brand-foundation",
-    "angle": "The systems behind the systems: a practical look at how this site's own automation and structure reflect the operating philosophy it writes about",
-    "used": null
-  },
-  {
     "id": "what-ai-generated-visual-identity-taught-me",
     "pillar": "creative",
     "angle": "What building an AI-generated visual identity layer taught me about systems thinking: iteration, constraints, and treating a creative project like any other engineered system",
@@ -87,6 +81,78 @@
     "id": "range-over-specialization-creative-exploration",
     "pillar": "creative",
     "angle": "Range over specialization: why deliberately maintaining a creative, exploratory outlet sharpens judgment in the more serious leadership and systems work",
+    "used": null
+  },
+  {
+    "id": "ai-meeting-summaries-trap",
+    "pillar": "ai-augmented-leadership",
+    "angle": "The meeting-summary trap: why AI recaps can make a team feel aligned while quietly losing the decisions and disagreements that actually mattered",
+    "used": null
+  },
+  {
+    "id": "second-order-effects-of-team-policies",
+    "pillar": "systems-thinking",
+    "angle": "Second-order effects: why well-intended team policies often produce the opposite behavior, and how to spot it before it spreads",
+    "used": null
+  },
+  {
+    "id": "vod-review-honest-retrospectives",
+    "pillar": "gaming-strategy",
+    "angle": "VOD review: how competitive players study recordings of their own matches, and what that teaches about running honest retrospectives",
+    "used": null
+  },
+  {
+    "id": "film-study-recurring-risks",
+    "pillar": "sports-leadership",
+    "angle": "Film study: how sports teams prepare by studying an opponent's patterns, and how project teams can do the same for their own recurring risks",
+    "used": null
+  },
+  {
+    "id": "prompting-is-delegation",
+    "pillar": "ai-augmented-leadership",
+    "angle": "Prompting is delegation: what writing a good AI prompt teaches leaders about giving clear instructions to people",
+    "used": null
+  },
+  {
+    "id": "bottlenecks-move",
+    "pillar": "systems-thinking",
+    "angle": "Bottlenecks move: why fixing the slowest step in a workflow always reveals the next one, and how to plan for that instead of being surprised",
+    "used": null
+  },
+  {
+    "id": "patch-notes-for-process-changes",
+    "pillar": "gaming-strategy",
+    "angle": "Patch notes for teams: why game developers' habit of publishing what changed and why is a model for communicating process changes",
+    "used": null
+  },
+  {
+    "id": "two-minute-drill-rehearsal",
+    "pillar": "sports-leadership",
+    "angle": "The two-minute drill: what end-of-game execution teaches about rehearsing high-pressure moments before they happen",
+    "used": null
+  },
+  {
+    "id": "first-draft-culture",
+    "pillar": "ai-augmented-leadership",
+    "angle": "First-draft culture: how AI changes the economics of starting work, and why leaders should reward fast iteration over early polish",
+    "used": null
+  },
+  {
+    "id": "small-batches-faster-learning",
+    "pillar": "systems-thinking",
+    "angle": "Small batches: why shipping smaller pieces of work more often reduces risk more than careful big-bang planning",
+    "used": null
+  },
+  {
+    "id": "human-in-the-loop-checkpoints",
+    "pillar": "ai-augmented-leadership",
+    "angle": "Human-in-the-loop checkpoints: deciding exactly where a person must review AI-assisted work before it ships, and where review is wasted effort",
+    "used": null
+  },
+  {
+    "id": "defaults-shape-behavior",
+    "pillar": "systems-thinking",
+    "angle": "Defaults shape behavior: how the default settings of a team's tools and rituals quietly decide what people actually do",
     "used": null
   }
 ]

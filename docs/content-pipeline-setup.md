@@ -1,7 +1,7 @@
 # Content pipeline: one-time setup
 
 This is a one-time setup. After completing it, the pipeline runs on its own:
-once a month it generates an article, a narration-audio track, a slideshow
+twice a month (the 1st and 15th) it generates an article, a narration-audio track, a slideshow
 video (uploaded to YouTube), and a podcast feed entry, then opens a PR labeled
 `auto-content` that auto-merges after 72 hours unless you close it or add a
 `hold` label. None of the steps below can be done on your behalf — they
@@ -63,9 +63,9 @@ and run the script again.
 ## 4. First real run
 
 Once all five secrets are set, trigger the pipeline manually once (rather
-than waiting for the monthly cron) to validate the whole chain end to end:
+than waiting for the scheduled run) to validate the whole chain end to end:
 
-**Actions tab → Monthly Content Pipeline → Run workflow.**
+**Actions tab → Content Pipeline → Run workflow.**
 
 This opens a PR labeled `auto-content`. Review it closely this first time —
 the article text, the audio, the video, the YouTube upload, and the podcast

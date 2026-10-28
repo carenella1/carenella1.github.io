@@ -1,8 +1,10 @@
-name: Monthly Content Pipeline
+name: Content Pipeline
 
 on:
+  # Twice a month (the 1st and 15th). Each run's PR auto-merges after 72h,
+  # well before the next run, which refuses to start while one is open.
   schedule:
-    - cron: '0 6 3 * *'
+    - cron: '0 6 1,15 * *'
   workflow_dispatch:
 
 concurrency:
@@ -94,7 +96,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          BRANCH="content/$(date +'%Y-%m')-${{ github.run_number }}"
+          BRANCH="content/$(date +'%Y-%m-%d')-${{ github.run_number }}"
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -b "$BRANCH"
@@ -105,14 +107,14 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Auto content: $(date +'%Y-%m')"
+          git commit -m "Auto content: $(date +'%Y-%m-%d')"
           git push -u origin "$BRANCH"
 
           BODY_FILE="$(mktemp)"
           node scripts/build-pr-body.js > "$BODY_FILE"
 
           gh pr create \
-            --title "Auto content: $(date +'%Y-%m')" \
+            --title "Auto content: $(date +'%Y-%m-%d')" \
             --label auto-content \
             --body-file "$BODY_FILE" \
             --base main \

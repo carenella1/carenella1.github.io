@@ -111,8 +111,63 @@ async function deleteVideo(accessToken, videoId) {
   }
 }
 
+// Thrown for 401/403s caused by the refresh token lacking a scope, so callers
+// can tell the user to re-run the one-time token script instead of dumping
+// a raw API error.
+function scopeError(res) {
+  if (res.status !== 401 && res.status !== 403) return null;
+  if (!/insufficient|scope|permission/i.test(res.body)) return null;
+  return new Error(
+    `YouTube refused (${res.status}): the refresh token lacks the youtube.force-ssl scope. ` +
+      "Re-run scripts/one-time-get-youtube-refresh-token.js and update the YT_REFRESH_TOKEN secret."
+  );
+}
+
+// GET videos?part=snippet for up to 50 ids. Returns { [id]: snippet }.
+// Needs the youtube.force-ssl (or youtube / youtube.readonly) scope.
+async function getVideoSnippets(accessToken, ids) {
+  const out = {};
+  for (let i = 0; i < ids.length; i += 50) {
+    const batch = ids.slice(i, i + 50);
+    const res = await httpsRequest(
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${batch.map(encodeURIComponent).join(",")}`,
+      { method: "GET", headers: { Authorization: `Bearer ${accessToken}` } }
+    );
+    const err = scopeError(res);
+    if (err) throw err;
+    if (res.status !== 200) throw new Error(`videos.list failed (${res.status}): ${res.body.slice(0, 300)}`);
+    for (const item of JSON.parse(res.body).items || []) out[item.id] = item.snippet;
+  }
+  return out;
+}
+
+// PUT videos?part=snippet. YouTube replaces the whole snippet, so `snippet`
+// must carry every field to keep (title, description, tags, categoryId, ...).
+// Costs 50 quota units. Needs the youtube.force-ssl (or youtube) scope.
+async function updateVideoSnippet(accessToken, videoId, snippet) {
+  const payload = JSON.stringify({ id: videoId, snippet });
+  const res = await httpsRequest(
+    "https://www.googleapis.com/youtube/v3/videos?part=snippet",
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json; charset=UTF-8",
+        "Content-Length": Buffer.byteLength(payload),
+      },
+    },
+    payload
+  );
+  const err = scopeError(res);
+  if (err) throw err;
+  if (res.status !== 200) throw new Error(`videos.update failed for ${videoId} (${res.status}): ${res.body.slice(0, 300)}`);
+  return JSON.parse(res.body);
+}
+
 module.exports = {
   httpsRequest,
+  getVideoSnippets,
+  updateVideoSnippet,
   getAccessToken,
   initResumableUpload,
   putVideoBytes,

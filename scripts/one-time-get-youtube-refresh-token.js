@@ -16,7 +16,13 @@ const { URL } = require("url");
 const CLIENT_ID = process.env.YT_CLIENT_ID;
 const CLIENT_SECRET = process.env.YT_CLIENT_SECRET;
 const REDIRECT_URI = "http://localhost:8080/oauth2callback";
-const SCOPE = "https://www.googleapis.com/auth/youtube.upload";
+// youtube.upload: the monthly pipeline's uploads. youtube.force-ssl: editing
+// existing videos (retitle-youtube-videos.js) — and later captions and
+// playlists. One token carries both, so YT_REFRESH_TOKEN stays one secret.
+const SCOPE = [
+  "https://www.googleapis.com/auth/youtube.upload",
+  "https://www.googleapis.com/auth/youtube.force-ssl",
+].join(" ");
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
   console.error("Set YT_CLIENT_ID and YT_CLIENT_SECRET environment variables first.");

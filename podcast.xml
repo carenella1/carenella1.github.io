@@ -6,7 +6,7 @@
 <atom:link href="https://carenella1.github.io/podcast.xml" rel="self" type="application/rss+xml"/>
 <language>en-us</language>
 <copyright>© 2026 Chase Arenella</copyright>
-<lastBuildDate>Tue, 06 Oct 2026 04:24:58 GMT</lastBuildDate>
+<lastBuildDate>Wed, 28 Oct 2026 20:05:32 GMT</lastBuildDate>
 <description>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</description>
 <itunes:summary>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</itunes:summary>
 <itunes:author>Chase Arenella</itunes:author>
@@ -23,6 +23,19 @@
 </itunes:category>
 <itunes:category text="Technology"/>
 <itunes:explicit>false</itunes:explicit>
+<item>
+<title>Tilt Management: The Competitive-Gaming Skill Every High-Pressure Leader Needs</title>
+<link>https://carenella1.github.io/articles/18-tilt-management-the-competitive-gaming-skill.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/18-tilt-management-the-competitive-gaming-skill.html#podcast</guid>
+<pubDate>Wed, 28 Oct 2026 20:05:32 GMT</pubDate>
+<description><![CDATA[Tilt isn't a gaming term for weak players. It's a decision-quality problem every leader faces and almost nobody names. Read the full article: https://carenella1.github.io/articles/18-tilt-management-the-competitive-gaming-skill.html]]></description>
+<itunes:summary><![CDATA[Tilt isn't a gaming term for weak players. It's a decision-quality problem every leader faces and almost nobody names.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/18-tilt-management-the-competitive-gaming-skill.mp3" length="2599341" type="audio/mpeg"/>
+<itunes:duration>162</itunes:duration>
+</item>
 <item>
 <title>Meta Awareness: The Strategy Shift Executives See Too Late</title>
 <link>https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html</link>

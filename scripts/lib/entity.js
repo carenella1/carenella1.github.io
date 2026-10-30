@@ -12,6 +12,7 @@ const CANONICAL_SAMEAS = [
   "https://x.com/ChaseAIHub",
   "https://www.linkedin.com/in/chase-arenella/",
   "https://www.youtube.com/@ChaseOfSpadez",
+  "https://chasearenella.com/",
 ];
 
 const CANONICAL_IMAGE =

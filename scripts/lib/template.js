@@ -77,7 +77,8 @@ function renderFooter(year) {
   <a href="/media.html">Media</a> •
   <a href="/videos.html">Videos</a> •
   <a href="/contact.html">Contact</a> •
-  <a href="https://aiproductivityguide.substack.com/" rel="noopener">AI Productivity Lab (Substack)</a>
+  <a href="https://aiproductivityguide.substack.com/" rel="noopener">AI Productivity Lab (Substack)</a> •
+  <a href="https://chasearenella.com/">Chase Arenella Field Guide</a>
 </p>
 <p style="margin-top:8px;">© ${year} Chase Arenella • <a href="https://carenella1.github.io/">https://carenella1.github.io/</a></p>
 </footer>`;

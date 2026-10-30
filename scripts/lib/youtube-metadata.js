@@ -33,6 +33,7 @@ function buildMetadata(article) {
     "About Chase Arenella: Chase Arenella writes about AI-augmented leadership, agile systems thinking, and what competitive gaming and sports teach about leading teams.",
     "",
     `Website: ${SITE_URL}/`,
+    "Field guide: https://chasearenella.com/",
     `All articles: ${SITE_URL}/articles.html`,
     "LinkedIn: https://www.linkedin.com/in/chase-arenella/",
     "Substack: https://aiproductivityguide.substack.com/",

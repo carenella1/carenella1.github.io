@@ -10,7 +10,6 @@ const CANONICAL_SAMEAS = [
   "https://github.com/Carenella1",
   "https://aiproductivityguide.substack.com/",
   "https://x.com/ChaseAIHub",
-  "https://www.linkedin.com/in/chase-arenella/",
   "https://www.youtube.com/@ChaseOfSpadez",
   "https://chasearenella.com/",
 ];

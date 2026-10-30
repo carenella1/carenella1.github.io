@@ -35,7 +35,6 @@ function buildMetadata(article) {
     `Website: ${SITE_URL}/`,
     "Field guide: https://chasearenella.com/",
     `All articles: ${SITE_URL}/articles.html`,
-    "LinkedIn: https://www.linkedin.com/in/chase-arenella/",
     "Substack: https://aiproductivityguide.substack.com/",
     "X: https://x.com/ChaseAIHub",
     "",

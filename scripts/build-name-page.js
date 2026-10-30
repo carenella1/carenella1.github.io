@@ -31,7 +31,6 @@ const DESCRIPTION = `${FULL_NAME} writes about AI-augmented leadership, systems 
 const HERO_IMAGE = "chase-arenella-leadership-executive-01.jpg";
 
 const PROFILES = [
-  ["https://www.linkedin.com/in/chase-arenella/", "LinkedIn"],
   ["https://www.youtube.com/@ChaseOfSpadez", "YouTube"],
   ["https://aiproductivityguide.substack.com/", "Substack — AI Productivity Lab"],
   ["https://github.com/Carenella1", "GitHub"],

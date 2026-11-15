@@ -6,7 +6,7 @@
 <atom:link href="https://carenella1.github.io/podcast.xml" rel="self" type="application/rss+xml"/>
 <language>en-us</language>
 <copyright>© 2026 Chase Arenella</copyright>
-<lastBuildDate>Sun, 01 Nov 2026 12:29:04 GMT</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 13:16:36 GMT</lastBuildDate>
 <description>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</description>
 <itunes:summary>Short audio editions of Chase Arenella's articles on AI-augmented leadership, agile systems thinking, decision-making, and what competitive gaming and sports teach about leading teams.</itunes:summary>
 <itunes:author>Chase Arenella</itunes:author>
@@ -23,6 +23,19 @@
 </itunes:category>
 <itunes:category text="Technology"/>
 <itunes:explicit>false</itunes:explicit>
+<item>
+<title>Timeout Culture: What Coaches Understand About Killing a Bad Pattern Early</title>
+<link>https://carenella1.github.io/articles/20-timeout-culture-what-coaches-understand-about.html</link>
+<guid isPermaLink="false">https://carenella1.github.io/articles/20-timeout-culture-what-coaches-understand-about.html#podcast</guid>
+<pubDate>Sun, 15 Nov 2026 13:16:36 GMT</pubDate>
+<description><![CDATA[Basketball coaches call timeouts on patterns, not scoreboards. Most leaders wait too long. Here's why interrupting early beats letting it play out. Read the full article: https://carenella1.github.io/articles/20-timeout-culture-what-coaches-understand-about.html]]></description>
+<itunes:summary><![CDATA[Basketball coaches call timeouts on patterns, not scoreboards. Most leaders wait too long. Here's why interrupting early beats letting it play out.]]></itunes:summary>
+<itunes:author>Chase Arenella</itunes:author>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:explicit>false</itunes:explicit>
+<enclosure url="https://carenella1.github.io/assets/audio/20-timeout-culture-what-coaches-understand-about.mp3" length="2121644" type="audio/mpeg"/>
+<itunes:duration>0</itunes:duration>
+</item>
 <item>
 <title>Scrims, Not Status Meetings: A Better Model for Team Retrospectives</title>
 <link>https://carenella1.github.io/articles/19-scrims-not-status-meetings-a-better-model-for.html</link>

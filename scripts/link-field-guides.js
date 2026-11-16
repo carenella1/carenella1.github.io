@@ -48,6 +48,8 @@ ${END}`;
 }
 
 function withBox(html, box) {
+  // Match the file's line endings (CRLF on a Windows checkout) so reruns are no-ops.
+  if (html.includes("\r\n")) box = box.replace(/\n/g, "\r\n");
   if (MARKERS.test(html)) return html.replace(MARKERS, box);
   for (const anchor of [/<h2[^>]*>Explore Related Ideas<\/h2>/, /<div class="footer">/, /<footer\b/]) {
     const m = html.match(anchor);

@@ -25,6 +25,8 @@ const FPS = 25;
 const MAX_SECONDS = 58; // Shorts are up to 60s; leave a margin
 const MAX_TEMPO = 1.15; // speed narration up at most this much to fit
 const IMAGES_PER_SHORT = 3;
+const PHOTO_TOP = 470;
+const BOLD_FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf";
 
 const BLOCKED = [
   { re: /\bscott\b/i, why: "the full legal name" },
@@ -257,7 +259,7 @@ function textLines({ workDir, name, text, maxChars, size, color, y, lineGap, ena
 }
 
 async function renderShort({ script, images, audioPath, outPath, workDir }) {
-  const fontPath = await resolveFont();
+  const fontPath = fs.existsSync(BOLD_FONT) ? BOLD_FONT : await resolveFont();
   if (!fontPath) throw new Error("No DejaVu font found; install fonts-dejavu-core");
   const audioSeconds = await getAudioDuration(audioPath);
   const tempo = audioSeconds > MAX_SECONDS ? audioSeconds / MAX_SECONDS : 1;
@@ -271,7 +273,9 @@ async function renderShort({ script, images, audioPath, outPath, workDir }) {
       `[${i}:v]split=2[bg${i}][fg${i}];` +
       `[bg${i}]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},gblur=sigma=30,eq=brightness=-0.12,setsar=1[bgb${i}];` +
       `[fg${i}]scale=${W}:${H}:force_original_aspect_ratio=decrease,setsar=1[fgf${i}];` +
-      `[bgb${i}][fgf${i}]overlay=(W-w)/2:(H-h)/2,` +
+      // Top of the photo starts just under the headline band, so faces
+      // (usually in a portrait's upper third) sit clear of both text bands.
+      `[bgb${i}][fgf${i}]overlay=(W-w)/2:${PHOTO_TOP},` +
       `zoompan=z='min(zoom+${zoomStep},1.08)':d=${framesPer}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},setsar=1[v${i}]`
   );
   const concat = `${images.map((_, i) => `[v${i}]`).join("")}concat=n=${images.length}:v=1:a=0[slides]`;
@@ -280,7 +284,7 @@ async function renderShort({ script, images, audioPath, outPath, workDir }) {
   const common = { workDir, fontPath, lineGap: 14 };
   const slot = (seconds - 0.4) / script.captions.length;
   const overlays = [
-    `drawbox=x=0:y=0:w=iw:h=560:color=black@0.55:t=fill`,
+    `drawbox=x=0:y=0:w=iw:h=${PHOTO_TOP}:color=black@0.45:t=fill`,
     `drawbox=x=0:y=1240:w=iw:h=680:color=black@0.55:t=fill`,
     ...textLines({ ...common, name: "brand", text: "CHASE ARENELLA", maxChars: 40, size: 42, color: "0x8cc1e8", y: 120 }),
     ...textLines({ ...common, name: "hook", text: script.hook, maxChars: 22, size: 70, color: "white", y: 220 }),

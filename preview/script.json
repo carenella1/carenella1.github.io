@@ -1,0 +1,64 @@
+{
+  "source": {
+    "key": "article-19-scrims-not-status-meetings-a-better-model-for",
+    "kind": "essay",
+    "title": "Scrims, Not Status Meetings: A Better Model for Team Retrospectives",
+    "url": "https://carenella1.github.io/articles/19-scrims-not-status-meetings-a-better-model-for.html",
+    "pillar": "gaming-strategy",
+    "text": "Scrims review decisions under real pressure and study them immediately, while status meetings only audit whether tasks got done. A retrospective should study decisions, not recite deadlines. That is what scrims are built for. Status Meetings Audit Dates, Not Decisions Most status meetings ask three questions: what's done, what's blocked, what's next. That's a calendar audit. It tells you where the schedule stands. It tells you nothing about whether the team made good decisions along the way, or whether those decisions were lucky. Teams leave these meetings informed but not sharper. Nothing about the format forces anyone to examine how a call was made, only whether the task got finished. A team can hit every deadline this quarter and still repeat the same reasoning errors it made last quarter, because nobody ever reviewed the reasoning. What a Scrim Actually Trains A scrim is a structured practice match played against real competition, reviewed immediately afterward for decision quality. Competitive teams don't scrim to find out who wins. They scrim to generate decisions worth studying, then study them while the context is still fresh. The review happens round by round, not once at the end. What did we see. What did we call. What should the call have been, given what we knew at that moment. No single round carries much weight on its own. The pattern across dozens of rounds does. Three Things Scrims Do That Status Meetings Don't The scrim format works because it separates performance review from outcome review. A team can lose the scrim and still leave with a sharper playbook, because the loss was never the point. Scrims review decisions, not deliverables. The question is never  did we finish  — it's  was that the right call given what we knew at the time.  Scrims treat each match as data, not a verdict. One bad round doesn't define the team's competence, it defines one decision worth studying closer. Scrims happen often enough to compound. A weekly status meeting resets context every time it starts. A scrim-style retro builds a growing record of patterns the team can actually learn from. Running a Retro Like a Scrim Applying this to a team retrospective doesn't require new software or a longer meeting. It requires a different set of questions, asked about fewer things. Five minutes on one real decision beats forty-five minutes of status updates nobody will remember by Friday. Pick one real decision point from the week, not the whole sprint. Ask what information was available at the time the call was made. Ask what the call actually was, and who made it. Ask what a better call would have required: more data, more time, a different owner. Log the answer somewhere the team will actually see again. The Payoff Is Pattern Recognition Status meetings produce updates. Scrim-style retros produce pattern recognition. Over a quarter, a team that reviews decisions instead of deliverables starts to see its own recurring mistakes before those mistakes get expensive. The shift is cultural, not procedural. Once a team starts grading its decisions instead of its deadlines, everyone starts bringing better information to the table, because they know it's going to get studied. A team that studies its calls gets sharper. A team that studies its calendar gets current."
+  },
+  "script": {
+    "title": "Run Team Retrospectives Like Scrims, Not Status Meetings",
+    "hook": "Your retro audits dates, not decisions",
+    "narration": "Your team can hit every deadline and still repeat the same mistakes. Most retros are really status meetings. What's done, what's blocked, what's next. That's a calendar audit. It never asks how a call was made. Competitive teams run scrims, practice matches reviewed right away for decision quality. So run your retro like a scrim. Pick one real decision from this week. Ask what information was available when the call was made. Ask what the call was, and who made it. Ask what a better call would have needed. More data, more time, or a different owner. Then log it where the team will see it again. A team that studies its calls gets sharper. The full essay is linked below.",
+    "captions": [
+      "Deadlines met, mistakes repeated",
+      "Status meetings audit the calendar",
+      "Scrims review decision quality",
+      "Pick one real decision this week",
+      "What was known? What was the call?",
+      "Log it where the team will see it"
+    ],
+    "description": "Status meetings track deadlines, not decisions. Here's how to run a team retrospective like a competitive scrim and start spotting your recurring mistakes.",
+    "scenes": [
+      "A wall calendar in a quiet office with every date crossed out in red marker, morning light falling across an empty desk and a cold coffee mug",
+      "A dim esports practice room at night with empty gaming chairs, headsets resting on desks, and monitors glowing with blurred abstract colors",
+      "A whiteboard in a small meeting room with a single circled sticky note and arrows branching outward, markers lined up on the tray below"
+    ]
+  },
+  "scenes": [
+    {
+      "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-1.jpg",
+      "alt": "A wall calendar in a quiet office with every date crossed out in red marker, morning light falling across an empty desk and a cold coffee mug (Chase Arenella)"
+    },
+    {
+      "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-2.jpg",
+      "alt": "A dim esports practice room at night with empty gaming chairs, headsets resting on desks, and monitors glowing with blurred abstract colors (Chase Arenella)"
+    },
+    {
+      "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-3.jpg",
+      "alt": "A whiteboard in a small meeting room with a single circled sticky note and arrows branching outward, markers lined up on the tray below (Chase Arenella)"
+    }
+  ],
+  "metadata": {
+    "snippet": {
+      "title": "Chase Arenella: Run Team Retrospectives Like Scrims, Not Status Meetings #Shorts",
+      "description": "Status meetings track deadlines, not decisions. Here's how to run a team retrospective like a competitive scrim and start spotting your recurring mistakes.\n\nFull essay: https://carenella1.github.io/articles/19-scrims-not-status-meetings-a-better-model-for.html\n\nWebsite: https://carenella1.github.io/\nField guide: https://chasearenella.com/\nAll videos: https://carenella1.github.io/videos.html\n\n#Shorts #ChaseArenella #Leadership",
+      "tags": [
+        "Chase Arenella",
+        "ChaseOfSpadez",
+        "Shorts",
+        "leadership",
+        "systems thinking",
+        "decision making"
+      ],
+      "categoryId": "27",
+      "defaultLanguage": "en",
+      "defaultAudioLanguage": "en"
+    },
+    "status": {
+      "privacyStatus": "public",
+      "selfDeclaredMadeForKids": false
+    }
+  }
+}

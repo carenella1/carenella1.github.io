@@ -192,6 +192,8 @@ ${renderNav()}
 <!-- MEDIA_SECTION_START -->
 <!-- MEDIA_SECTION_END -->
 ${sectionsHtml}
+<!-- FIELD_GUIDE_START -->
+<!-- FIELD_GUIDE_END -->
 <h2>Explore Related Ideas</h2>
 <ul>
 ${relatedHtml}

@@ -111,6 +111,10 @@ jobs:
             sed -i "s#</ul>#<li><a href=\"/maintenance/${{ env.MONTH }}/\">${{ env.MONTH }}</a></li>\n</ul>#" maintenance/index.html
           fi
 
+      - name: Link essays to their chasearenella.com field guides
+        continue-on-error: true
+        run: node scripts/link-field-guides.js
+
       - name: Commit Changes If Any
         run: |
           git config user.name "github-actions"

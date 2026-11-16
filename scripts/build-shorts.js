@@ -14,6 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const { getAccessToken, uploadVideo } = require("./lib/youtube");
 const shorts = require("./lib/shorts");
+const { renderScenes } = require("./lib/scenes");
 
 const RUNNER_TEMP = process.env.RUNNER_TEMP || require("os").tmpdir();
 const args = process.argv.slice(2);
@@ -27,23 +28,32 @@ async function make(source, workDir) {
   const script = await shorts.writeScript(source);
   console.log(`[${source.key}] "${script.title}"\n  ${script.narration}`);
   const audioPath = await shorts.narrate(script.narration, path.join(workDir, "narration.mp3"));
-  const rotation = JSON.parse(fs.readFileSync("content/image-rotation.json", "utf8"));
-  const images = shorts.pickImages(rotation, source.pillar, source.key);
+  let scenes;
+  try {
+    scenes = await renderScenes(script.scenes, { name: `short-${source.key}`, size: "1024x1536" });
+  } catch (e) {
+    // A Short with recycled images beats no Short.
+    console.warn(`[${source.key}] scene images failed (${e.message}); using the image pool`);
+    const rotation = JSON.parse(fs.readFileSync("content/image-rotation.json", "utf8"));
+    scenes = shorts.pickImages(rotation, source.pillar, source.key).map((file) => ({ file, alt: null }));
+  }
+  const images = scenes.map((s) => s.file);
   console.log(`[${source.key}] rendering with ${images.join(", ")}`);
   const video = await shorts.renderShort({ script, images, audioPath, outPath: path.join(workDir, `${source.key}.mp4`), workDir });
   console.log(`[${source.key}] ${video.durationSeconds.toFixed(1)}s`);
-  return { script, video };
+  return { script, video, scenes: scenes.filter((s) => s.alt) };
 }
 
-async function savePreview(source, { script, video }) {
+async function savePreview(source, { script, video, scenes }) {
   const { execFile } = require("child_process");
   const run = require("util").promisify(execFile);
   fs.mkdirSync(PREVIEW_DIR, { recursive: true });
   fs.copyFileSync(video.outPath, path.join(PREVIEW_DIR, "short.mp4"));
+  for (const s of scenes) fs.copyFileSync(path.join("assets", "images", s.file), path.join(PREVIEW_DIR, path.basename(s.file)));
   for (const [i, t] of [1, video.durationSeconds / 2, video.durationSeconds - 2].entries()) {
     await run("ffmpeg", ["-y", "-ss", t.toFixed(2), "-i", video.outPath, "-frames:v", "1", path.join(PREVIEW_DIR, `frame-${i + 1}.png`)]);
   }
-  fs.writeFileSync(path.join(PREVIEW_DIR, "script.json"), JSON.stringify({ source, script, metadata: shorts.buildShortMetadata(source, script) }, null, 2));
+  fs.writeFileSync(path.join(PREVIEW_DIR, "script.json"), JSON.stringify({ source, script, scenes, metadata: shorts.buildShortMetadata(source, script) }, null, 2));
   console.log(`Preview written to ${PREVIEW_DIR}`);
 }
 
@@ -87,6 +97,7 @@ async function main() {
         description: made.script.description,
         sourceUrl: source.url,
         sourceKind: source.kind,
+        images: made.scenes,
         durationSeconds: Math.round(made.video.durationSeconds),
         uploadDate: new Date().toISOString(),
       });

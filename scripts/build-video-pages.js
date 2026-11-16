@@ -43,11 +43,13 @@ function buildVideoSitemap(videos) {
       <video:publication_date>${escapeXml(v.uploadDate)}</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
-    </video:video>
+    </video:video>${(v.images || [])
+      .map((img) => `\n    <image:image><image:loc>https://carenella1.github.io/assets/images/${escapeXml(img.file)}</image:loc></image:image>`)
+      .join("")}
   </url>`
   );
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${entries.join("\n")}
 </urlset>
 `;
@@ -69,11 +71,17 @@ function updateMainSitemap(videos) {
 
 const newestFirst = (a, b) => new Date(b.uploadDate) - new Date(a.uploadDate);
 
+// Scene images generated for long-form videos (scripts/build-video.js).
+const videoImages = fs.existsSync("content/video-images.json")
+  ? JSON.parse(fs.readFileSync("content/video-images.json", "utf8"))
+  : {};
+
 const longForm = fs
   .readdirSync("articles")
   .filter((f) => f.endsWith(".html"))
   .map((f) => readArticleVideo(path.join("articles", f)))
   .filter(Boolean)
+  .map((v) => ({ ...v, images: videoImages[v.slug] || [] }))
   .sort(newestFirst);
 
 // Shorts (scripts/build-shorts.js) get watch pages too: each is another
@@ -87,6 +95,7 @@ const shortVideos = readShorts()
     description: s.description,
     thesis: s.hook,
     headings: s.captions,
+    images: s.images || [],
     videoId: s.videoId,
     uploadDate: s.uploadDate,
     durationSeconds: s.durationSeconds,

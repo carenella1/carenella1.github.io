@@ -60,6 +60,9 @@ jobs:
         id: video
         continue-on-error: true
         run: node scripts/build-video.js
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Upload to YouTube
         id: youtube
@@ -104,7 +107,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -b "$BRANCH"
-          git add articles/ articles.html sitemap.xml image-sitemap.xml video-sitemap.xml videos/ videos.html chase-scott-arenella.html leadership.html content/ assets/audio/ podcast.xml
+          git add articles/ articles.html sitemap.xml image-sitemap.xml video-sitemap.xml videos/ videos.html chase-scott-arenella.html leadership.html content/ assets/audio/ assets/images/generated/ podcast.xml
 
           if git diff --cached --quiet; then
             echo "No changes to commit — nothing to open a PR for."

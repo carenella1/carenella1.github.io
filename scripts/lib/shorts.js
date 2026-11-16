@@ -2,18 +2,20 @@
 // per guide on chasearenella.com. Used by scripts/build-shorts.js.
 //
 // Each Short is generated end to end, nothing recorded: Claude condenses the
-// source into a script, OpenAI TTS narrates it (same voice as the long-form
-// videos), and ffmpeg renders the site's images with on-screen captions.
+// source into a script plus three scene descriptions, OpenAI generates those
+// scenes as images (lib/scenes.js) and narrates the script (same voice as the
+// long-form videos), and ffmpeg renders it all with on-screen captions.
 //
 // Privacy rules (same as the rest of the site): the script may only use the
 // name "Chase Arenella" (or ChaseOfSpadez), never the full legal name, never
 // LinkedIn, never anything about legal matters. BLOCKED enforces it.
 const fs = require("fs");
 const path = require("path");
-const https = require("https");
 const { execFile } = require("child_process");
 const { promisify } = require("util");
 const { getAudioDuration, resolveFont } = require("./video");
+const { callClaude, textToSpeech } = require("./api");
+const { SCENE_RULES } = require("./scenes");
 const execFileP = promisify(execFile);
 
 const SITE_URL = "https://carenella1.github.io";
@@ -33,6 +35,9 @@ const BLOCKED = [
   { re: /linkedin/i, why: "a LinkedIn reference" },
   { re: /expunge|arrest|lawsuit|criminal|conviction/i, why: "a legal-matter reference" },
 ];
+
+// Scenes must show places and objects only (see lib/scenes.js).
+const PEOPLE = /\b(person|people|man|woman|men|women|face|faces|hands?|silhouettes?|crowd|team members?)\b/i;
 
 const GUIDE_PILLAR = "systems-thinking"; // image pool for guides with no linked essay
 
@@ -116,8 +121,13 @@ const SCRIPT_SCHEMA = {
       description: "4 to 6 on-screen key points in narration order, each at most 40 characters",
     },
     description: { type: "string", description: "1-2 sentence YouTube description, at most 220 characters" },
+    scenes: {
+      type: "array",
+      items: { type: "string" },
+      description: "3 photograph descriptions, one per third of the narration, each 15-30 words",
+    },
   },
-  required: ["title", "hook", "narration", "captions", "description"],
+  required: ["title", "hook", "narration", "captions", "description", "scenes"],
   additionalProperties: false,
 };
 
@@ -137,62 +147,18 @@ Rules:
 - title: a specific, searchable title for the idea (not clickbait), at most 60 characters, without the author's name.
 - hook: the on-screen headline, at most 44 characters.
 - captions: 4 to 6 short on-screen key points that follow the narration's order, each at most 40 characters.
-- description: 1-2 sentences, at most 220 characters.${correction ? `\n\nYour previous attempt was rejected: ${correction}. Fix that.` : ""}`;
-}
-
-function httpsPostJson(url, headers, payload) {
-  return new Promise((resolve, reject) => {
-    const data = JSON.stringify(payload);
-    const req = https.request(
-      url,
-      { method: "POST", headers: { ...headers, "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) } },
-      (res) => {
-        const chunks = [];
-        res.on("data", (c) => chunks.push(c));
-        res.on("end", () => resolve({ status: res.statusCode, body: Buffer.concat(chunks) }));
-      }
-    );
-    req.on("error", reject);
-    req.write(data);
-    req.end();
-  });
-}
-
-// Raw HTTPS like the rest of the pipeline (the repo has no npm dependencies).
-// Structured output guarantees the JSON shape; refusals fall back server-side.
-async function callClaude(prompt) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not set");
-  const res = await httpsPostJson(
-    "https://api.anthropic.com/v1/messages",
-    {
-      "x-api-key": apiKey,
-      "anthropic-version": "2026-10-21",
-      "anthropic-beta": "server-side-fallback-2026-07-01",
-    },
-    {
-      model: "claude-opus-5-5",
-      max_tokens: 16000,
-      fallbacks: "default",
-      output_config: { effort: "medium", format: { type: "json_schema", schema: SCRIPT_SCHEMA } },
-      messages: [{ role: "user", content: prompt }],
-    }
-  );
-  const body = res.body.toString();
-  if (res.status !== 200) throw new Error(`Anthropic API returned ${res.status}: ${body.slice(0, 500)}`);
-  const parsed = JSON.parse(body);
-  if (parsed.stop_reason === "refusal") throw new Error("Claude declined to write this script");
-  if (parsed.stop_reason === "max_tokens") throw new Error("Claude's reply was cut off (max_tokens)");
-  const text = (parsed.content || []).filter((b) => b.type === "text").map((b) => b.text).join("");
-  return JSON.parse(text);
+- description: 1-2 sentences, at most 220 characters.
+- scenes: exactly 3 photographs to show behind the captions, one per third of the narration. ${SCENE_RULES}${correction ? `\n\nYour previous attempt was rejected: ${correction}. Fix that.` : ""}`;
 }
 
 function checkScript(s) {
-  const all = [s.title, s.hook, s.narration, s.description, ...s.captions].join("\n");
+  const all = [s.title, s.hook, s.narration, s.description, ...s.captions, ...s.scenes].join("\n");
   for (const { re, why } of BLOCKED) if (re.test(all)) return `it contains ${why}`;
   const words = s.narration.split(/\s+/).filter(Boolean).length;
   if (words < 85 || words > 135) return `the narration is ${words} words; it must be 95 to 125`;
   if (s.captions.length < 4 || s.captions.length > 6) return `it has ${s.captions.length} captions; it needs 4 to 6`;
+  if (s.scenes.length !== IMAGES_PER_SHORT) return `it has ${s.scenes.length} scenes; it needs exactly ${IMAGES_PER_SHORT}`;
+  if (PEOPLE.test(s.scenes.join(" "))) return "a scene includes people; scenes must show only places and objects";
   if (s.captions.some((c) => c.length > 48)) return "a caption is over 40 characters";
   if (s.hook.length > 52) return "the hook is over 44 characters";
   if (s.title.length > 70) return "the title is over 60 characters";
@@ -203,7 +169,7 @@ async function writeScript(source) {
   const text = await sourceText(source);
   let correction = null;
   for (let attempt = 1; attempt <= 3; attempt++) {
-    const s = await callClaude(scriptPrompt(source, text, correction));
+    const s = await callClaude(scriptPrompt(source, text, correction), SCRIPT_SCHEMA);
     correction = checkScript(s);
     if (!correction) return s;
     console.warn(`  script attempt ${attempt} rejected: ${correction}`);
@@ -212,21 +178,14 @@ async function writeScript(source) {
 }
 
 async function narrate(text, outPath) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) throw new Error("OPENAI_API_KEY is not set");
-  const res = await httpsPostJson(
-    "https://api.openai.com/v1/audio/speech",
-    { Authorization: `Bearer ${apiKey}` },
-    { model: process.env.TTS_MODEL || "tts-1", voice: process.env.TTS_VOICE || "onyx", input: text, response_format: "mp3" }
-  );
-  if (res.status !== 200) throw new Error(`OpenAI TTS returned ${res.status}: ${res.body.toString().slice(0, 300)}`);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
-  fs.writeFileSync(outPath, res.body);
+  fs.writeFileSync(outPath, await textToSpeech(text));
   return outPath;
 }
 
-// A stable slice of the pillar's image pool, chosen by the source key, so
-// Shorts don't advance (or conflict over) the long-form videos' rotation.
+// Fallback when scene generation fails: a stable slice of the pillar's image
+// pool, chosen by the source key, so Shorts don't advance (or conflict over)
+// the long-form videos' rotation.
 function pickImages(rotation, pillar, key) {
   const pool = rotation.pools[pillar] || rotation.pools[GUIDE_PILLAR];
   let h = 0;

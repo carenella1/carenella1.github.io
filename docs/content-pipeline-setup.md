@@ -87,3 +87,11 @@ narrates it, and ffmpeg renders it vertically with on-screen captions
 To check a render without uploading anything, run the workflow manually with
 **preview** ticked. The mp4 and three frames land on the `shorts-preview`
 branch.
+
+**Images:** each video gets new scene images from the `OPENAI_API_KEY`
+image API (`scripts/lib/scenes.js`): 3 vertical images per Short, 5 landscape
+images per long-form video. They show places and objects only, never
+people. They're saved to `assets/images/generated/` and shown on the video's
+watch page. The shared pool in `content/image-rotation.json` is only a
+fallback when generation fails. Set the `IMAGE_MODEL` environment variable to
+change models (a comma-separated list, tried in order).

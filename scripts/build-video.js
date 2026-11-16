@@ -14,6 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const { recordStatus } = require("./lib/pipeline-status");
 const { renderSlideshow, pickSlideshowImages } = require("./lib/video");
+const { writeScenes, renderScenes } = require("./lib/scenes");
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const RUNNER_TEMP = process.env.RUNNER_TEMP || require("os").tmpdir();
@@ -29,13 +30,25 @@ async function main() {
   const audio = JSON.parse(fs.readFileSync(audioPath, "utf8"));
   const rotation = JSON.parse(fs.readFileSync("content/image-rotation.json", "utf8"));
 
-  const images = pickSlideshowImages(rotation, article.pillar, IMAGES_PER_VIDEO);
-  console.log(`Slideshow images (${images.length}): ${images.join(", ")}`);
-
   if (DRY_RUN) {
-    console.log("--dry-run: not invoking ffmpeg/ffprobe, not persisting rotation state.");
+    const pool = pickSlideshowImages(rotation, article.pillar, IMAGES_PER_VIDEO);
+    console.log(`--dry-run: would generate ${IMAGES_PER_VIDEO} scene images (pool fallback: ${pool.join(", ")}).`);
     return;
   }
+
+  // Scenes made for this essay (lib/scenes.js); the shared image pool is only
+  // the fallback, so videos stop recycling the same photos.
+  let scenes = [];
+  let images;
+  try {
+    const descriptions = await writeScenes({ title: article.title, text: article.bodyText, count: IMAGES_PER_VIDEO });
+    scenes = await renderScenes(descriptions, { name: article.slug, size: "1536x1024" });
+    images = scenes.map((s) => s.file);
+  } catch (e) {
+    console.warn(`Scene images failed (${e.message}); using the image pool.`);
+    images = pickSlideshowImages(rotation, article.pillar, IMAGES_PER_VIDEO);
+  }
+  console.log(`Slideshow images (${images.length}): ${images.join(", ")}`);
 
   console.log("Running ffmpeg...");
   const outPath = path.join(RUNNER_TEMP, "video", `${article.slug}.mp4`);
@@ -47,9 +60,16 @@ async function main() {
   });
   console.log(`Wrote ${outPath} (narration ${durationSeconds.toFixed(1)}s)`);
 
-  // Only persist rotation state after a successful build, so a failed run
-  // doesn't burn images out of the rotation for nothing.
-  fs.writeFileSync("content/image-rotation.json", JSON.stringify(rotation, null, 2) + "\n");
+  // Only persist after a successful build, so a failed run doesn't burn
+  // images out of the rotation (or list scenes for a video that never was).
+  if (scenes.length) {
+    const file = "content/video-images.json";
+    const all = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
+    all[article.slug] = scenes;
+    fs.writeFileSync(file, JSON.stringify(all, null, 2) + "\n");
+  } else {
+    fs.writeFileSync("content/image-rotation.json", JSON.stringify(rotation, null, 2) + "\n");
+  }
 
   fs.writeFileSync(
     path.join(RUNNER_TEMP, "pipeline-video.json"),

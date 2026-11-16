@@ -105,6 +105,12 @@ function renderWatchPage(v, allVideos) {
     },
   ];
 
+  // The generated scene images (lib/scenes.js), shown so they can be indexed.
+  const scenes = (v.images || []).length
+    ? `<h2>Scenes from this video</h2>\n<div class="grid">\n${v.images
+        .map((img) => `<img src="/assets/images/${img.file}" alt="${escapeHtml(img.alt)}" loading="lazy" style="width:100%;height:auto;border-radius:10px;"/>`)
+        .join("\n")}\n</div>\n`
+    : "";
   const keyPoints = v.headings.length
     ? `<h2>In this video</h2>\n<ul>\n${v.headings.map((h) => `<li>${escapeHtml(h)}</li>`).join("\n")}\n</ul>\n`
     : "";
@@ -123,7 +129,7 @@ function renderWatchPage(v, allVideos) {
   )}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <p class="subhead" style="margin-top:14px;">${escapeHtml(v.description)}</p>
 <p style="color:var(--muted);font-size:14px;">A ${minutes}-minute video by Chase Arenella • <a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a> • <a href="${v.articleUrl.replace(SITE_URL, "")}">${v.linkLabel || "Read the full article"}</a></p>
-${thesis}${keyPoints}<h2>More videos from Chase Arenella</h2>
+${thesis}${keyPoints}${scenes}<h2>More videos from Chase Arenella</h2>
 <ul>
 ${more}
 <li><a href="/videos.html">All videos</a></li>

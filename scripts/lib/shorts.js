@@ -1,0 +1,359 @@
+// YouTube Shorts: one ~45-second vertical video per essay on this site and
+// per guide on chasearenella.com. Used by scripts/build-shorts.js.
+//
+// Each Short is generated end to end, nothing recorded: Claude condenses the
+// source into a script, OpenAI TTS narrates it (same voice as the long-form
+// videos), and ffmpeg renders the site's images with on-screen captions.
+//
+// Privacy rules (same as the rest of the site): the script may only use the
+// name "Chase Arenella" (or ChaseOfSpadez), never the full legal name, never
+// LinkedIn, never anything about legal matters. BLOCKED enforces it.
+const fs = require("fs");
+const path = require("path");
+const https = require("https");
+const { execFile } = require("child_process");
+const { promisify } = require("util");
+const { getAudioDuration, resolveFont } = require("./video");
+const execFileP = promisify(execFile);
+
+const SITE_URL = "https://carenella1.github.io";
+const GUIDE_SITE = "https://chasearenella.com";
+const SHORTS_FILE = "content/shorts.json";
+const W = 1080;
+const H = 1920;
+const FPS = 25;
+const MAX_SECONDS = 58; // Shorts are up to 60s; leave a margin
+const MAX_TEMPO = 1.15; // speed narration up at most this much to fit
+const IMAGES_PER_SHORT = 3;
+
+const BLOCKED = [
+  { re: /\bscott\b/i, why: "the full legal name" },
+  { re: /linkedin/i, why: "a LinkedIn reference" },
+  { re: /expunge|arrest|lawsuit|criminal|conviction/i, why: "a legal-matter reference" },
+];
+
+const GUIDE_PILLAR = "systems-thinking"; // image pool for guides with no linked essay
+
+function readShorts() {
+  return fs.existsSync(SHORTS_FILE) ? JSON.parse(fs.readFileSync(SHORTS_FILE, "utf8")) : [];
+}
+
+function writeShorts(list) {
+  fs.writeFileSync(SHORTS_FILE, JSON.stringify(list, null, 2) + "\n");
+}
+
+function stripTags(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// Every Short that could exist: essays (newest first) and guides, interleaved
+// so consecutive uploads alternate between the two.
+async function loadSources() {
+  const index = JSON.parse(fs.readFileSync("content/articles-index.json", "utf8"));
+  const pillarByUrl = {};
+  const articles = index
+    .slice()
+    .reverse()
+    .map((a) => {
+      const url = `${SITE_URL}/articles/${a.slug}.html`;
+      pillarByUrl[url] = a.pillar;
+      return { key: `article-${a.slug}`, kind: "essay", title: a.title, url, pillar: a.pillar, text: a.bodyText || a.summary };
+    });
+
+  let guides = [];
+  try {
+    const res = await fetch(`${GUIDE_SITE}/guides.json`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    guides = (await res.json()).map((g) => ({
+      key: `guide-${new URL(g.url).pathname.replace(/\//g, "")}`,
+      kind: "guide",
+      title: g.title,
+      url: g.url,
+      pillar: pillarByUrl[g.essay] || GUIDE_PILLAR,
+      text: null, // fetched lazily, only for guides that get built
+    }));
+  } catch (e) {
+    console.warn(`Could not load the field guide index (${e.message}); essays only this run.`);
+  }
+
+  const out = [];
+  for (let i = 0; i < Math.max(articles.length, guides.length); i++) {
+    if (articles[i]) out.push(articles[i]);
+    if (guides[i]) out.push(guides[i]);
+  }
+  return out;
+}
+
+async function sourceText(source) {
+  if (source.text) return source.text;
+  const res = await fetch(source.url);
+  if (!res.ok) throw new Error(`fetching ${source.url}: HTTP ${res.status}`);
+  const html = await res.text();
+  const m = html.match(/<article class="guide">([\s\S]*?)<\/article>/);
+  return stripTags(m ? m[1] : html);
+}
+
+const SCRIPT_SCHEMA = {
+  type: "object",
+  properties: {
+    title: { type: "string", description: "YouTube title without the author's name, at most 60 characters" },
+    hook: { type: "string", description: "On-screen headline, at most 44 characters" },
+    narration: { type: "string", description: "Voiceover script, 95 to 125 words" },
+    captions: {
+      type: "array",
+      items: { type: "string" },
+      description: "4 to 6 on-screen key points in narration order, each at most 40 characters",
+    },
+    description: { type: "string", description: "1-2 sentence YouTube description, at most 220 characters" },
+  },
+  required: ["title", "hook", "narration", "captions", "description"],
+  additionalProperties: false,
+};
+
+function scriptPrompt(source, text, correction) {
+  return `Write a YouTube Short (about 45 seconds, vertical, narrated by a text-to-speech voice) that condenses this ${source.kind} by Chase Arenella into one useful idea.
+
+${source.kind.toUpperCase()} TITLE: ${source.title}
+${source.kind.toUpperCase()} TEXT:
+${text}
+
+Rules:
+- Teach the single most useful idea in the source, concretely. Open with a hook sentence that states a tension or a surprising claim; no greetings, no "in this video".
+- Narration: 95 to 125 words, short spoken sentences, plain words a voice reads well. No lists read aloud, no URLs, no hashtags, no emoji.
+- End the narration with one sentence pointing to the full ${source.kind === "guide" ? "guide" : "essay"} linked below.
+- Use only ideas in the source. Don't invent facts, numbers, or personal details about Chase Arenella. Refer to the author only as "Chase Arenella", and only if needed.
+- Never mention legal matters or LinkedIn.
+- title: a specific, searchable title for the idea (not clickbait), at most 60 characters, without the author's name.
+- hook: the on-screen headline, at most 44 characters.
+- captions: 4 to 6 short on-screen key points that follow the narration's order, each at most 40 characters.
+- description: 1-2 sentences, at most 220 characters.${correction ? `\n\nYour previous attempt was rejected: ${correction}. Fix that.` : ""}`;
+}
+
+function httpsPostJson(url, headers, payload) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(payload);
+    const req = https.request(
+      url,
+      { method: "POST", headers: { ...headers, "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) } },
+      (res) => {
+        const chunks = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve({ status: res.statusCode, body: Buffer.concat(chunks) }));
+      }
+    );
+    req.on("error", reject);
+    req.write(data);
+    req.end();
+  });
+}
+
+// Raw HTTPS like the rest of the pipeline (the repo has no npm dependencies).
+// Structured output guarantees the JSON shape; refusals fall back server-side.
+async function callClaude(prompt) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY is not set");
+  const res = await httpsPostJson(
+    "https://api.anthropic.com/v1/messages",
+    {
+      "x-api-key": apiKey,
+      "anthropic-version": "2026-10-21",
+      "anthropic-beta": "server-side-fallback-2026-07-01",
+    },
+    {
+      model: "claude-opus-5-5",
+      max_tokens: 16000,
+      fallbacks: "default",
+      output_config: { effort: "medium", format: { type: "json_schema", schema: SCRIPT_SCHEMA } },
+      messages: [{ role: "user", content: prompt }],
+    }
+  );
+  const body = res.body.toString();
+  if (res.status !== 200) throw new Error(`Anthropic API returned ${res.status}: ${body.slice(0, 500)}`);
+  const parsed = JSON.parse(body);
+  if (parsed.stop_reason === "refusal") throw new Error("Claude declined to write this script");
+  if (parsed.stop_reason === "max_tokens") throw new Error("Claude's reply was cut off (max_tokens)");
+  const text = (parsed.content || []).filter((b) => b.type === "text").map((b) => b.text).join("");
+  return JSON.parse(text);
+}
+
+function checkScript(s) {
+  const all = [s.title, s.hook, s.narration, s.description, ...s.captions].join("\n");
+  for (const { re, why } of BLOCKED) if (re.test(all)) return `it contains ${why}`;
+  const words = s.narration.split(/\s+/).filter(Boolean).length;
+  if (words < 85 || words > 135) return `the narration is ${words} words; it must be 95 to 125`;
+  if (s.captions.length < 4 || s.captions.length > 6) return `it has ${s.captions.length} captions; it needs 4 to 6`;
+  if (s.captions.some((c) => c.length > 48)) return "a caption is over 40 characters";
+  if (s.hook.length > 52) return "the hook is over 44 characters";
+  if (s.title.length > 70) return "the title is over 60 characters";
+  return null;
+}
+
+async function writeScript(source) {
+  const text = await sourceText(source);
+  let correction = null;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const s = await callClaude(scriptPrompt(source, text, correction));
+    correction = checkScript(s);
+    if (!correction) return s;
+    console.warn(`  script attempt ${attempt} rejected: ${correction}`);
+  }
+  throw new Error(`no acceptable script after 3 attempts (${correction})`);
+}
+
+async function narrate(text, outPath) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("OPENAI_API_KEY is not set");
+  const res = await httpsPostJson(
+    "https://api.openai.com/v1/audio/speech",
+    { Authorization: `Bearer ${apiKey}` },
+    { model: process.env.TTS_MODEL || "tts-1", voice: process.env.TTS_VOICE || "onyx", input: text, response_format: "mp3" }
+  );
+  if (res.status !== 200) throw new Error(`OpenAI TTS returned ${res.status}: ${res.body.toString().slice(0, 300)}`);
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, res.body);
+  return outPath;
+}
+
+// A stable slice of the pillar's image pool, chosen by the source key, so
+// Shorts don't advance (or conflict over) the long-form videos' rotation.
+function pickImages(rotation, pillar, key) {
+  const pool = rotation.pools[pillar] || rotation.pools[GUIDE_PILLAR];
+  let h = 0;
+  for (const ch of key) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return Array.from({ length: Math.min(IMAGES_PER_SHORT, pool.length) }, (_, i) => pool[(h + i) % pool.length]);
+}
+
+function wrap(text, maxChars) {
+  const lines = [];
+  let line = "";
+  for (const word of text.split(/\s+/)) {
+    if (line && (line + " " + word).length > maxChars) {
+      lines.push(line);
+      line = word;
+    } else line = line ? `${line} ${word}` : word;
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+// Text goes through textfile= (one file per line, each centered on its own),
+// so no titles ever need ffmpeg filter escaping.
+function textLines({ workDir, name, text, maxChars, size, color, y, lineGap, enable, fontPath }) {
+  return wrap(text, maxChars).map((line, i) => {
+    const file = path.join(workDir, `${name}-${i}.txt`);
+    fs.writeFileSync(file, line);
+    const when = enable ? `:enable='${enable}'` : "";
+    return `drawtext=fontfile='${fontPath}':textfile='${file}':expansion=none:fontsize=${size}:fontcolor=${color}:x=(w-tw)/2:y=${y + i * (size + lineGap)}${when}`;
+  });
+}
+
+async function renderShort({ script, images, audioPath, outPath, workDir }) {
+  const fontPath = await resolveFont();
+  if (!fontPath) throw new Error("No DejaVu font found; install fonts-dejavu-core");
+  const audioSeconds = await getAudioDuration(audioPath);
+  const tempo = audioSeconds > MAX_SECONDS ? audioSeconds / MAX_SECONDS : 1;
+  if (tempo > MAX_TEMPO) throw new Error(`narration is ${audioSeconds.toFixed(1)}s; too long for a Short`);
+  const seconds = audioSeconds / tempo;
+  const framesPer = Math.ceil((seconds * FPS) / images.length) + FPS;
+  const zoomStep = (0.08 / framesPer).toFixed(8);
+
+  const streams = images.map(
+    (_, i) =>
+      `[${i}:v]split=2[bg${i}][fg${i}];` +
+      `[bg${i}]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},gblur=sigma=30,eq=brightness=-0.12,setsar=1[bgb${i}];` +
+      `[fg${i}]scale=${W}:${H}:force_original_aspect_ratio=decrease,setsar=1[fgf${i}];` +
+      `[bgb${i}][fgf${i}]overlay=(W-w)/2:(H-h)/2,` +
+      `zoompan=z='min(zoom+${zoomStep},1.08)':d=${framesPer}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},setsar=1[v${i}]`
+  );
+  const concat = `${images.map((_, i) => `[v${i}]`).join("")}concat=n=${images.length}:v=1:a=0[slides]`;
+
+  fs.mkdirSync(workDir, { recursive: true });
+  const common = { workDir, fontPath, lineGap: 14 };
+  const slot = (seconds - 0.4) / script.captions.length;
+  const overlays = [
+    `drawbox=x=0:y=0:w=iw:h=560:color=black@0.55:t=fill`,
+    `drawbox=x=0:y=1240:w=iw:h=680:color=black@0.55:t=fill`,
+    ...textLines({ ...common, name: "brand", text: "CHASE ARENELLA", maxChars: 40, size: 42, color: "0x8cc1e8", y: 120 }),
+    ...textLines({ ...common, name: "hook", text: script.hook, maxChars: 22, size: 70, color: "white", y: 220 }),
+    ...script.captions.flatMap((c, i) =>
+      textLines({
+        ...common,
+        name: `cap${i}`,
+        text: c,
+        maxChars: 24,
+        size: 60,
+        color: "0xf7f5f0",
+        y: 1340,
+        enable: `between(t,${(0.4 + i * slot).toFixed(2)},${(0.4 + (i + 1) * slot).toFixed(2)})`,
+      })
+    ),
+    ...textLines({ ...common, name: "site", text: "carenella1.github.io", maxChars: 40, size: 36, color: "0xa9b8c6", y: 1780 }),
+  ];
+  const graph = `${streams.join(";\n")};\n${concat};\n[slides]${overlays.join(",")}[vout]`;
+
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  const args = [
+    "-y",
+    ...images.flatMap((img) => ["-i", path.join("assets", "images", img)]),
+    "-i", audioPath,
+    "-filter_complex", graph,
+    "-map", "[vout]",
+    "-map", `${images.length}:a`,
+    ...(tempo > 1 ? ["-af", `atempo=${tempo.toFixed(4)}`] : []),
+    "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p", "-r", String(FPS),
+    "-c:a", "aac", "-b:a", "160k",
+    "-movflags", "+faststart",
+    "-shortest",
+    outPath,
+  ];
+  await execFileP("ffmpeg", args, { maxBuffer: 1024 * 1024 * 50 });
+  return { outPath, durationSeconds: await getAudioDuration(outPath) };
+}
+
+function buildShortMetadata(source, script) {
+  const what = source.kind === "guide" ? "Full guide" : "Full essay";
+  const description = [
+    script.description,
+    "",
+    `${what}: ${source.url}`,
+    "",
+    `Website: ${SITE_URL}/`,
+    `Field guide: ${GUIDE_SITE}/`,
+    `All videos: ${SITE_URL}/videos.html`,
+    "",
+    "#Shorts #ChaseArenella #Leadership",
+  ].join("\n");
+  return {
+    snippet: {
+      // Name first, as on the long-form videos.
+      title: `Chase Arenella: ${script.title} #Shorts`.slice(0, 100),
+      description: description.replace(/[<>]/g, "").slice(0, 4900),
+      tags: ["Chase Arenella", "ChaseOfSpadez", "Shorts", "leadership", "systems thinking", "decision making"],
+      categoryId: "27", // Education
+      defaultLanguage: "en",
+      defaultAudioLanguage: "en",
+    },
+    status: { privacyStatus: "public", selfDeclaredMadeForKids: false },
+  };
+}
+
+module.exports = {
+  SHORTS_FILE,
+  readShorts,
+  writeShorts,
+  loadSources,
+  writeScript,
+  narrate,
+  pickImages,
+  renderShort,
+  buildShortMetadata,
+};

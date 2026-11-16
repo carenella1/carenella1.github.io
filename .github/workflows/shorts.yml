@@ -1,0 +1,127 @@
+name: YouTube Shorts
+
+# Daily: make and upload Shorts for essays and field guides that don't have
+# one yet (scripts/build-shorts.js), add their watch pages, and commit
+# straight to main. Each upload costs ~1,600 of YouTube's 10,000 daily quota
+# units, so 4 a day leaves room for the content pipeline's long-form upload.
+#
+# Preview mode renders the next Short without uploading it; the mp4 and
+# three frames land on the shorts-preview branch. It runs when the Shorts
+# code changes on main, or manually with "preview" ticked.
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build-shorts.js
+      - scripts/lib/shorts.js
+  schedule:
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max Shorts to upload this run (quota allows ~6/day)"
+        default: "4"
+        required: true
+      preview:
+        description: "Render the next Short only; upload nothing"
+        type: boolean
+        default: false
+
+# Shares the content pipeline's group so the two never edit the site at once.
+concurrency:
+  group: content-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  shorts:
+    runs-on: ubuntu-latest
+    env:
+      PREVIEW: ${{ github.event_name == 'push' || inputs.preview == true }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # An open auto-content PR edits the same sitemap/video files; landing
+      # this on main first would leave that PR unable to merge. Skip the day.
+      - name: Skip while an auto-content PR is open
+        id: gate
+        if: env.PREVIEW != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OPEN=$(gh pr list --label auto-content --state open --json number --jq '[.[].number | "#\(.)"] | join(", ")')
+          if [ -n "$OPEN" ]; then
+            echo "::notice::Auto-content PR(s) $OPEN still open; skipping Shorts today."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install ffmpeg and fonts
+        if: steps.gate.outputs.skip != 'true'
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg fonts-dejavu-core
+
+      - name: Setup Node
+        if: steps.gate.outputs.skip != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Render a preview Short
+        if: env.PREVIEW == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          node scripts/build-shorts.js --preview preview
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git checkout --orphan shorts-preview
+          git rm -rq --cached .
+          git add -f preview/
+          git commit -qm "Shorts preview: $(date +'%Y-%m-%d %H:%M')"
+          git push -f origin shorts-preview
+
+      - name: Make and upload Shorts
+        id: build
+        if: env.PREVIEW != 'true' && steps.gate.outputs.skip != 'true'
+        continue-on-error: true
+        run: node scripts/build-shorts.js --limit "${{ inputs.limit || '4' }}"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+
+      # Runs even if some uploads failed: any Short that did upload is already
+      # in content/shorts.json and must be committed so a re-run skips it.
+      - name: Rebuild watch pages, hub, and video sitemap
+        if: env.PREVIEW != 'true' && steps.gate.outputs.skip != 'true'
+        run: node scripts/build-video-pages.js
+
+      - name: Commit and push
+        if: env.PREVIEW != 'true' && steps.gate.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add content/shorts.json videos/ videos.html video-sitemap.xml sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nothing uploaded; nothing to commit."
+          else
+            git commit -m "Shorts: $(date +'%Y-%m-%d')"
+            git push
+            # Pushes made with github.token don't fire other workflows'
+            # push triggers, so kick the search-engine ping explicitly.
+            gh workflow run search-ping.yml --ref main
+          fi
+
+      - name: Fail the run if any Short failed
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "::error::One or more Shorts failed; see the 'Make and upload Shorts' step."
+          exit 1

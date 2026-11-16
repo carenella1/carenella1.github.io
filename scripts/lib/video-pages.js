@@ -122,7 +122,7 @@ function renderWatchPage(v, allVideos) {
     `Chase Arenella — ${v.title}`
   )}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <p class="subhead" style="margin-top:14px;">${escapeHtml(v.description)}</p>
-<p style="color:var(--muted);font-size:14px;">A ${minutes}-minute video by Chase Arenella • <a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a> • <a href="${v.articleUrl.replace(SITE_URL, "")}">Read the full article</a></p>
+<p style="color:var(--muted);font-size:14px;">A ${minutes}-minute video by Chase Arenella • <a href="https://www.youtube.com/watch?v=${id}" rel="noopener">Watch on YouTube</a> • <a href="${v.articleUrl.replace(SITE_URL, "")}">${v.linkLabel || "Read the full article"}</a></p>
 ${thesis}${keyPoints}<h2>More videos from Chase Arenella</h2>
 <ul>
 ${more}

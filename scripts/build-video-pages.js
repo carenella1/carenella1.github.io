@@ -1,5 +1,5 @@
 // Rebuilds everything derived from the site's videos, from the VideoObject
-// schema on the article pages:
+// schema on the article pages and the Shorts in content/shorts.json:
 //   - videos/<slug>.html   one watch page per video (lib/video-pages.js)
 //   - videos.html          the hub listing them
 //   - video-sitemap.xml    points Google at the watch pages
@@ -12,6 +12,7 @@ const path = require("path");
 const { readArticleVideo } = require("./lib/page-schema");
 const { renderWatchPage, renderHub, watchUrl, HUB_URL } = require("./lib/video-pages");
 const { upsertSitemapUrl } = require("./lib/sitemap");
+const { readShorts } = require("./lib/shorts");
 
 function escapeXml(str) {
   return String(str)
@@ -66,12 +67,33 @@ function updateMainSitemap(videos) {
   return writeIfChanged("sitemap.xml", xml);
 }
 
-const videos = fs
+const newestFirst = (a, b) => new Date(b.uploadDate) - new Date(a.uploadDate);
+
+const longForm = fs
   .readdirSync("articles")
   .filter((f) => f.endsWith(".html"))
   .map((f) => readArticleVideo(path.join("articles", f)))
   .filter(Boolean)
-  .sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+  .sort(newestFirst);
+
+// Shorts (scripts/build-shorts.js) get watch pages too: each is another
+// page where a video is the main content. Listed after the long-form videos.
+const shortVideos = readShorts()
+  .map((s) => ({
+    slug: `short-${s.key}`,
+    title: s.title,
+    articleUrl: s.sourceUrl,
+    linkLabel: s.sourceKind === "guide" ? "Read the field guide entry" : "Read the full essay",
+    description: s.description,
+    thesis: s.hook,
+    headings: s.captions,
+    videoId: s.videoId,
+    uploadDate: s.uploadDate,
+    durationSeconds: s.durationSeconds,
+  }))
+  .sort(newestFirst);
+
+const videos = [...longForm, ...shortVideos];
 
 fs.mkdirSync("videos", { recursive: true });
 let changed = 0;

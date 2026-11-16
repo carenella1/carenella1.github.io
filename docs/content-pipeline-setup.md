@@ -72,3 +72,18 @@ the article text, the audio, the video, the YouTube upload, and the podcast
 feed entry — before trusting the 72-hour auto-merge to run unattended on
 future cycles. To veto any cycle (this one or a future one), either close the
 PR or add the `hold` label before the 72-hour window elapses.
+
+## 5. YouTube Shorts (no extra setup)
+
+`.github/workflows/shorts.yml` runs daily with the same secrets. It makes up
+to 4 Shorts a day, one per essay on this site and one per guide on
+chasearenella.com, until each has a Short. After that it makes one whenever a
+new essay or guide appears. Claude writes a ~45-second script, OpenAI TTS
+narrates it, and ffmpeg renders it vertically with on-screen captions
+(`scripts/build-shorts.js`, `scripts/lib/shorts.js`). Uploads are recorded in
+`content/shorts.json`, and each Short gets a watch page at
+`/videos/short-<key>.html`.
+
+To check a render without uploading anything, run the workflow manually with
+**preview** ticked. The mp4 and three frames land on the `shorts-preview`
+branch.

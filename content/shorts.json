@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "key": "article-20-timeout-culture-what-coaches-understand-about",
+    "videoId": "2oWYeTMRuZY",
+    "title": "Call a Timeout on the Pattern, Not the Score",
+    "hook": "Coaches stop the run, not the blowout",
+    "captions": [
+      "Timeouts answer patterns, not scores",
+      "Track trajectory, not outcomes",
+      "Most teams have no whistle",
+      "A timeout breaks the rhythm",
+      "Set the threshold in advance",
+      "Ask what's repeating, not who"
+    ],
+    "description": "Great coaches call timeouts on an 8-0 run, not a 20-point deficit. Here's how leaders can build the same early pattern interrupt into their teams.",
+    "sourceUrl": "https://carenella1.github.io/articles/20-timeout-culture-what-coaches-understand-about.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-1.jpg",
+        "alt": "An empty basketball court under bright arena lights, a lone ball resting near the free throw line and a coach's clipboard on the bench (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-2.jpg",
+        "alt": "A quiet conference room at dusk with a long table, scattered binders, and a wall calendar covered in colored sticky notes without readable writing (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-3.jpg",
+        "alt": "A referee's silver whistle on a lanyard lying on a polished wooden bench beside a stopwatch, soft morning light from a gym window (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 44,
+    "uploadDate": "2026-11-18T21:41:29.358Z"
+  },
+  {
+    "key": "guide-blameless-retrospectives",
+    "videoId": "-NZcpEU0DvU",
+    "title": "Why Blame Makes Retrospectives Dishonest",
+    "hook": "Blame doesn't make teams careful",
+    "captions": [
+      "Blame makes teams quieter",
+      "People hide shortcuts and near misses",
+      "Hidden misplays mean repeated errors",
+      "Honesty is a function of cost",
+      "Ask how the system allowed it",
+      "One slip means a missing safeguard"
+    ],
+    "description": "Blame makes failure reviews dishonest. Learn why lowering the cost of honesty gets your team better information, and how blameless retrospectives focus on fixing the system.",
+    "sourceUrl": "https://chasearenella.com/blameless-retrospectives/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-blameless-retrospectives-1.jpg",
+        "alt": "An empty conference room at dusk, chairs pushed back from a long table, a single closed folder resting near the edge under dim overhead light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-blameless-retrospectives-2.jpg",
+        "alt": "A gaming desk in a dark room with a controller set down beside a monitor showing a blurred, paused game scene with no visible text (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-blameless-retrospectives-3.jpg",
+        "alt": "A whiteboard covered in colorful blank sticky notes and connecting arrows drawn in marker, a coffee mug and markers on the ledge below (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 42,
+    "uploadDate": "2026-11-18T21:42:50.645Z"
+  },
+  {
+    "key": "article-19-scrims-not-status-meetings-a-better-model-for",
+    "videoId": "PCM-1W46mHY",
+    "title": "Run Team Retrospectives Like Scrims, Not Status Meetings",
+    "hook": "Hit every deadline, repeat every mistake",
+    "captions": [
+      "Status meetings audit the calendar",
+      "Scrims review decisions, round by round",
+      "Pick one decision from this week",
+      "What did we know when we made the call?",
+      "Log it where the team will see it",
+      "Spot patterns before they get expensive"
+    ],
+    "description": "Status meetings track deadlines, not decisions. Borrow the scrim model from competitive teams and run retros that study one real call at a time.",
+    "sourceUrl": "https://carenella1.github.io/articles/19-scrims-not-status-meetings-a-better-model-for.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-1.jpg",
+        "alt": "A wall calendar covered in checked-off boxes and colored deadline stickers above an empty conference table with scattered coffee mugs under flat office lighting (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-2.jpg",
+        "alt": "A paused match on a gaming monitor in a dim practice room, empty chairs pushed back from desks, headsets resting beside keyboards glowing softly (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-3.jpg",
+        "alt": "A whiteboard with one circled sticky note and arrows branching outward, markers lying on the tray, in a quiet meeting room at dusk (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-18T21:44:15.209Z"
+  },
+  {
+    "key": "guide-constraints-as-strategy",
+    "videoId": "VQHNAwN36-s",
+    "title": "Constraints as Strategy: Why Fewer Options Win",
+    "hook": "Ten priorities means zero priorities",
+    "captions": [
+      "Open options cost attention",
+      "Small choice sets speed decisions",
+      "Scope flexes, the date doesn't",
+      "Cap tasks in progress",
+      "Limits direct creativity",
+      "Choose constraints on purpose"
+    ],
+    "description": "Why deliberately limiting options, with fewer priorities, fixed timeboxes and narrower scope, leads to clearer choices and faster execution than open-ended flexibility.",
+    "sourceUrl": "https://chasearenella.com/constraints-as-strategy/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-constraints-as-strategy-1.jpg",
+        "alt": "A cluttered whiteboard crowded with dozens of overlapping sticky notes in many colors, arrows crossing everywhere, in a dim office meeting room late in the afternoon (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-constraints-as-strategy-2.jpg",
+        "alt": "A tidy desk holding a single closed notebook, one pencil and a small sand hourglass, lit by soft morning light from a nearby window (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-constraints-as-strategy-3.jpg",
+        "alt": "A wooden board game mid-play on a table, a few pieces placed on a tight grid with dice resting beside them, warm lamp light overhead (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 45,
+    "uploadDate": "2026-11-18T21:45:38.974Z"
+  }
+]

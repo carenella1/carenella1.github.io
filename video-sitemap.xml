@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://carenella1.github.io/videos/19-scrims-not-status-meetings-a-better-model-for.html</loc>
     <video:video>
@@ -129,5 +129,69 @@
       <video:family_friendly>yes</video:family_friendly>
       <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
     </video:video>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-guide-constraints-as-strategy.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/VQHNAwN36-s/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Constraints as Strategy: Why Fewer Options Win</video:title>
+      <video:description>Why deliberately limiting options, with fewer priorities, fixed timeboxes and narrower scope, leads to clearer choices and faster execution than open-ended flexibility.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/VQHNAwN36-s</video:player_loc>
+      <video:duration>45</video:duration>
+      <video:publication_date>2026-11-18T21:45:38.974Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-constraints-as-strategy-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-constraints-as-strategy-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-constraints-as-strategy-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-19-scrims-not-status-meetings-a-better-model-for.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/PCM-1W46mHY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Run Team Retrospectives Like Scrims, Not Status Meetings</video:title>
+      <video:description>Status meetings track deadlines, not decisions. Borrow the scrim model from competitive teams and run retros that study one real call at a time.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/PCM-1W46mHY</video:player_loc>
+      <video:duration>43</video:duration>
+      <video:publication_date>2026-11-18T21:44:15.209Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-19-scrims-not-status-meetings-a-better-model-for-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-guide-blameless-retrospectives.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/-NZcpEU0DvU/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Blame Makes Retrospectives Dishonest</video:title>
+      <video:description>Blame makes failure reviews dishonest. Learn why lowering the cost of honesty gets your team better information, and how blameless retrospectives focus on fixing the system.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/-NZcpEU0DvU</video:player_loc>
+      <video:duration>42</video:duration>
+      <video:publication_date>2026-11-18T21:42:50.645Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-blameless-retrospectives-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-blameless-retrospectives-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-blameless-retrospectives-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-20-timeout-culture-what-coaches-understand-about.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/2oWYeTMRuZY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Call a Timeout on the Pattern, Not the Score</video:title>
+      <video:description>Great coaches call timeouts on an 8-0 run, not a 20-point deficit. Here&apos;s how leaders can build the same early pattern interrupt into their teams.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/2oWYeTMRuZY</video:player_loc>
+      <video:duration>44</video:duration>
+      <video:publication_date>2026-11-18T21:41:29.358Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-20-timeout-culture-what-coaches-understand-about-3.jpg</image:loc></image:image>
   </url>
 </urlset>

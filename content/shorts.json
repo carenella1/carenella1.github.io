@@ -130,5 +130,137 @@
     ],
     "durationSeconds": 45,
     "uploadDate": "2026-11-18T21:45:38.974Z"
+  },
+  {
+    "key": "article-18-tilt-management-the-competitive-gaming-skill",
+    "videoId": "CovuLqx9vdM",
+    "title": "Tilt Management: The 24-Hour Rule for Leaders",
+    "hook": "Never decide five minutes after a loss",
+    "captions": [
+      "Tilt: frustration making your calls",
+      "Same skill, worse decisions",
+      "Willpower fails when you need it",
+      "No major decision for 24 hours",
+      "Name someone who can say \"tilted\"",
+      "Build delay into the system"
+    ],
+    "description": "Tilt is the drop in decision quality after a setback. Borrow the gamer's fix: set a rule in advance to wait 24 hours before major decisions.",
+    "sourceUrl": "https://carenella1.github.io/articles/18-tilt-management-the-competitive-gaming-skill.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-1.jpg",
+        "alt": "A darkened gaming desk with a controller dropped beside a keyboard, a monitor glowing with a blank defeat-red screen, scattered energy drink cans under dim light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-2.jpg",
+        "alt": "An empty boardroom after a tense meeting, chairs pushed back unevenly, papers scattered across a long table, coffee cups half full, gray late-afternoon light through windows (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-3.jpg",
+        "alt": "A quiet home office at sunrise, a closed laptop and a single notebook on a tidy desk, a steaming mug beside it, soft golden light through the window (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 46,
+    "uploadDate": "2026-11-19T21:56:05.519Z"
+  },
+  {
+    "key": "guide-context-architecture",
+    "videoId": "upRWOMqzB8w",
+    "title": "Why a New Tool Won't Fix Tool Fragmentation",
+    "hook": "The fix isn't another tool",
+    "captions": [
+      "New tools rarely fix fragmentation",
+      "Every decision starts with a search",
+      "Without rules, a tool is one more place",
+      "Rules survive any tool change",
+      "Give one kind of info a single home",
+      "Redirect questions there for a month"
+    ],
+    "description": "Tool fragmentation isn't solved by another tool. It's solved by agreed rules for where knowledge lives and how it moves. Here's how to start small.",
+    "sourceUrl": "https://chasearenella.com/context-architecture/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-context-architecture-1.jpg",
+        "alt": "A cluttered office desk with scattered notebooks, loose papers, several closed laptops and coffee mugs, under warm afternoon light, suggesting information spread everywhere (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-context-architecture-2.jpg",
+        "alt": "A stack of brand-new unopened cardboard boxes piled in the corner of an empty meeting room, beside a blank whiteboard and neatly pushed-in chairs (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-context-architecture-3.jpg",
+        "alt": "A single tidy wooden filing cabinet with one drawer slightly open in a calm, sunlit room, clean shelves around it and a potted plant nearby (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-19T21:57:34.306Z"
+  },
+  {
+    "key": "article-17-meta-awareness-the-strategy-shift-executives",
+    "videoId": "y8EN4tt0eWA",
+    "title": "Why Winning Strategies Fail: Reading the Meta Shift",
+    "hook": "Success hides a dying strategy",
+    "captions": [
+      "The meta shifts without warning",
+      "Spot the shift while you're winning",
+      "Question success, not just failure",
+      "Know when the 'why' expires",
+      "Weekly checkpoints beat quarterly",
+      "Treat today's win as temporary"
+    ],
+    "description": "Top players treat strategy as a moving target. Here's why success disguises a dying strategy, and how faster feedback helps leaders spot the shift in time.",
+    "sourceUrl": "https://carenella1.github.io/articles/17-meta-awareness-the-strategy-shift-executives.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-1.jpg",
+        "alt": "A paused competitive video game on a large monitor in a dim gaming room, glowing keyboard and headset resting on the desk beside it (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-2.jpg",
+        "alt": "An empty corporate boardroom at dusk, long table with closed binders and cold coffee cups, city lights blurred beyond the floor-to-ceiling windows (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-3.jpg",
+        "alt": "A whiteboard covered in colorful sticky notes arranged in weekly columns, markers lined up on the tray in a bright morning office (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 45,
+    "uploadDate": "2026-11-19T21:59:04.653Z"
+  },
+  {
+    "key": "guide-decision-loops",
+    "videoId": "BCt5bhocP2w",
+    "title": "Why Team Decisions Are Slow: Time Every Step of the Loop",
+    "hook": "Your team isn't slow at deciding",
+    "captions": [
+      "Observe, decide, act, learn",
+      "The delay hides outside deciding",
+      "Late signals, slow handoffs, no review",
+      "Time each step of one decision",
+      "Remove waiting, not thinking",
+      "Schedule the review up front"
+    ],
+    "description": "Teams blame slow decisions, but the delay usually hides in observing, acting, or learning. Time each step of your decision loop and remove the waiting.",
+    "sourceUrl": "https://chasearenella.com/decision-loops/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-decision-loops-1.jpg",
+        "alt": "An empty conference room at dusk, chairs pushed back from a long table, a blank whiteboard and scattered coffee cups left behind after a meeting (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-decision-loops-2.jpg",
+        "alt": "A cluttered office hallway with stacked boxes and a parcel cart waiting beside a closed door, suggesting work stalled between handoffs (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-decision-loops-3.jpg",
+        "alt": "A stopwatch resting on a wooden desk beside a paper calendar with one date circled in red ink, lit by soft morning window light (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-19T22:00:30.294Z"
   }
 ]

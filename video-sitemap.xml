@@ -131,6 +131,70 @@
     </video:video>
   </url>
   <url>
+    <loc>https://carenella1.github.io/videos/short-guide-decision-loops.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/BCt5bhocP2w/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Team Decisions Are Slow: Time Every Step of the Loop</video:title>
+      <video:description>Teams blame slow decisions, but the delay usually hides in observing, acting, or learning. Time each step of your decision loop and remove the waiting.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/BCt5bhocP2w</video:player_loc>
+      <video:duration>43</video:duration>
+      <video:publication_date>2026-11-19T22:00:30.294Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-decision-loops-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-decision-loops-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-decision-loops-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-17-meta-awareness-the-strategy-shift-executives.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/y8EN4tt0eWA/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Winning Strategies Fail: Reading the Meta Shift</video:title>
+      <video:description>Top players treat strategy as a moving target. Here&apos;s why success disguises a dying strategy, and how faster feedback helps leaders spot the shift in time.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/y8EN4tt0eWA</video:player_loc>
+      <video:duration>45</video:duration>
+      <video:publication_date>2026-11-19T21:59:04.653Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-17-meta-awareness-the-strategy-shift-executives-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-guide-context-architecture.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/upRWOMqzB8w/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why a New Tool Won&apos;t Fix Tool Fragmentation</video:title>
+      <video:description>Tool fragmentation isn&apos;t solved by another tool. It&apos;s solved by agreed rules for where knowledge lives and how it moves. Here&apos;s how to start small.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/upRWOMqzB8w</video:player_loc>
+      <video:duration>43</video:duration>
+      <video:publication_date>2026-11-19T21:57:34.306Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-context-architecture-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-context-architecture-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-context-architecture-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-18-tilt-management-the-competitive-gaming-skill.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/CovuLqx9vdM/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Tilt Management: The 24-Hour Rule for Leaders</video:title>
+      <video:description>Tilt is the drop in decision quality after a setback. Borrow the gamer&apos;s fix: set a rule in advance to wait 24 hours before major decisions.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/CovuLqx9vdM</video:player_loc>
+      <video:duration>46</video:duration>
+      <video:publication_date>2026-11-19T21:56:05.519Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-18-tilt-management-the-competitive-gaming-skill-3.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://carenella1.github.io/videos/short-guide-constraints-as-strategy.html</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/VQHNAwN36-s/hqdefault.jpg</video:thumbnail_loc>

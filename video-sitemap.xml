@@ -131,6 +131,70 @@
     </video:video>
   </url>
   <url>
+    <loc>https://carenella1.github.io/videos/short-guide-how-to-run-a-decision-log.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/vT8b70nwaLY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — How to Run a Decision Log That Teaches You Something</video:title>
+      <video:description>A decision log captures your reasoning before the outcome is known. Add kill criteria and a review date to learn from decisions, not luck.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/vT8b70nwaLY</video:player_loc>
+      <video:duration>41</video:duration>
+      <video:publication_date>2026-11-20T21:43:23.593Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-how-to-run-a-decision-log-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-how-to-run-a-decision-log-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-how-to-run-a-decision-log-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-15-constraints-are-strategy-why-fewer-options.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/7eIkxd1_BtU/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Fewer Options Lead to Faster, Better Decisions</video:title>
+      <video:description>Total flexibility often means unmade decisions. Here&apos;s why deliberately narrowing your options makes good decisions faster and repeatable.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/7eIkxd1_BtU</video:player_loc>
+      <video:duration>44</video:duration>
+      <video:publication_date>2026-11-20T21:42:09.621Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-guide-feedback-latency.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/rXaVboMaoLk/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Feedback Latency: Why Weekly Beats Quarterly Reviews</video:title>
+      <video:description>Feedback latency is the gap between an action and learning if it worked. Here&apos;s why speed beats accuracy, and how to shorten the gap.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/rXaVboMaoLk</video:player_loc>
+      <video:duration>41</video:duration>
+      <video:publication_date>2026-11-20T21:40:53.858Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-feedback-latency-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-feedback-latency-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-feedback-latency-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-16-the-hidden-tax-of-tool-fragmentation.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/qhKclPLuEWY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Tool Fragmentation: The Hidden Tax on Team Decisions</video:title>
+      <video:description>Scattered context quietly taxes every decision your team makes. Why fragmentation is a flow problem, and how one authoritative source fixes it.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/qhKclPLuEWY</video:player_loc>
+      <video:duration>43</video:duration>
+      <video:publication_date>2026-11-20T21:39:24.540Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-3.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://carenella1.github.io/videos/short-guide-decision-loops.html</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/BCt5bhocP2w/hqdefault.jpg</video:thumbnail_loc>

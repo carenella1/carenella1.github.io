@@ -262,5 +262,136 @@
     ],
     "durationSeconds": 43,
     "uploadDate": "2026-11-19T22:00:30.294Z"
+  },
+  {
+    "key": "article-16-the-hidden-tax-of-tool-fragmentation",
+    "videoId": "qhKclPLuEWY",
+    "title": "Tool Fragmentation: The Hidden Tax on Team Decisions",
+    "hook": "Your tools are quietly taxing your judgment",
+    "captions": [
+      "The real cost isn't licensing fees",
+      "Rebuilding context taxes every decision",
+      "Another tool usually makes it worse",
+      "Fragmentation is a flow problem",
+      "Pick one authoritative source",
+      "A tool with no role is added tax"
+    ],
+    "description": "Scattered context quietly taxes every decision your team makes. Why fragmentation is a flow problem, and how one authoritative source fixes it.",
+    "sourceUrl": "https://carenella1.github.io/articles/16-the-hidden-tax-of-tool-fragmentation.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-1.jpg",
+        "alt": "A cluttered desk covered in scattered notebooks, loose papers, and several closed laptops, lit by harsh overhead office light, suggesting information spread everywhere (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-2.jpg",
+        "alt": "An empty conference room with a tangle of cables across the table and several blank, dark monitors on the wall, chairs pushed back after a meeting (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-16-the-hidden-tax-of-tool-fragmentation-3.jpg",
+        "alt": "A single clean wooden desk with one neatly organized binder and a tidy filing tray, morning sunlight streaming through a large window onto the orderly surface (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-20T21:39:24.540Z"
+  },
+  {
+    "key": "guide-feedback-latency",
+    "videoId": "rXaVboMaoLk",
+    "title": "Feedback Latency: Why Weekly Beats Quarterly Reviews",
+    "hook": "Fast rough feedback beats slow perfect data",
+    "captions": [
+      "Timing beats feedback quality",
+      "Slow feedback stacks up mistakes",
+      "Ship smaller pieces of work",
+      "Weekly checks beat quarterly reviews",
+      "Watch one early signal per goal"
+    ],
+    "description": "Feedback latency is the gap between an action and learning if it worked. Here's why speed beats accuracy, and how to shorten the gap.",
+    "sourceUrl": "https://chasearenella.com/feedback-latency/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-feedback-latency-1.jpg",
+        "alt": "An empty office desk with a closed laptop beside a wall calendar showing many blank months, soft morning light falling across the quiet room (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-feedback-latency-2.jpg",
+        "alt": "A tall, precarious tower of cardboard boxes stacked unevenly in a dim warehouse aisle, leaning slightly as if about to topple over (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-feedback-latency-3.jpg",
+        "alt": "A small whiteboard with neat columns of blank colorful sticky notes on a tidy wall, next to a game controller resting on a wooden shelf (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 41,
+    "uploadDate": "2026-11-20T21:40:53.858Z"
+  },
+  {
+    "key": "article-15-constraints-are-strategy-why-fewer-options",
+    "videoId": "7eIkxd1_BtU",
+    "title": "Why Fewer Options Lead to Faster, Better Decisions",
+    "hook": "Flexibility Is Just Unmade Decisions",
+    "captions": [
+      "Open options cost attention",
+      "Ten paths = comparing, not building",
+      "Pick any tool? Stall. Pick one of 3? Ship",
+      "Build narrowing into the system",
+      "Set defaults so inaction still acts",
+      "Chosen constraint = leverage"
+    ],
+    "description": "Total flexibility often means unmade decisions. Here's why deliberately narrowing your options makes good decisions faster and repeatable.",
+    "sourceUrl": "https://carenella1.github.io/articles/15-constraints-are-strategy-why-fewer-options.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-1.jpg",
+        "alt": "A cluttered conference table covered in scattered brochures, sample swatches, and dozens of open folders under harsh fluorescent office lighting, suggesting overwhelming choice (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-2.jpg",
+        "alt": "A chessboard mid-game on a wooden table, only a few pieces remaining, lit by a single warm desk lamp in a quiet study (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-15-constraints-are-strategy-why-fewer-options-3.jpg",
+        "alt": "An empty meeting room at dawn with three neatly placed folders on a polished table, chairs pushed in, soft light streaming through tall windows (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 44,
+    "uploadDate": "2026-11-20T21:42:09.621Z"
+  },
+  {
+    "key": "guide-how-to-run-a-decision-log",
+    "videoId": "vT8b70nwaLY",
+    "title": "How to Run a Decision Log That Teaches You Something",
+    "hook": "Your memory rewrites your decisions",
+    "captions": [
+      "Memory rewrites your reasoning",
+      "Log the thinking before the result",
+      "Choice, rejected options, and why",
+      "Add kill criteria to reverse it",
+      "Calendar the review date now",
+      "Bad decision or just bad outcome?"
+    ],
+    "description": "A decision log captures your reasoning before the outcome is known. Add kill criteria and a review date to learn from decisions, not luck.",
+    "sourceUrl": "https://chasearenella.com/how-to-run-a-decision-log/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-how-to-run-a-decision-log-1.jpg",
+        "alt": "A cluttered office desk at dusk with a cold coffee mug, scattered blank papers, and a faded desk calendar, warm lamp light casting long shadows (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-how-to-run-a-decision-log-2.jpg",
+        "alt": "An open notebook with blank lined pages beside a fountain pen and a small kitchen timer on a clean wooden table near a bright window (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-how-to-run-a-decision-log-3.jpg",
+        "alt": "An empty meeting room with a long table, pushed-back chairs, and a blank whiteboard covered in colorful unmarked sticky notes, soft morning light (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 41,
+    "uploadDate": "2026-11-20T21:43:23.593Z"
   }
 ]

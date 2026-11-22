@@ -524,5 +524,137 @@
     ],
     "durationSeconds": 42,
     "uploadDate": "2026-11-21T20:24:20.690Z"
+  },
+  {
+    "key": "article-12-why-chaseofspadez-strengthens-the-brand-of-it",
+    "videoId": "3RZwyN8jeTY",
+    "title": "Why a Gaming Identity Can Strengthen a Leadership Brand",
+    "hook": "Your hobby can prove your skills work",
+    "captions": [
+      "Range isn't the problem, incoherence is",
+      "Layers, not identity conflicts",
+      "Different register, same source",
+      "Read, decide, review, adjust",
+      "Gaming tests the loop under pressure",
+      "Distinct identities earn their own trust"
+    ],
+    "description": "A creative identity doesn't dilute a professional brand. It's a layer that tests the same decision loop under real pressure, keeping the systems thinking proven instead of theoretical.",
+    "sourceUrl": "https://carenella1.github.io/articles/12-why-chaseofspadez-strengthens-the-brand-of-it.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-12-why-chaseofspadez-strengthens-the-brand-of-it-1.jpg",
+        "alt": "Two separate desks in a quiet room, one with neat binders and a notebook, the other with a gaming controller and headset, lit by warm lamps (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-12-why-chaseofspadez-strengthens-the-brand-of-it-2.jpg",
+        "alt": "An empty strategy room at night with a whiteboard covered in arrows and blank sticky notes forming a circular loop diagram, chairs pushed in (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-12-why-chaseofspadez-strengthens-the-brand-of-it-3.jpg",
+        "alt": "A paused game glowing on a monitor beside a controller on a dark desk, colorful light reflecting on the surface, no text visible (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 46,
+    "uploadDate": "2026-11-22T20:32:41.293Z"
+  },
+  {
+    "key": "guide-reversible-vs-irreversible-decisions",
+    "videoId": "cCeFS3njWeQ",
+    "title": "One-Way vs Two-Way Door Decisions: Match Your Process",
+    "hook": "Most decisions don't need to be slow",
+    "captions": [
+      "Ask: can we undo this?",
+      "Two-way door: cheap to reverse",
+      "One-way door: hard to undo",
+      "Most choices are two-way doors",
+      "Two-way: one owner, short deadline",
+      "Save slow process for one-way doors"
+    ],
+    "description": "Sort decisions by how hard they are to undo. Move fast on reversible two-way doors, and save careful review for one-way doors.",
+    "sourceUrl": "https://chasearenella.com/reversible-vs-irreversible-decisions/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-reversible-vs-irreversible-decisions-1.jpg",
+        "alt": "Two identical wooden doors side by side in a bright empty hallway, one propped open and one firmly shut, soft daylight falling across a polished floor (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-reversible-vs-irreversible-decisions-2.jpg",
+        "alt": "An empty conference room with too many chairs around a long table, stacks of paper and coffee cups left behind, late afternoon light through blinds (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-reversible-vs-irreversible-decisions-3.jpg",
+        "alt": "A heavy steel vault door standing closed in a quiet, dimly lit room, cool overhead lighting reflecting off its thick metal hinges and lock wheel (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 41,
+    "uploadDate": "2026-11-22T20:33:58.864Z"
+  },
+  {
+    "key": "article-11-signal-vs-noise-what-ai-should-and-shouldn-t",
+    "videoId": "Q9E_ysrS6KM",
+    "title": "What AI Should and Shouldn't Filter for Leaders",
+    "hook": "A quiet dashboard isn't a healthy team",
+    "captions": [
+      "Quiet dashboard ≠ healthy team",
+      "Let AI cut repetitive noise",
+      "Over-filtering hides outliers",
+      "Outliers are where signal lives",
+      "Define signal before the filter",
+      "Review what got filtered weekly"
+    ],
+    "description": "AI should strip volume, not judgment. Why over-filtering hides the outliers leaders need to see, and how to design filters on purpose.",
+    "sourceUrl": "https://carenella1.github.io/articles/11-signal-vs-noise-what-ai-should-and-shouldn-t.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-11-signal-vs-noise-what-ai-should-and-shouldn-t-1.jpg",
+        "alt": "An empty corporate war room at night, rows of dark desks and a single dim lamp glowing over a tidy, silent conference table (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-11-signal-vs-noise-what-ai-should-and-shouldn-t-2.jpg",
+        "alt": "A wide mail sorting facility with neat stacks of identical envelopes on conveyor belts, one bright red envelope sitting slightly apart from the rest (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-11-signal-vs-noise-what-ai-should-and-shouldn-t-3.jpg",
+        "alt": "A whiteboard covered in grid-aligned sticky notes beside a wire basket full of discarded crumpled notes, morning light falling across an empty office (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 42,
+    "uploadDate": "2026-11-22T20:35:13.453Z"
+  },
+  {
+    "key": "guide-signal-vs-noise",
+    "videoId": "_r3EDAwg734",
+    "title": "Signal vs. Noise: One Question to Filter Information",
+    "hook": "Loud isn't the same as important",
+    "captions": [
+      "Would I act differently?",
+      "If no, it's noise",
+      "Monday dip: noise",
+      "Matching complaints: signal",
+      "Signal arrives quietly",
+      "Filter for decisions you own"
+    ],
+    "description": "One question separates signal from noise: if this were true, would I act differently? A quick take on filtering information around the decisions you actually own.",
+    "sourceUrl": "https://chasearenella.com/signal-vs-noise/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-signal-vs-noise-1.jpg",
+        "alt": "A cluttered desk buried under stacks of papers, scattered sticky notes, and a ringing desk phone, lit by harsh overhead office light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-signal-vs-noise-2.jpg",
+        "alt": "A single lit brass lamp on a quiet wooden table in a dark library, one open notebook beside it, everything else in shadow (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-signal-vs-noise-3.jpg",
+        "alt": "An empty meeting room at dawn with a clean whiteboard, one marker resting on its ledge, and neatly pushed-in chairs around a long table (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-22T20:36:27.453Z"
   }
 ]

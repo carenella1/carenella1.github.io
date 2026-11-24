@@ -1,0 +1,64 @@
+{
+  "source": {
+    "key": "guide-tilt-management",
+    "kind": "guide",
+    "title": "Tilt Management",
+    "url": "https://chasearenella.com/tilt-management/",
+    "pillar": "gaming-strategy",
+    "text": null
+  },
+  "script": {
+    "title": "Tilt Management: Stop One Mistake Becoming Five",
+    "hook": "Your worst call comes right after a bad one",
+    "narration": "The most dangerous decision you make today might be the one right after a bad one. Poker players call it tilt. Frustration from one loss leaks into the next choices and makes them worse. You replay the mistake. You speed up to feel in control. You take a bigger risk to win it all back in one move. One mistake becomes five. The fix is not willpower. It is a rule that runs automatically. Here is one: no irreversible decisions within an hour of a major setback. Another is naming it out loud. Saying we're a bit tilted gives the whole team permission to slow down. A bad outcome is information, not an emergency. The full guide by Chase Arenella is linked below.",
+    "captions": [
+      "Tilt: frustration leaks into decisions",
+      "Faster, riskier, chasing the loss",
+      "The fix is a rule, not willpower",
+      "No irreversible calls for an hour",
+      "Say it out loud: we're tilted",
+      "A bad outcome is information"
+    ],
+    "description": "Tilt is when frustration from one setback makes your next decisions worse. Learn the simple reset rules that stop one mistake from becoming five.",
+    "scenes": [
+      "An empty card room at night, a green felt poker table under a single lamp, scattered chips and overturned playing cards left mid-game.",
+      "A quiet conference room with chairs pushed back from a long table, a wall clock above, closed notebooks and a cooling cup of coffee.",
+      "A calm office at dawn, soft light through tall windows onto a whiteboard covered in blank colorful sticky notes, a plant beside it."
+    ]
+  },
+  "scenes": [
+    {
+      "file": "generated/chase-arenella-short-guide-tilt-management-1.jpg",
+      "alt": "An empty card room at night, a green felt poker table under a single lamp, scattered chips and overturned playing cards left mid-game (Chase Arenella)"
+    },
+    {
+      "file": "generated/chase-arenella-short-guide-tilt-management-2.jpg",
+      "alt": "A quiet conference room with chairs pushed back from a long table, a wall clock above, closed notebooks and a cooling cup of coffee (Chase Arenella)"
+    },
+    {
+      "file": "generated/chase-arenella-short-guide-tilt-management-3.jpg",
+      "alt": "A calm office at dawn, soft light through tall windows onto a whiteboard covered in blank colorful sticky notes, a plant beside it (Chase Arenella)"
+    }
+  ],
+  "metadata": {
+    "snippet": {
+      "title": "Chase Arenella: Tilt Management: Stop One Mistake Becoming Five #Shorts",
+      "description": "Tilt is when frustration from one setback makes your next decisions worse. Learn the simple reset rules that stop one mistake from becoming five.\n\nFull guide: https://chasearenella.com/tilt-management/\n\nWebsite: https://carenella1.github.io/\nField guide: https://chasearenella.com/\nAll videos: https://carenella1.github.io/videos.html\n\n#Shorts #ChaseArenella #Leadership",
+      "tags": [
+        "Chase Arenella",
+        "ChaseOfSpadez",
+        "Shorts",
+        "leadership",
+        "systems thinking",
+        "decision making"
+      ],
+      "categoryId": "27",
+      "defaultLanguage": "en",
+      "defaultAudioLanguage": "en"
+    },
+    "status": {
+      "privacyStatus": "public",
+      "selfDeclaredMadeForKids": false
+    }
+  }
+}

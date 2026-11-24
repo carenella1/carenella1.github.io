@@ -153,12 +153,20 @@ Rules:
 
 function checkScript(s) {
   const all = [s.title, s.hook, s.narration, s.description, ...s.captions, ...s.scenes].join("\n");
-  for (const { re, why } of BLOCKED) if (re.test(all)) return `it contains ${why}`;
+  // Name the exact word that tripped a check: a bare "it contains people"
+  // left Claude guessing, and a poker guide's "hand of cards" failed 3/3.
+  for (const { re, why } of BLOCKED) {
+    const m = all.match(re);
+    if (m) return `it contains ${why} ("${m[0]}"); leave that word out`;
+  }
   const words = s.narration.split(/\s+/).filter(Boolean).length;
   if (words < 85 || words > 135) return `the narration is ${words} words; it must be 95 to 125`;
   if (s.captions.length < 4 || s.captions.length > 6) return `it has ${s.captions.length} captions; it needs 4 to 6`;
   if (s.scenes.length !== IMAGES_PER_SHORT) return `it has ${s.scenes.length} scenes; it needs exactly ${IMAGES_PER_SHORT}`;
-  if (PEOPLE.test(s.scenes.join(" "))) return "a scene includes people; scenes must show only places and objects";
+  const person = s.scenes.join(" ").match(PEOPLE);
+  if (person) {
+    return `a scene uses the word "${person[0]}"; scenes must show only places and objects, and must not use that word in any sense (not even "a hand of cards")`;
+  }
   if (s.captions.some((c) => c.length > 48)) return "a caption is over 40 characters";
   if (s.hook.length > 52) return "the hook is over 44 characters";
   if (s.title.length > 70) return "the title is over 60 characters";

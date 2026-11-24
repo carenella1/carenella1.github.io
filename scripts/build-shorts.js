@@ -105,6 +105,9 @@ async function main() {
     } catch (e) {
       failures++;
       console.error(`[${source.key}] failed: ${e.message}`);
+      // An annotation puts the reason on the run's summary page, so it can be
+      // read without opening (or having access to) the full log.
+      if (process.env.GITHUB_ACTIONS) console.log(`::error title=Short failed: ${source.key}::${e.message.replace(/\r?\n/g, " ")}`);
     }
   }
   if (failures) {

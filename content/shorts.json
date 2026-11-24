@@ -755,5 +755,104 @@
     ],
     "durationSeconds": 42,
     "uploadDate": "2026-11-24T01:25:02.703Z"
+  },
+  {
+    "key": "article-08-ai-augmented-leadership-operating-system",
+    "videoId": "ZsJquS0fxLw",
+    "title": "AI Gives Signal, Leaders Give Direction",
+    "hook": "The real AI risk: trusting it too much",
+    "captions": [
+      "Risk: trusting AI too much",
+      "AI sharpens sprint forecasts",
+      "Data alone is not strategy",
+      "Leaders design decision systems",
+      "AI gives signal, you give direction",
+      "Challenge outputs, don't obey them"
+    ],
+    "description": "AI can sharpen forecasts, but data alone isn't strategy. Why modern leaders design decision systems, challenge AI outputs, and provide the direction.",
+    "sourceUrl": "https://carenella1.github.io/articles/08-ai-augmented-leadership-operating-system.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-08-ai-augmented-leadership-operating-system-1.jpg",
+        "alt": "A sprint planning board covered in colorful blank sticky notes and drawn arrows, lit by soft morning light in an open office (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-08-ai-augmented-leadership-operating-system-2.jpg",
+        "alt": "An empty conference room at dusk, chairs pushed back from a long table, scattered coffee cups and blank notepads left behind after a meeting (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-08-ai-augmented-leadership-operating-system-3.jpg",
+        "alt": "A brass compass resting on an unfolded paper map atop a wooden desk, warm lamp light casting long shadows across the scene (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 45,
+    "uploadDate": "2026-11-24T23:21:06.387Z"
+  },
+  {
+    "key": "guide-what-is-ai-augmented-leadership",
+    "videoId": "lFfjwR6KPWI",
+    "title": "AI-Augmented Leadership: Augment Judgment, Don't Automate",
+    "hook": "Use AI to decide better, not produce more",
+    "captions": [
+      "Automation replaces a task",
+      "Augmentation expands a person",
+      "Read fifty reports, find the three",
+      "AI can't own the call",
+      "More output means more noise",
+      "Clear the drag, then decide"
+    ],
+    "description": "Automation replaces a task; augmentation expands a leader. Here's how to use AI to sharpen judgment, keep accountability, and avoid drowning your team in noise.",
+    "sourceUrl": "https://chasearenella.com/what-is-ai-augmented-leadership/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-ai-augmented-leadership-1.jpg",
+        "alt": "A tall stack of printed reports on a wooden office desk, with three folders pulled aside and set apart under a warm desk lamp (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-ai-augmented-leadership-2.jpg",
+        "alt": "An empty conference room at dusk with a single chair at the head of a long table and a closed notebook beside a pen (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-ai-augmented-leadership-3.jpg",
+        "alt": "A cluttered corkboard overloaded with overlapping papers and pins, beside a clean, empty whiteboard in a quiet office corner (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 46,
+    "uploadDate": "2026-11-24T23:22:25.084Z"
+  },
+  {
+    "key": "article-07-ai-augmented-leadership",
+    "videoId": "-r7y3BPaoQ0",
+    "title": "Faster Decision Loops: How AI Helps Leaders Decide",
+    "hook": "Leaders lose by deciding slowly",
+    "captions": [
+      "Slow decisions lose, not bad ones",
+      "More meetings just add fatigue",
+      "Win with a faster decision loop",
+      "Let AI cut context reconstruction",
+      "AI advises. Humans decide.",
+      "Keep a decision log. Learn weekly."
+    ],
+    "description": "AI won't replace leaders, but leaders who speed up their decision loops will outpace those stuck in meetings. Here's how AI compresses context so humans can decide.",
+    "sourceUrl": "https://carenella1.github.io/articles/07-ai-augmented-leadership.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-07-ai-augmented-leadership-1.jpg",
+        "alt": "An empty conference room late in the evening, chairs pushed back from a long table cluttered with coffee cups and scattered blank papers under dim overhead lights (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-07-ai-augmented-leadership-2.jpg",
+        "alt": "A wooden strategy board game mid-match on a table, pieces spread across the board, lit by a warm desk lamp in an otherwise dark room (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-07-ai-augmented-leadership-3.jpg",
+        "alt": "A clean desk at sunrise with a closed leather notebook, a pen resting on top, and a small wall calendar beside a window overlooking a quiet city (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-24T23:23:44.648Z"
   }
 ]

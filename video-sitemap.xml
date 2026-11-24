@@ -131,6 +131,54 @@
     </video:video>
   </url>
   <url>
+    <loc>https://carenella1.github.io/videos/short-guide-what-can-competitive-gaming-teach-leaders.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/XjbKASiEjNc/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Use Gaming Callouts to Communicate Clearly Under Pressure</video:title>
+      <video:description>Competitive gamers communicate in callouts: fact, location, ask. Here&apos;s how that same habit makes meetings and incident response clearer.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/XjbKASiEjNc</video:player_loc>
+      <video:duration>42</video:duration>
+      <video:publication_date>2026-11-24T01:25:02.703Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-09-decision-loops-under-pressure.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/Egb5Ffj-jPA/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Slow Feedback Makes Leaders Worse Than Gamers</video:title>
+      <video:description>Gaming and leadership run the same decision loop at different speeds. Here&apos;s why slow feedback is the real risk, and how AI should shorten the read step, not make your decisions.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/Egb5Ffj-jPA</video:player_loc>
+      <video:duration>39</video:duration>
+      <video:publication_date>2026-11-24T01:23:32.541Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-09-decision-loops-under-pressure-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-09-decision-loops-under-pressure-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-09-decision-loops-under-pressure-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://carenella1.github.io/videos/short-article-10-the-feedback-latency-problem-why-weekly-beats.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/aSmErx3c3nA/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Chase Arenella — Why Weekly Reviews Beat Quarterly Reviews for Teams</video:title>
+      <video:description>Feedback latency is the hidden tax on team performance. Here&apos;s why a weekly review loop lets teams correct about thirteen times for every one quarterly correction.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/aSmErx3c3nA</video:player_loc>
+      <video:duration>46</video:duration>
+      <video:publication_date>2026-11-24T01:21:26.505Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://carenella1.github.io/">Chase Arenella</video:uploader>
+    </video:video>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://carenella1.github.io/assets/images/generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-3.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://carenella1.github.io/videos/short-guide-signal-vs-noise.html</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/_r3EDAwg734/hqdefault.jpg</video:thumbnail_loc>

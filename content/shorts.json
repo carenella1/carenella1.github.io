@@ -656,5 +656,104 @@
     ],
     "durationSeconds": 43,
     "uploadDate": "2026-11-22T20:36:27.453Z"
+  },
+  {
+    "key": "article-10-the-feedback-latency-problem-why-weekly-beats",
+    "videoId": "aSmErx3c3nA",
+    "title": "Why Weekly Reviews Beat Quarterly Reviews for Teams",
+    "hook": "Fast teams don't decide better",
+    "captions": [
+      "Speed of correction beats decisions",
+      "Quarterly = 90 days of feedback lag",
+      "Things shift inside a week",
+      "Weekly 30-minute review, not status",
+      "Predicted? Happened? What changes?",
+      "~13 corrections per quarterly one"
+    ],
+    "description": "Feedback latency is the hidden tax on team performance. Here's why a weekly review loop lets teams correct about thirteen times for every one quarterly correction.",
+    "sourceUrl": "https://carenella1.github.io/articles/10-the-feedback-latency-problem-why-weekly-beats.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-1.jpg",
+        "alt": "A dusty paper wall calendar with three months of pages folded back, hanging in a quiet empty office lit by gray afternoon light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-2.jpg",
+        "alt": "A small meeting room table with a simple kitchen timer, three blank index cards, and a closed notebook, morning sun through blinds (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-10-the-feedback-latency-problem-why-weekly-beats-3.jpg",
+        "alt": "A sports arena scoreboard area at night with an empty court below, a whistle and stopwatch resting on the bench in the foreground (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 46,
+    "uploadDate": "2026-11-24T01:21:26.505Z"
+  },
+  {
+    "key": "article-09-decision-loops-under-pressure",
+    "videoId": "Egb5Ffj-jPA",
+    "title": "Why Slow Feedback Makes Leaders Worse Than Gamers",
+    "hook": "Gamers fix mistakes in seconds. Leaders?",
+    "captions": [
+      "Same loop, different clock speed",
+      "Read, decide, act, review",
+      "Slow feedback lets bad reads compound",
+      "It trains justification, not correction",
+      "Use AI to speed the read, not decide",
+      "Review on a fixed cadence"
+    ],
+    "description": "Gaming and leadership run the same decision loop at different speeds. Here's why slow feedback is the real risk, and how AI should shorten the read step, not make your decisions.",
+    "sourceUrl": "https://carenella1.github.io/articles/09-decision-loops-under-pressure.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-09-decision-loops-under-pressure-1.jpg",
+        "alt": "A gaming desk at night with a paused match glowing on a monitor, a controller resting beside an energy drink can under blue light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-09-decision-loops-under-pressure-2.jpg",
+        "alt": "An empty conference room after hours, chairs pushed back, a long table scattered with stacked reports and cold coffee cups (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-09-decision-loops-under-pressure-3.jpg",
+        "alt": "A whiteboard covered in colorful sticky notes arranged in a circular loop, markers lined up on the tray in morning light (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 39,
+    "uploadDate": "2026-11-24T01:23:32.541Z"
+  },
+  {
+    "key": "guide-what-can-competitive-gaming-teach-leaders",
+    "videoId": "XjbKASiEjNc",
+    "title": "Use Gaming Callouts to Communicate Clearly Under Pressure",
+    "hook": "Gamers Know How to Run Your Meetings",
+    "captions": [
+      "Rambling gets teams eliminated",
+      "Callouts: what, where, what to do",
+      "Fact, then location, then ask",
+      "Works in meetings and incidents",
+      "Agree on roles before the rush",
+      "Know who makes the final call"
+    ],
+    "description": "Competitive gamers communicate in callouts: fact, location, ask. Here's how that same habit makes meetings and incident response clearer.",
+    "sourceUrl": "https://chasearenella.com/what-can-competitive-gaming-teach-leaders/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-1.jpg",
+        "alt": "A paused team shooter game glowing on a gaming monitor beside a headset and mechanical keyboard on a dark desk, colored backlight reflecting softly (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-2.jpg",
+        "alt": "An empty conference room with a long table, scattered coffee cups and a whiteboard covered in colorful blank sticky notes under warm overhead lights (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-can-competitive-gaming-teach-leaders-3.jpg",
+        "alt": "A quiet operations war room at night with rows of empty chairs, desks and blank dimmed monitors, a single desk lamp left switched on (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 42,
+    "uploadDate": "2026-11-24T01:25:02.703Z"
   }
 ]

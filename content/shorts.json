@@ -854,5 +854,136 @@
     ],
     "durationSeconds": 43,
     "uploadDate": "2026-11-24T23:23:44.648Z"
+  },
+  {
+    "key": "guide-ai-prompt-framing-for-leaders",
+    "videoId": "7vy549TkVOE",
+    "title": "How Leaders Should Frame AI Prompts Around Decisions",
+    "hook": "Ask AI about a decision, not a topic",
+    "captions": [
+      "Generic questions get generic answers",
+      "Name one specific decision",
+      "Give situation and constraints",
+      "State your current lean",
+      "Ask for friction, not agreement",
+      "Get a test, not an echo"
+    ],
+    "description": "Generic AI questions get generic answers. Frame your prompt around one real decision, state your lean, and ask the tool to argue against you.",
+    "sourceUrl": "https://chasearenella.com/ai-prompt-framing-for-leaders/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-ai-prompt-framing-for-leaders-1.jpg",
+        "alt": "A cluttered office bookshelf stacked with identical generic business books, soft afternoon light falling across their plain unmarked spines and a dusty desk lamp (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-ai-prompt-framing-for-leaders-2.jpg",
+        "alt": "A large whiteboard in an empty meeting room covered in six columns of colorful blank sticky notes, three of them crossed out with marker lines (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-ai-prompt-framing-for-leaders-3.jpg",
+        "alt": "A chessboard mid-game on a wooden table in a dim room at night, pieces positioned for attack, a single desk lamp casting long shadows (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-25T22:53:46.169Z"
+  },
+  {
+    "key": "guide-tilt-management",
+    "videoId": "gC6kNl1s_1M",
+    "title": "Tilt Management: Stop One Bad Call Becoming Five",
+    "hook": "One mistake won't sink you. The next five will",
+    "captions": [
+      "Tilt: one loss leaks into next calls",
+      "Warning sign: deciding faster",
+      "Bigger risks to win it all back",
+      "Rule: no irreversible calls for 1 hour",
+      "Name it out loud to slow the team"
+    ],
+    "description": "Tilt is when frustration from one setback makes your next decisions worse. Here's a simple rule leaders can use to reset before one mistake becomes five.",
+    "sourceUrl": "https://chasearenella.com/tilt-management/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-tilt-management-1.jpg",
+        "alt": "A poker table under a low hanging lamp with scattered chips and an overturned card, empty chairs pushed back in a dim card room at night (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-tilt-management-2.jpg",
+        "alt": "An empty conference room after a tense meeting, coffee cups and crumpled papers left on a long table, morning light through tall windows (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-tilt-management-3.jpg",
+        "alt": "A wall clock above a quiet office desk with a closed notebook, a pen set neatly beside it, and a steaming mug of tea (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 40,
+    "uploadDate": "2026-11-25T22:55:20.112Z"
+  },
+  {
+    "key": "article-06-systems-thinking-modern-leadership",
+    "videoId": "w-xXuxjLsdM",
+    "title": "Why AI Amplifies Your Team's System, Good or Bad",
+    "hook": "AI won't fix a messy team. It amplifies it.",
+    "captions": [
+      "Teams are systems",
+      "Small gaps cascade into delays",
+      "Problems start far from symptoms",
+      "Fix workflow, not people",
+      "AI amplifies the system you have",
+      "Design the process, then add tools"
+    ],
+    "description": "AI tools don't replace thinking; they amplify whatever system you already have. Why leaders should design the process first, then add the tool.",
+    "sourceUrl": "https://carenella1.github.io/articles/06-systems-thinking-modern-leadership.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-06-systems-thinking-modern-leadership-1.jpg",
+        "alt": "A glass office wall covered in tangled sticky notes and arrows drawn in marker, lit by late afternoon sun, in an empty meeting room (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-06-systems-thinking-modern-leadership-2.jpg",
+        "alt": "A paused strategy game on a monitor showing a top-down map with colored zones, a headset resting on the desk beside it in a dim room (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-06-systems-thinking-modern-leadership-3.jpg",
+        "alt": "A tidy workbench with tools arranged neatly on a pegboard outline, blueprints rolled beside them, in a bright, quiet workshop (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 48,
+    "uploadDate": "2026-11-25T22:56:40.312Z"
+  },
+  {
+    "key": "guide-what-is-systems-thinking-for-teams",
+    "videoId": "eYNdTrtFWTM",
+    "title": "Systems Thinking for Teams: Fix Structure, Not People",
+    "hook": "Stop asking who dropped the ball",
+    "captions": [
+      "Systems produce their designed results",
+      "Ask how work flows, not who failed",
+      "List the last three times it happened",
+      "Find the common cause, not person",
+      "Change one rule, handoff, or measure",
+      "Structure outlasts motivation"
+    ],
+    "description": "Recurring team problems usually come from structure, not people. A simple exercise to find the structural cause and change one rule, handoff, or measure.",
+    "sourceUrl": "https://chasearenella.com/what-is-systems-thinking-for-teams/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-systems-thinking-for-teams-1.jpg",
+        "alt": "An empty office meeting room with a calendar on the wall, scattered coffee cups, and a long table piled with unfinished folders under fluorescent light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-systems-thinking-for-teams-2.jpg",
+        "alt": "A tall stack of paper documents waiting in a single wire inbox tray on a cluttered desk, while nearby trays sit completely empty (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-what-is-systems-thinking-for-teams-3.jpg",
+        "alt": "A whiteboard with blank sticky notes arranged in three columns and connecting arrows drawn in marker, a desk lamp glowing beside it at dusk (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-25T22:58:00.044Z"
   }
 ]

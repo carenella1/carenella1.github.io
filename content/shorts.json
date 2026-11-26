@@ -985,5 +985,137 @@
     ],
     "durationSeconds": 43,
     "uploadDate": "2026-11-25T22:58:00.044Z"
+  },
+  {
+    "key": "article-05-gaming-leadership-skills",
+    "videoId": "wl-RcnTp3zE",
+    "title": "What Multiplayer Games Teach About Leading Teams",
+    "hook": "Gaming squads model great team leadership",
+    "captions": [
+      "Winning squads know their roles",
+      "Clear responsibilities first",
+      "Steady communication cadence",
+      "One shared objective",
+      "Games give instant feedback",
+      "Name roles, set check-ins, align"
+    ],
+    "description": "Multiplayer games reward clear roles, steady communication, and shared goals. Here's how that same structure makes real-world teams lead better.",
+    "sourceUrl": "https://carenella1.github.io/articles/05-gaming-leadership-skills.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-05-gaming-leadership-skills-1.jpg",
+        "alt": "A gaming headset resting on a desk beside a glowing mechanical keyboard in a dim room lit by soft blue and purple light (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-05-gaming-leadership-skills-2.jpg",
+        "alt": "An empty conference room with a long table, evenly spaced chairs, and a whiteboard covered in colorful blank sticky notes arranged in columns (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-05-gaming-leadership-skills-3.jpg",
+        "alt": "A quiet office at dusk with a single wall calendar, a coffee mug, and an open notebook on a tidy desk near a window (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 42,
+    "uploadDate": "2026-11-26T22:42:22.743Z"
+  },
+  {
+    "key": "guide-which-decisions-should-stay-human",
+    "videoId": "2S4j9L9ZRF0",
+    "title": "Which Decisions Should Stay Human With AI? A 4-Part Test",
+    "hook": "4 Questions Before AI Makes the Call",
+    "captions": [
+      "AI can prepare almost any decision",
+      "Will someone need an explanation?",
+      "Does it trade values?",
+      "Unlike past data? Hard to undo?",
+      "Any yes: a human owns the call",
+      "Routine and reversible? AI can decide"
+    ],
+    "description": "A simple four-question test for deciding when a person should own the call and when it's fine to let AI decide. Based on a guide by Chase Arenella.",
+    "sourceUrl": "https://chasearenella.com/which-decisions-should-stay-human/",
+    "sourceKind": "guide",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-guide-which-decisions-should-stay-human-1.jpg",
+        "alt": "A quiet meeting room with an empty wooden table, a single closed notebook and pen resting at the head seat, soft morning light through tall windows (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-which-decisions-should-stay-human-2.jpg",
+        "alt": "A whiteboard covered in colorful blank sticky notes arranged in four columns, with a marker resting on the tray beneath, in a bright office (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-guide-which-decisions-should-stay-human-3.jpg",
+        "alt": "A tidy desk with neatly stacked file trays, a sorted pile of envelopes and a desk calendar, lit by a warm lamp in the evening (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-26T22:43:44.864Z"
+  },
+  {
+    "key": "article-04-esports-leadership",
+    "videoId": "DjOqq8mKvb8",
+    "title": "Role Clarity and Callouts: What Esports Teaches Teams",
+    "hook": "Elite esports teams don't talk more",
+    "captions": [
+      "Winning teams don't talk more",
+      "Role confusion destroys performance",
+      "Clear roles: faster execution",
+      "Structured callouts, priority language",
+      "Same system works in business",
+      "Who owns it? What matters most?"
+    ],
+    "description": "Esports shows why defined roles and structured communication help teams execute faster and recover quicker under pressure, and how that applies to business.",
+    "sourceUrl": "https://carenella1.github.io/articles/04-esports-leadership.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-04-esports-leadership-1.jpg",
+        "alt": "A dim esports arena stage with empty gaming chairs and headsets resting on desks, lit by cool blue stage lights before a match begins (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-04-esports-leadership-2.jpg",
+        "alt": "A whiteboard covered in color-coded sticky notes arranged in neat columns, markers lined up on the tray in a quiet office (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-04-esports-leadership-3.jpg",
+        "alt": "An empty conference war room at night, chairs pushed in around a long table, city lights glowing through tall windows (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 49,
+    "uploadDate": "2026-11-26T22:45:12.223Z"
+  },
+  {
+    "key": "article-03-gaming-focus",
+    "videoId": "peT9E8JHuso",
+    "title": "How Gaming Builds Focus Through Repetition and Systems",
+    "hook": "Games don't kill focus. They train it.",
+    "captions": [
+      "Games train focus",
+      "Repetition with a purpose",
+      "Reps turn into skill mastery",
+      "See the system, not just moves",
+      "Leaders need the same habit",
+      "Focus is built through reps"
+    ],
+    "description": "Gaming encourages repetition, skill mastery, and system thinking. Here's how those habits build focus and carry over to leadership and teams.",
+    "sourceUrl": "https://carenella1.github.io/articles/03-gaming-focus.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-03-gaming-focus-1.jpg",
+        "alt": "A paused video game on a glowing monitor in a dim bedroom, a controller resting on the desk beside an empty mug, warm lamp light in the corner (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-03-gaming-focus-2.jpg",
+        "alt": "A chessboard mid-game on a wooden table near a window, pieces clustered in the center, soft afternoon light casting long shadows across the squares (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-03-gaming-focus-3.jpg",
+        "alt": "An empty conference room at night, a whiteboard covered in connected arrows and colorful sticky notes, chairs pushed in around a long table under city lights (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 46,
+    "uploadDate": "2026-11-26T22:46:41.300Z"
   }
 ]

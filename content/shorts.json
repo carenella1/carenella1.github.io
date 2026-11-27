@@ -1117,5 +1117,71 @@
     ],
     "durationSeconds": 46,
     "uploadDate": "2026-11-26T22:46:41.300Z"
+  },
+  {
+    "key": "article-02-nba-leadership",
+    "videoId": "9ug79_rjLJA",
+    "title": "What NBA Teams Teach About Leadership at Work",
+    "hook": "Your team is a basketball team",
+    "captions": [
+      "Sports teams show leadership openly",
+      "Direction, roles, adjustments",
+      "Work hides the same dynamics",
+      "Watch your team like game film",
+      "See the system, not the star",
+      "Leadership is how pieces connect"
+    ],
+    "description": "Professional sports teams make leadership dynamics visible. Here's how to use that lens to see your own team as a system. Full essay linked.",
+    "sourceUrl": "https://carenella1.github.io/articles/02-nba-leadership.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-02-nba-leadership-1.jpg",
+        "alt": "An empty professional basketball arena at night, polished hardwood court glowing under bright overhead lights, rows of vacant seats fading into darkness (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-02-nba-leadership-2.jpg",
+        "alt": "A quiet modern conference room after hours, long table with scattered notebooks and coffee cups, a whiteboard covered in arrows and abstract diagram shapes (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-02-nba-leadership-3.jpg",
+        "alt": "A coach's tactics board on a wooden desk, colored magnetic markers arranged in a connected formation, a whistle and clipboard resting beside it (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 44,
+    "uploadDate": "2026-11-27T22:27:08.168Z"
+  },
+  {
+    "key": "article-01-who-is-chase-arenella",
+    "videoId": "gqMItb74F6I",
+    "title": "One Identity, One Framework: Building a Clear Professional Brand",
+    "hook": "Scattered work is invisible work",
+    "captions": [
+      "Scattered work hides your value",
+      "One name, used the same everywhere",
+      "Consistency is a system",
+      "All work ties to one core model",
+      "AI-augmented leadership + systems",
+      "Pick one identity, one framework"
+    ],
+    "description": "Why one consistent professional identity and a single core framework make your work easier to find and understand. Read the full essay linked below.",
+    "sourceUrl": "https://carenella1.github.io/articles/01-who-is-chase-arenella.html",
+    "sourceKind": "essay",
+    "images": [
+      {
+        "file": "generated/chase-arenella-short-article-01-who-is-chase-arenella-1.jpg",
+        "alt": "A cluttered desk covered in loose papers, scattered notebooks, and tangled cables under harsh overhead light, nothing organized or connected (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-01-who-is-chase-arenella-2.jpg",
+        "alt": "A neat row of identical blank notebooks lined up on a wooden shelf in soft morning light, spines aligned perfectly (Chase Arenella)"
+      },
+      {
+        "file": "generated/chase-arenella-short-article-01-who-is-chase-arenella-3.jpg",
+        "alt": "A whiteboard in an empty meeting room with colored sticky notes arranged in tidy columns, connected by drawn arrows toward a central circle (Chase Arenella)"
+      }
+    ],
+    "durationSeconds": 43,
+    "uploadDate": "2026-11-27T22:28:31.010Z"
   }
 ]
